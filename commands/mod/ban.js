@@ -28,6 +28,12 @@ $thumbnail[1;$authorAvatar]
 $description[1;I can't ban the server owner]
 $color[1;001]
 ]
+$onlyIf[$memberExists[$guildID;$get[id]]==true;
+$title[1;Error >> Member not found]
+$thumbnail[1;$authorAvatar]
+$description[1;This member could not be found, please verify that you typed everything correctly]
+$color[1;001]
+]
 
 $ban[$guildID;$get[id];$messageSlice[1]]
 $title[1;Banned Member]
