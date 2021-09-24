@@ -31,12 +31,6 @@ client.commands.load({
 
 // Functions
 client.createFunction({
-  name: "now",
-  code: `
-$djsEval[yes;Date.now()]
-    `
-})
-client.createFunction({
   name: "devs",
   code: `
 $onlyForIDs[$botOwnerID;
