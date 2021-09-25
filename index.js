@@ -21,8 +21,8 @@ status.start()
 
 // Events
 client.addEvent([
-	"onMessage",
-	"onInteraction"
+  "onMessage",
+  "onInteraction"
 ])
 
 // Loader
@@ -40,11 +40,11 @@ $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
 $color[1;001]
 ]
-    `
+  `
 })
 client.createFunction({
-	name: "HelpMenu",
-	code: `
+  name: "HelpMenu",
+  code: `
 $addActionRow
 $addSelectMenu[HelpMenu;Select a category;0;0]
 $addSelectMenuOption[Index;Index menu;HelpMenuIndex;<:home:890802816459870208>]
@@ -52,11 +52,11 @@ $addSelectMenuOption[Moderation;Moderation commands;HelpMenuMod;<:config:8908028
 $addSelectMenuOption[Interaction;Interaction commands;HelpMenuInt;<:chat:890802816719929344>]
 $addSelectMenuOption[Others;Others commands;HelpMenuOth;<:puzle:890802816409546792>]
 $addSelectMenuOption[Developers;About the developers;HelpMenuDev;<:contact:890804615384272906>]
-	`
+  `
 })
 client.createFunction({
-	name: "log", 
-	code: `
+  name: "log", 
+  code: `
 $channelSendMessage[891112346611753010;
 $title[1;LOG >> $userTag[$authorID]]
 $addField[1;COMMAND;\`\`\`js
@@ -85,8 +85,8 @@ client.createSlashCommandData({
   name: "eval",
   description: "Evaluate a code from dbd.ts",
   options: [
-		{
-    	name: "code",
+    {
+      name: "code",
       description: "Code in dbd.ts that you want to evaluate",
       required: true,
       type: "STRING"
@@ -101,7 +101,7 @@ const Monitor = require('ping-monitor');
 
 keepAlive();
 const monitor = new Monitor({
-	website: "https://lappland.kaedestudio.ga",
-	title: 'Rawr!',
-	interval: 2
+  website: "https://lappland.kaedestudio.ga",
+  title: 'Rawr!',
+  interval: 2
 })
