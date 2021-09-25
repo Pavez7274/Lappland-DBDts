@@ -10,11 +10,23 @@ const func = {
 		const data = await fn.resolveArray(d)
 		let db = require(`quick.db`)
 		let variable = data[0]
+		let suppress = data[1] || false
+		let def = data[2] || ""
+		let r
 		if(!variable) d.sendError(fn, `:x: Enter the name of the variable`)
-		if(!db.has(variable)) d.sendError(fn, `:x: Variable \`${variable}\` not found`)
+
+		if(suppress){
+			r = await db.get(variable) || def
+		} else {
+			if(!db.has(variable)) {
+				d.sendError(fn, `:x: Variable \`${variable}\` not found`)
+			} else {
+				r = await db.get(variable) || def
+			}
+		}
 		
     return fn.resolve(
-			db.get(variable)
+			r
     )
   },
 	fields: [
@@ -23,6 +35,18 @@ const func = {
 			description: "Variable name",
 			required: true,
 			type: "STRING"
+		},
+		{
+			name: "suppress",
+			description: "suppress the error message",
+			required: false,
+			type: "BOOLEAN"
+		},
+		{
+			name: "default",
+			description: "Default value in case of not finding the variable",
+			required: false,
+			type: ["NUMBER", "STRING", "BOOLEAN", "TIME"]
 		}
 	]
 }

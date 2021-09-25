@@ -46,7 +46,7 @@ $addField[1;Categories;\`\`\`
   Others         |        ✔       
   Developers     |        ✔         
 -----------------------------------
-\`\`\`]
+\`\`\`] 
 $color[1;001]
 $callFunction[HelpMenu]
 		`

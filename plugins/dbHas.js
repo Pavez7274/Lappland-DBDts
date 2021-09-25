@@ -9,8 +9,8 @@ const func = {
   execute: async (d, fn) => {
 		const data = await fn.resolveArray(d)
 		let db = require(`quick.db`)
-		if(!variable) d.sendError(fn, `:x: Enter the name of the variable`)
 		let variable = data[0]
+		if(!variable) d.sendError(fn, `:x: Enter the name of the variable`)
 		
     return fn.resolve(
 			db.has(variable)
