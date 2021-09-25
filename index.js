@@ -1,21 +1,21 @@
 const dbd = require("dbd.ts")
 const db = require("quick.db")
 const client = new dbd.Bot({
-	intents: ["GUILDS", "GUILD_MESSAGES"],
-	prefix: {
-		mentionPrefix: true,
-		prefixes: ["lappland ", "..."]
-	},
-	database: {
-		path: `./json.sqlite`
-	}
+  intents: ["GUILDS", "GUILD_MESSAGES"],
+  prefix: {
+    mentionPrefix: true,
+    prefixes: ["lappland ", "..."]
+  },
+  database: {
+    path: `./json.sqlite`
+  }
 })
 
 // StatusManager
 const status = new dbd.StatusManager(client)
 status.add({
-	name: "Running with dbd.ts",
-	presence: "dnd",
+  name: "Running with dbd.ts",
+  presence: "dnd",
 })
 status.start()
 
