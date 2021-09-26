@@ -22,7 +22,9 @@ status.start()
 // Events
 client.addEvent([
   "onMessage",
-  "onInteraction"
+  "onInteraction", 
+  "onJoin", 
+  "onLeave"
 ])
 
 // Loader
@@ -59,9 +61,6 @@ client.createFunction({
   code: `
 $channelSendMessage[891112346611753010;
 $title[1;LOG >> $userTag[$authorID]]
-$addField[1;COMMAND;\`\`\`js
-$djsEval[yes;d.data.command] 
-\`\`\`]
 $addField[1;ARGS;\`\`\`js
 $djsEval[yes;d.data.args] 
 \`\`\`]

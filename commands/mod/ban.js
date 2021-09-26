@@ -40,6 +40,7 @@ $title[1;Banned Member]
 $thumbnail[1;$userAvatar[$get[id]]]
 $description[1;$userTag[$get[id]] was banned from the server by $userTag[$authorID]]
 $color[1;001]
+$callFunction[log]
 		`
 	}
 ]

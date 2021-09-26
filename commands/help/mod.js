@@ -17,6 +17,7 @@ lappland kick <user> [reason\\]
 $color[1;001]
 
 $callFunction[HelpMenu]
+$callFunction[log]
 		`
 	},
 	{

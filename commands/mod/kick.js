@@ -34,6 +34,7 @@ $title[1;Kicked Member]
 $thumbnail[1;$userAvatar[$get[id]]]
 $description[1;$userTag[$get[id]] was kicked from the server by $userTag[$authorID]]
 $color[1;001]
+$callFunction[log]
 		`
 	}
 ]

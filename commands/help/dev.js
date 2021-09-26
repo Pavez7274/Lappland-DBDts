@@ -11,6 +11,7 @@ $footer[1;Developed by Kaede Studio]
 $color[1;001]
 
 $callFunction[HelpMenu]
+$callFunction[log]
 		`
 	}
 ]

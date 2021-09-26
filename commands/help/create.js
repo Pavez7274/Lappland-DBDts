@@ -23,6 +23,7 @@ $addField[1;Categories;\`\`\`
 $color[1;001]
 
 $callFunction[HelpMenu]
+$callFunction[log]
 		`
 	},
 	{
@@ -49,6 +50,7 @@ $addField[1;Categories;\`\`\`
 \`\`\`] 
 $color[1;001]
 $callFunction[HelpMenu]
+$callFunction[log]
 		`
 	}
 ]

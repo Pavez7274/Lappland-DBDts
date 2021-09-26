@@ -1,14 +1,14 @@
 {
   "name": "Lappland",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Kaede Studio",
+  "license": "MIT",
   "devDependencies": {
     "node": "^16.9.1"
   },
@@ -16,7 +16,8 @@
     "dbd.ts": "^3.0.0",
     "express": "^4.17.1",
     "ping-monitor": "^0.6.1",
-    "quick.db": "^7.1.3"
+    "quick.db": "^7.1.3",
+    "rule34js": "^2.2.0"
   },
-  "description": ""
+  "description": "bot made with DBD.TS"
 }
