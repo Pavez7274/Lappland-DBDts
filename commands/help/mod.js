@@ -8,11 +8,11 @@ $updateInteraction
 $title[1;Help Menu >> Mod]
 $addField[1;Ban;Permanently kick a member
 \`\`\`
-lappland ban <user> [reason\\]
+??ban <user> [reason\\]
 \`\`\`;yes]
 $addField[1;Kick;Kick a member from the server
 \`\`\`
-lappland kick <user> [reason\\]
+??kick <user> [reason\\]
 \`\`\`;yes]
 $color[1;001]
 

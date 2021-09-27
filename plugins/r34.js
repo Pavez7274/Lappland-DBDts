@@ -1,5 +1,5 @@
 /**
- * By Pavez#7274 | Edit: YukaDev
+ * By Pavez#7274 
  * @type {import("dbd.ts").FunctionData}
  */ 
 const func = {
@@ -18,8 +18,8 @@ const func = {
     
   	if(p === "url"){
 		  r = y.posts[index].file_url
-    } else if(p === "length"){
-      r = y.count
+    } else if(p === "count"){
+      r = Number(y.count - 1) 
     }
 		
     return fn.resolve(

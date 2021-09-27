@@ -4,7 +4,6 @@ const SetAfkCmd = [
 		name: "afk", 
 		code: `
 $reply[$messageID;false]
-$if[$dbGet[$authorID.afk.status;true;false]==false;
 $if[$message!=;
 $let[x;$message]
 ;
@@ -17,10 +16,7 @@ $addField[1;Reason;$get[x]]
 $color[1;001]
 $dbSet[$authorID.afk.status;true;false]
 $dbSet[$authorID.afk.reason;$get[x];false]
-;
-AFK removed
-$dbDelete[$authorID.afk]
-]
+
 `
   }
 ] 

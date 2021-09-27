@@ -8,7 +8,11 @@ $updateInteraction
 $title[1;Help Menu >> Others]
 $addField[1;Avatar;Displays a user icon
 \`\`\`js
-lappland avatar [user\\]
+??avatar [user\\]
+\`\`\`;yes]
+$addField[1;R34;Search NSFW images from Rule34
+\`\`\`js
+??r34 <filter>
 \`\`\`;yes]
 $footer[1;Developed by Kaede Studio]
 $color[1;001]

@@ -18,3 +18,4 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 | Kick | Kick a member from the server | Kick <user\> [reason] | ??Kick @Sewell#3858 Exists |
 | Avatar | Displays a user icon | Avatar [user] | ??Avatar Pavez#7274 |
 | R34 | Search for NSFW images | R34 <filter\> | ??R34 Nekos |
+| AFK | Make the bot send a message when you are mentioned | AFK [reason] | ??Afk Food time!! |
