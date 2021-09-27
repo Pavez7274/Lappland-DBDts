@@ -14,6 +14,7 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 
 | Command | Description | Usage | Example |
 |---|---|---|---|
-| Ban | Permanently kick a member | Ban <user\> [reason] | ...Ban @Pavez#7274 Listen *Depresion sonora* |
-| Kick | Kick a member from the server | Kick <user\> [reason] | ...Kick @Sewell#3858 Exists |
-| Avatar | Displays a user icon | Avatar [user] | ...Avatar Pavez#7274 |
+| Ban | Permanently kick a member | Ban <user\> [reason] | ??Ban @Pavez#7274 Listen *Depresion sonora* |
+| Kick | Kick a member from the server | Kick <user\> [reason] | ??Kick @Sewell#3858 Exists |
+| Avatar | Displays a user icon | Avatar [user] | ??Avatar Pavez#7274 |
+| R34 | Search for NSFW images | R34 <filter\> | ??R34 Nekos |

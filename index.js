@@ -4,7 +4,7 @@ const client = new dbd.Bot({
   intents: ["GUILDS", "GUILD_MESSAGES"],
   prefix: {
     mentionPrefix: true,
-    prefixes: ["lappland ", "..."]
+    prefixes: ["lappland ", "??"]
   },
   database: {
     path: `./json.sqlite`
@@ -36,7 +36,7 @@ client.commands.load({
 client.createFunction({
   name: "devs",
   code: `
-$onlyForIDs[$botOwnerID;
+$onlyForIDs[$botOwnerID;681919237706612743;
 $title[1;Error >> Required permissions]
 $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
