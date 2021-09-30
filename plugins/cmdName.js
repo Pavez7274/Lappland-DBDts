@@ -4,7 +4,7 @@
  */ 
 const func = {
 	name: "$cmdName",
-  description: "returns the exact moment the function was executed",
+  description: "returns the name of the command used",
 	brackets: false,
   execute: async (d, fn) => {
     return fn.resolve(

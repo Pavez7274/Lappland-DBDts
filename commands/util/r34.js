@@ -20,6 +20,8 @@ $color[1;001]
 
 $image[1;$get[x]]
 $color[1;001]
+
+$callFunction[log]
 `
 	}
 ] 

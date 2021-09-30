@@ -15,6 +15,8 @@ $addField[1;Usage;\`\`\`js
 $httpGet[https://api.leref.ga/functions/$message?limit=1&page=1;data[0\\].usage]
 \`\`\`]
 $color[1;001]
+
+$callFunction[log]
 `
   }
 ]

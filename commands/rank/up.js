@@ -6,7 +6,7 @@ $onlyIf[$djsEval[yes;d.data.message.author.bot]!=true]
 $if[$dbHas[$authorID.cd.levelup]==true;
 $let[cd;$dbGet[$authorID.cd.levelup;true]]
 ;
-$let[cd;$sum[$dateNow;6000]]
+$let[cd;$sub[$dateNow;10]]
 ]
 $onlyIf[$get[cd]<=$dateNow;]
 

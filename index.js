@@ -1,7 +1,10 @@
 const dbd = require("dbd.ts")
-const db = require("quick.db")
+const version = require(`./package.json`).version
 const client = new dbd.Bot({
-  intents: ["GUILDS", "GUILD_MESSAGES"],
+  intents: [
+		"GUILDS",
+		"GUILD_MESSAGES"
+	],
   prefix: {
     mentionPrefix: true,
     prefixes: ["lappland ", "??"]
@@ -14,7 +17,7 @@ const client = new dbd.Bot({
 // StatusManager
 const status = new dbd.StatusManager(client)
 status.add({
-  name: "Running with dbd.ts",
+  name: `Running whit dbd.ts | v${version}`,
   presence: "dnd",
 })
 status.start()
@@ -36,7 +39,7 @@ client.commands.load({
 client.createFunction({
   name: "devs",
   code: `
-$onlyForIDs[$botOwnerID;681919237706612743;
+$onlyForIDs[$botOwnerID;$yukaID;$guillermoID;660970791202062381;
 $title[1;Error >> Required permissions]
 $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]

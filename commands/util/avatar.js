@@ -2,6 +2,7 @@ const AvatarCmd = [
 	{
 		type: "basicCommand",
 		name: "avatar",
+		aliases: ["icon"],
 		code: `
 $reply[$messageID;false]
 $if[$message!=;

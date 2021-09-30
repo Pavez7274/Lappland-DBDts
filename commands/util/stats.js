@@ -14,7 +14,10 @@ Type: sqlite
 Package: quick.db
 Version: 7.1.3;true]
 $addField[1;UpTime;$uptimeMS;true]
+$addField[1;API Status;$httpGet[https://lappland.kaedestudio.ga/;status;];true]
 $color[1;001]
+
+$callFunction[log]
 		`
 	}
 ]

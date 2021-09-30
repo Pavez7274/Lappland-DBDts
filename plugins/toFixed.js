@@ -1,7 +1,7 @@
 /**
  * By YukaDev
  * @type { import("dbd.ts").FunctionData }
- */ 
+*/ 
 const func = {
 	name: "$toFixed",
   description: "Formats a number using fixed-point notation",

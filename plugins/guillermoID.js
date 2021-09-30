@@ -1,14 +1,14 @@
 /**
- * By YukaDev
+ * By Pavez#7274 
  * @type {import("dbd.ts").FunctionData}
  */ 
 const func = {
-	name: "$yukaID",
-  description: "Returns the Yuka id",
+	name: "$guillermoID",
+  description: "Returns the Guillermo id",
 	brackets: false,
   execute: async (d, fn) => {
     return fn.resolve(
-			"681919237706612743"
+			"533756121811517442"
     )
 	}
 }
