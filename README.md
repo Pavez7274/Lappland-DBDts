@@ -19,4 +19,4 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 | Avatar | Displays a user icon | [user] | ??Avatar Pavez#7274 |
 | R34 | Search for NSFW images | <filter\> | ??R34 Nekos |
 | AFK | Make the bot send a message when you are mentioned | [reason] | ??Afk Food time!! |
-| Remind | Reminds you of something after a certain time | <time\> <reminder/text\> | ??Remind 3h Make the dinner |
+| Remind | Reminds you of something after a certain time | <time\> <reminder/text\> | ??Remind 3h Make the dinner | 
