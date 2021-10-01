@@ -8,9 +8,6 @@ const client = new dbd.Bot({
   prefix: {
     mentionPrefix: true,
     prefixes: ["lappland ", "??"]
-  },
-  database: {
-    path: `./json.sqlite`
   }
 })
 

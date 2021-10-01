@@ -27,11 +27,24 @@ $thumbnail[1;$authorAvatar]
 $description[1;To prevent it from being shown to everyone, it was decided that \`eval()\` cannot be executed if the word \`token\` is found]
 $color[1;001]
 ]
-\`\`\`js
+$reply[$messageID;false]
+
+$if[$endsWith[$message;--no]==false;
+$title[1;Eval >> D.JS]
+$addField[1;Input;\`\`\`js
+$message
+\`\`\`]
+$addField[1;Output;\`\`\`js
 $djsEval[yes;
 let db = require("quick.db")
 $message]
-\`\`\`
+\`\`\`]
+$color[1;001]
+;
+$djsEval[no;
+let db = require("quick.db")
+$replaceText[$message;--no;]]
+]
 		`
 	},
 
@@ -40,7 +53,13 @@ $message]
     type: "slashCommand",
     name: "eval",
 		code: `
-$onlyForIDs[$botOwnerID;]
+$callFunction[devs]
+$onlyIf[$includes[$message;\\$clientToken]!=true;
+$title[1;Error >> Don't show the token!!]
+$thumbnail[1;$authorAvatar]
+$description[1;This function is disabled, if you need to see the token do it from [discord.com/developers\\](https://discord.com/developers/applications/890016209007960145/bot)]
+$color[1;001]
+]
 $eval[$slashOption[code]]
 		`
 	}
