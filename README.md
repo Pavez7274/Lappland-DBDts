@@ -12,10 +12,11 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 
 ## Commands
 
-| Command | Description | Usage | Example |
+| Command | Description | Fields | Example |
 |---|---|---|---|
-| Ban | Permanently kick a member | Ban <user\> [reason] | ??Ban @Pavez#7274 Listen *Depresion sonora* |
-| Kick | Kick a member from the server | Kick <user\> [reason] | ??Kick @Sewell#3858 Exists |
-| Avatar | Displays a user icon | Avatar [user] | ??Avatar Pavez#7274 |
-| R34 | Search for NSFW images | R34 <filter\> | ??R34 Nekos |
-| AFK | Make the bot send a message when you are mentioned | AFK [reason] | ??Afk Food time!! |
+| Ban | Permanently kick a member | <user\> [reason] | ??Ban @Pavez#7274 Listen *Depresion sonora* |
+| Kick | Kick a member from the server | <user\> [reason] | ??Kick @Sewell#3858 Exists |
+| Avatar | Displays a user icon | [user] | ??Avatar Pavez#7274 |
+| R34 | Search for NSFW images | <filter\> | ??R34 Nekos |
+| AFK | Make the bot send a message when you are mentioned | [reason] | ??Afk Food time!! |
+| Remind | Reminds you of something after a certain time | <time\> <reminder/text\> | ??Remind 3h Make the dinner |
