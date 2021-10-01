@@ -8,6 +8,7 @@ $callFunction[devs]
 
 $reply[$messageID;false]
 Rebooting
+$reboot 
 `
 	}
 ]  

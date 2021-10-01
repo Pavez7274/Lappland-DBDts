@@ -1,19 +1,19 @@
-const ExecCmd = [
+const GitCmd = [
 	{
 		type: "basicCommand", 
-		name: "exec", 
+		name: "git", 
 		code: `
 $callFunction[devs]
 $reply[$messageID;false]
-$title[1;Exec >> $message[1]]
+$title[1;Exec >> git]
 $thumbnail[1;$authorAvatar]
 $addField[1;Imput;\`\`\`js
-$message\`\`\`]
+git $message\`\`\`]
 $addField[1;Output;\`\`\`js
-$exec[$message]\`\`\`]
+$exec[git $message]\`\`\`]
 $color[1;001]
 `
 	}
 ] 
 
-module.exports = ExecCmd 
+module.exports = GitCmd 
