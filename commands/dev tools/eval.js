@@ -31,6 +31,7 @@ $reply[$messageID;false]
 
 $if[$endsWith[$message;--no]==false;
 $title[1;Eval >> D.JS]
+$thumbnail[1;$authorAvatar]
 $addField[1;Input;\`\`\`js
 $message
 \`\`\`]
