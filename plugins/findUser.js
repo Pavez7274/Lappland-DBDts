@@ -11,12 +11,15 @@ const func = {
 		let x
 		let user = data[0] || d.data.message.channel.id
 		
-		let u =  
-		d.client.users.cache.find((m) => m.username.toLowerCase() === user.toLowerCase() || m.tag.toLowerCase() === user.toLowerCase() || m.id.toLowerCase() === user.toLowerCase()) ||
-		d.client.users.cache.get(user) || 
-		d.data.message.mentions.users.first() ||
-    (await d.client.users.fetch(user).catch(d.noop)) || 
-		{ id: "undefined" }
+		let u 
+		try{
+			u = d.client.users.cache.find((m) => m.username.toLowerCase() === user.toLowerCase() || m.tag.toLowerCase() === user.toLowerCase() || m.id.toLowerCase() === user.toLowerCase()) ||
+			d.client.users.cache.get(user) || 
+			d.data.message.mentions.users.first() ||
+			(await d.client.users.fetch(user).catch(d.noop))
+		}catch{
+			u = { id: "undefined" }
+		}
 
     return fn.resolve(
 			u.id

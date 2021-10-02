@@ -10,8 +10,8 @@ $footer[1;From nekos.life]
 $color[1;001]
 
 $addActionRow
-$addButton[newAvatar;New;SECONDARY]
-$addButton[delRows;Select;SECONDARY]
+$addButton[newAvatar;New;DANGER]
+$addButton[delRows;Select;DANGER]
 		`
 	},
 	{
@@ -24,8 +24,8 @@ $image[1;$nekos[avatar]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
-$addButton[newAvatar;New;SECONDARY]
-$addButton[delRows;Select;SECONDARY]
+$addButton[newAvatar;New;DANGER]
+$addButton[delRows;Select;DANGER]
 		`
 	},
 	{

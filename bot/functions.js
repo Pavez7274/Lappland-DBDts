@@ -46,4 +46,14 @@ $color[1;001]
 `
 })
 
+client.createFunction({
+	name: "user not found",
+	code: `
+$title[1;Error >> user not found]
+$thumbnail[1;$authorID]
+$description[1;The user could not be found, check that you have put everything correctly]
+$color[0;001]
+	`
+})
+
 }

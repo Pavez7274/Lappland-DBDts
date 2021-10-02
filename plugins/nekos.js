@@ -8,57 +8,110 @@ const func = {
 	brackets: true,
   execute: async (d, fn) => {
 		const data = await fn.resolveArray(d)
-	  const Neko = require('nekos.life');
+		const Neko = require('nekos.life');
 		const nekos = new Neko()
-		let r
-		if(data[0] === "hug"){
-			r = await nekos.sfw.hug()
-		} else if(data[0] === "pat"){
-			r = await nekos.sfw.pat()
-		} else if(data[0] === "smug"){
-			r = await nekos.sfw.smug()
-		} else if(data[0] === "baka"){
-			r = await nekos.sfw.baka()
-		} else if(data[0] === "tickle"){
-			r = await nekos.sfw.tickle()
-		} else if(data[0] === "poke"){
-			r = await nekos.sfw.poke()
-		} else if(data[0] === "neko"){
-			r = await nekos.sfw.neko()
-		} else if(data[0] === "nekoGif"){
-			r = await nekos.sfw.nekoGif()
-		} else if(data[0] === "meow"){
-			r = await nekos.sfw.meow()
-		} else if(data[0] === "lizard"){
-			r = await nekos.sfw.lizard()
-		} else if(data[0] === "kiss"){
-			r = await nekos.sfw.kiss()
-		} else if(data[0] === "foxGirl"){
-			r = await nekos.sfw.foxGirl()
-		} else if(data[0] === "feed"){
-			r = await nekos.sfw.feed()
-		} else if(data[0] === "cuddle"){
-			r = await nekos.sfw.cuddle()
-		} else if(data[0] === "woof"){
-			r = await nekos.sfw.woof()
-		} else if(data[0] === "wallpaper"){
-			r = await nekos.sfw.wallpaper()
-		} else if(data[0] === "gecg"){
-			r = await nekos.sfw.gecg()
-		} else if(data[0] === "avatar"){
-			r = await nekos.sfw.avatar()
-		} else if(data[0] === "waifu"){
-			r = await nekos.sfw.waifu()
+		let r; let x
+
+		switch(data[0]){
+			case "hug": x = await nekos.sfw.hug()
+			r = x.url
+			break;
+			case "pat": x = await nekos.sfw.pat()
+			r = x.url
+			break;
+			case "kiss": x = await nekos.sfw.kiss()
+			r = x.url
+			break;
+			case "slap": x = await nekos.sfw.slap()
+			r = x.url
+			break;
+			case "smug": x = await nekos.sfw.smug()
+			r = x.url
+			break;
+			case "poke": x = await nekos.sfw.poke()
+			r = x.url
+			break;
+			case "neko": x = await nekos.sfw.neko()
+			r = x.url
+			break;
+			case "nekoGif": x = await nekos.sfw.nekoGif()
+			r = x.url
+			break;
+			case "cat": x = await nekos.sfw.meow()
+			r = x.url
+			break;
+			case "foxGirl": x = await nekos.sfw.foxGirl()
+			r = x.url
+			break;
+			case "cuddle": x = await nekos.sfw.cuddle()
+			r = x.url
+			break;
+			case "dog": x = await nekos.sfw.woof()
+			r = x.url
+			break;
+			case "wallpaper": x = await nekos.sfw.wallpaper()
+			r = x.url
+			break;
+			case "gecg": x = await nekos.sfw.gecg()
+			r = x.url
+			break;
+			case "avatar": x = await nekos.sfw.avatar()
+			r = x.url
+			break;
+			case "waifu": x = await nekos.sfw.waifu()
+			r = x.url
+			break;
+			case "tickle": x = await nekos.sfw.tickle()
+			r = x.url
+			break;
+			case "lizard": x = await nekos.sfw.lizard()
+			r = x.url
+			break;
+			case "feed": x = await nekos.sfw.feed()
+			r = x.url
+			break;
+			case "holo": x = await nekos.sfw.holo()
+			r = x.url
+			break;
+			case "kemonomimi": x = await nekos.sfw.kemonomimi()
+			r = x.url
+			break;
+			case "goose": x = await nekos.sfw.goose()
+			r = x.url
+			break;
+			case "owoify": if(!data[1]) d.sendError(fn, `:x: Enter a text!`)
+			x = await nekos.sfw.OwOify({ text: data[1] })
+			r = x.owo
+			break;
+			case "why": x = await nekos.sfw.why()
+			r = x.why
+			break;
+			case "catText": x = await nekos.sfw.catText()
+			r = x.cat
+			break;
+			case "fact": x = await nekos.sfw.fact()
+			r = x.fact
+			break;
+			case "spoiler": if(!data[1]) d.sendError(fn, `:x: Enter a text!`)
+			x = await nekos.sfw.spoiler({ text: data[1] })
+			r = x.owo
+			break;
+			default: d.sendError(fn, `:x: \`${data[0]}\` is not a valid function`)
 		}
 		
     return fn.resolve(
-			r.url
+			r
     )
   },
 	fields: [
 		{
-			name: "filter", 
+			name: "function", 
 			required: true, 
+			type: "STRING"
+		},
+		{
+			name: "text", 
+			required: false, 
 			type: "STRING"
 		}
 	]
