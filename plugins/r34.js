@@ -4,7 +4,7 @@
  */ 
 const func = {
 	name: "$r34",
-  description: "Check if a variable exists",
+  description: "...",
 	brackets: true,
   execute: async (d, fn) => {
 		const data = await fn.resolveArray(d)
