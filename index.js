@@ -1,5 +1,4 @@
-const dbd = require("dbd.ts")
-const version = require(`./package.json`).version
+const dbd = require("dbd.ts") 
 const client = new dbd.Bot({
   intents: [
 		"GUILDS",
@@ -14,7 +13,7 @@ const client = new dbd.Bot({
 // StatusManager
 const status = new dbd.StatusManager(client)
 status.add({
-  name: `Running whit dbd.ts | v${version}`,
+  name: `Running whit dbd.ts | v$botVersion`,
   presence: "dnd",
 })
 status.start()
