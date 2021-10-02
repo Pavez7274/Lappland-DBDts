@@ -1,0 +1,325 @@
+[
+	{
+		"name": "greyy",
+		"position": "Ranged",
+		"availability": "Headhunting, Recruitment",
+		"url": "https://static.wikia.nocookie.net/mrfz/images/c/cd/Greyy.png/revision/latest?cb=20190713060424",
+		"range": {
+			"base": "□□\n■□□\n□□",
+			"elite_1": "□□□\n■□□\n□□□",
+			"elite_2": "□□□\n■□□\n□□□"
+		},
+		"attributes": {
+			"hp": [
+				595,
+				850,
+				1105,
+				1455,
+				"+300"
+			],
+			"atk": [
+				298,
+				421,
+				541,
+				645
+			],
+			"def": [
+				52,
+				79,
+				109,
+				130
+			],
+			"res": [
+				10,
+				10,
+				15,
+				20
+			],
+			"redeploy": [
+				70,
+				70,
+				70,
+				70
+			],
+			"dp_cost": [
+				29,
+				29,
+				32,
+				32
+			],
+			"block": [
+				1,
+				1,
+				1,
+				1
+			],
+			"aspd": [
+				2.9,
+				2.9,
+				2.9,
+				2.9
+			]
+		},
+		"information": {
+			"gender": "Male",
+			"experience": null,
+			"birth": {
+				"place": "Bolívar",
+				"date": "June 6th"
+			},
+			"race": "dog",
+			"height": "163cm",
+			"infection": "Crystals visible on surface, infection confirmed by medical report"
+		},
+		"pe": {
+			"strength": "Normal",
+			"mobility": "Normal",
+			"endurance": "Normal",
+			"tactical_acumen": "Normal",
+			"combat_skill": "Normal",
+			"arts_adaptability": "Normal"
+		}
+	},
+	{
+		"name": "mostima",
+		"position": "Ranged",
+		"availability": "Headhunting, Recruitment",
+		"url": "https://static.wikia.nocookie.net/mrfz/images/3/31/Mostima.png/revision/latest?cb=20200520090244",
+		"range": {
+			"base": "□□\n■□□\n□□",
+			"elite_1": "□□□\n■□□\n□□□",
+			"elite_2": "□□□\n■□□\n□□□"
+		},
+		"attributes": {
+			"hp": [
+				777,
+				1080,
+				1350,
+				1731
+			],
+			"atk": [
+				348,
+				491,
+				630,
+				750,
+				"+105"
+			],
+			"def": [
+				52,
+				80,
+				110,
+				132
+			],
+			"res": [
+				10,
+				10,
+				15,
+				20
+			],
+			"redeploy": [
+				70,
+				70,
+				70,
+				70
+			],
+			"dp_cost": [
+				31,
+				31,
+				34,
+				34
+			],
+			"block": [
+				1,
+				1,
+				1,
+				1
+			],
+			"aspd": [
+				2.9,
+				2.9,
+				2.9,
+				2.9
+			]
+		},
+		"information": {
+			"gender": "Female",
+			"experience": "1 year",
+			"birth": {
+				"place": "Lateranor",
+				"date": "December 12th"
+			},
+			"race": "undisclosed",
+			"height": "170cm",
+			"infection": "Confirmed uninfected by medical examination."
+		},
+		"pe": {
+			"strength": "Standard",
+			"mobility": "Standard",
+			"endurance": "Standard",
+			"tactical_acumen": "Standard",
+			"combat_skill": "Excellent",
+			"arts_adaptability": "Outstanding"
+		}
+	},
+	{
+		"name": "eyjafjalla",
+		"position": "Ranged",
+		"availability": "Headhunting",
+		"url": "https://static.wikia.nocookie.net/mrfz/images/b/b7/Eyjafjalla.png/revision/latest?cb=20190627032126",
+		"range": {
+			"base": "□□□\n■□□\n□□□",
+			"elite_1": "□□□\n■□□□\n□□□",
+			"elite_2": "□□□\n■□□□\n□□□"
+		},
+		"attributes": {
+			"hp": [
+				732,
+				1046,
+				1359,
+				1743
+			],
+			"atk": [
+				292,
+				406,
+				535,
+				645,
+				"+90"
+			],
+			"def": [
+				46,
+				79,
+				109,
+				122
+			],
+			"res": [
+				10,
+				10,
+				15,
+				20
+			],
+			"redeploy": [
+				70,
+				70,
+				70,
+				70
+			],
+			"dp_cost": [
+				19,
+				19,
+				21,
+				21
+			],
+			"block": [
+				1,
+				1,
+				1,
+				1
+			],
+			"aspd": [
+				2.6,
+				2.6,
+				2.6,
+				2.6
+			]
+		},
+		"information": {
+			"gender": "Female",
+			"experience": null,
+			"birth": {
+				"place": "Leithanien",
+				"date": "October 18th"
+			},
+			"race": "caprinae",
+			"height": "145cm",
+			"infection": "Showed physical signs of Originium, infection confirmed by medical report."
+		},
+		"pe": {
+			"strength": "Normal",
+			"mobility": "Normal",
+			"endurance": "Normal",
+			"tactical_acumen": "Normal",
+			"combat_skill": "Normal",
+			"arts_adaptability": "Outstanding"
+		}
+	},
+	{
+		"name": "ifrit",
+		"position": "Ranged",
+		"availability": "Headhunting, Recruitment",
+		"url": "https://static.wikia.nocookie.net/mrfz/images/b/b5/Ifrit.png/revision/latest?cb=20190625063649",
+		"range": {
+			"base": "■□□□□",
+			"elite_1": "■□□□□□",
+			"elite_2": "■□□□□□"
+		},
+		"attributes": {
+			"hp": [
+				687,
+				982,
+				1276,
+				1680
+			],
+			"atk": [
+				377,
+				563,
+				722,
+				870,
+				"+110"
+			],
+			"def": [
+				52,
+				79,
+				109,
+				130
+			],
+			"res": [
+				10,
+				10,
+				15,
+				20
+			],
+			"redeploy": [
+				70,
+				70,
+				70,
+				70
+			],
+			"dp_cost": [
+				31,
+				31,
+				34,
+				34
+			],
+			"block": [
+				1,
+				1,
+				1,
+				1
+			],
+			"aspd": [
+				2.9,
+				2.9,
+				2.9,
+				2.9
+			]
+		},
+		"information": {
+			"gender": "Female",
+			"experience": null,
+			"birth": {
+				"place": "unknown",
+				"date": "July 22nd"
+			},
+			"race": "sarkaz",
+			"height": "159cm",
+			"infection": "Crystals have appeared on her body. Infection confirmed by medical examination."
+		},
+		"pe": {
+			"strength": "Normal",
+			"mobility": "Standard",
+			"tactical_acumen": "Flawed",
+			"combat_skill": "Normal",
+			"arts_adaptability": "Outstanding"
+		}
+	},
+]
