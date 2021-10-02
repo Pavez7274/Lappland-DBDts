@@ -5,6 +5,7 @@ const helpCmd = [
 		code: `
 $reply[$messageID;false]
 $title[1;Help Menu]
+$thumbnail[1;$authorAvatar]
 $addField[1;Information;\`\`\`
 Ram: $djsEval[yes;let x = $ram
 x.toFixed(2)]    Cpu: $djsEval[yes;let x = $cpu
@@ -19,7 +20,9 @@ $addField[1;Categories;\`\`\`
   Others         |        ✔       
   Developers     |        ✔         
 -----------------------------------
-\`\`\`]
+\`\`\`
+
+[Open Source!\\](https://github.com/Pavez7274/Lappland)]
 $color[1;001]
 
 $callFunction[HelpMenu]
@@ -33,6 +36,7 @@ $onlyIf[$interactionID==HelpMenu;]
 $onlyIf[$interactionValues==HelpMenuIndex;]
 $updateInteraction
 $title[1;Help Menu]
+$thumbnail[1;$authorAvatar]
 $addField[1;Information;\`\`\`
 Ram: $djsEval[yes;let x = $ram
 x.toFixed(2)]    Cpu: $djsEval[yes;let x = $cpu
@@ -47,7 +51,9 @@ $addField[1;Categories;\`\`\`
   Others         |        ✔       
   Developers     |        ✔         
 -----------------------------------
-\`\`\`] 
+\`\`\`
+
+[Open Source!\\](https://github.com/Pavez7274/Lappland)] 
 $color[1;001]
 $callFunction[HelpMenu]
 $callFunction[log]

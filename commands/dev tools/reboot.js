@@ -8,7 +8,7 @@ $callFunction[devs]
 
 $reply[$messageID;false]
 Rebooting
-$reboot 
+$setTimeout[2s;$reboot]
 `
 	}
 ]  
