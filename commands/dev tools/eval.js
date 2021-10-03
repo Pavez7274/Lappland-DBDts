@@ -38,12 +38,16 @@ $message
 $addField[1;Output;\`\`\`js
 $djsEval[yes;
 let db = require("quick.db")
+let Neko = require('nekos.life')
+let nekos = new Neko()
 $message]
 \`\`\`]
 $color[1;001]
 ;
 $djsEval[no;
 let db = require("quick.db")
+let Neko = require('nekos.life')
+let nekos = new Neko()
 $replaceText[$message;--no;]]
 ]
 		`
