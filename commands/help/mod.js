@@ -8,7 +8,7 @@ $updateInteraction
 $title[1;Help Menu >> Mod]
 $thumbnail[1;$authorAvatar]
 $addField[1;Ban;Permanently kick a member
-\`\`\`xml
+\`\`\`xm
 ??ban <user> [reason\\]
 \`\`\`;yes]
 $addField[1;Kick;Kick a member from the server
