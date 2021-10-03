@@ -23,11 +23,11 @@ $addField[1;Remind;Reminds you of something after a certain time
 \`\`\`xml
 ??remind <time> <reminder>
 \`\`\`]
-$addField[1,New-avatar;Returns a random avatar from nekos.life
+$addField[1;New-avatar;Returns a random avatar from nekos.life
 \`\`\`xml
 ??new-avatar
 \`\`\`]
-$addField[1,Wallpaper;Return a wallpaper from nekos.life
+$addField[1;Wallpaper;Return a wallpaper from nekos.life
 \`\`\`xml
 ??wallpaper
 \`\`\`]
