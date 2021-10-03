@@ -23,6 +23,8 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 | Aoi | Search for something in the [aoi.js api.js](https://api.leref.ga/) | <endponit\> [filter] | ??aoi function $eval |
 | Dbd | Search for something in the [dbd.ts api](https://dbdts.leref.ga) | <enpoint\> [filter] | ??dbd examples plugin-creation |
 | Stats | Returns bot statistics (ram, cpu, ping, etc) |  | ??stats |
+| New-Avatar | Returns a random avatar from nekos.life | | ??new-avatar |
+| Wallpaper | Return a wallpaper from nekos.life | | ??wallpaper |
 
 - - -
 
