@@ -4,6 +4,12 @@ const PatCmd = [
 		name: "pat",
 		code: `
 $reply[$messageID;false]
+$onlyIf[$message!=;
+$title[1;Error >> Mention a member!]
+$thumbnail[1;$authorAvatar]
+$description[1;You must mention the user with whom you want to interact]
+$color[1;001]
+]
 $onlyIf[$findUser[$message]!=$authorID;
 $title[1;You can't interact with yourself]
 $thumbnail[1;$authorAvatar]
@@ -13,7 +19,10 @@ $onlyIf[$findUser[$message]!=undefined;
 $callFunction[user not found]
 ]
 
-$title[1;$nickname[$guildID;$authorID]]
+$title[1;$nickname[$guildID;$authorID] patting $nickname[$guildID;$findUser[$message]]]
+$image[1;$nekos[pat]]
+$footer[1;From nekos.life]
+$color[1;001]
 		`
 	}
 ]
