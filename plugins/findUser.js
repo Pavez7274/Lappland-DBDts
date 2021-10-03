@@ -8,16 +8,15 @@ const func = {
 	brackets: true,
   execute: async (d, fn) => {
 		const data = await fn.resolveArray(d)
-		let x
-		let user = data[0] || d.data.message.channel.id
-		
-		let u 
+		let user = data[0]
+		let u
 		try{
-			u = d.client.users.cache.find((m) => m.username.toLowerCase() === user.toLowerCase() || m.tag.toLowerCase() === user.toLowerCase() || m.id.toLowerCase() === user.toLowerCase()) ||
-			d.client.users.cache.get(user) || 
-			d.data.message.mentions.users.first() ||
-			(await d.client.users.fetch(user).catch(d.noop))
-		}catch{
+		u = d.client.users.cache.find((m) => m.username.toLowerCase() === user.toLowerCase() ||  m.tag.toLowerCase() === user.toLowerCase()
+    ) ||
+		d.client.users.cache.get(user) ||
+    d.data.message.mentions.users.first() ||
+    (await d.client.users.fetch(user))
+		} catch{
 			u = { id: "undefined" }
 		}
 
