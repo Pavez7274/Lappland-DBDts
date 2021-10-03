@@ -21,7 +21,7 @@ $callFunction[user not found]
 
 $title[1;$nickname[$guildID;$authorID] patting $nickname[$guildID;$mentioned[1]]]
 $thumbnail[1;$authorAvatar]
-$image[1;$nekos[pat]]
+$image[1;$nekos[sfw;pat]]
 $footer[1;From nekos.life]
 $color[1;001]
 		`

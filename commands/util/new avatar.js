@@ -5,7 +5,7 @@ const NewAvatarCmd = [
 		aliases: ["new-icon", "newavatar", "newicon", "gen-avatar", "gen-icon", "genavatar", "genicon"],
 		code: `
 $reply[$messageID;false]
-$image[1;$nekos[avatar]]
+$image[1;$nekos[sfw;avatar]]
 $footer[1;From nekos.life]
 $color[1;001]
 
@@ -20,7 +20,7 @@ $addButton[delRows;Select;DANGER]
 $onlyIf[$interactionID==newAvatar]
 $updateInteraction
 
-$image[1;$nekos[avatar]]
+$image[1;$nekos[sfw;avatar]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow

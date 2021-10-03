@@ -21,7 +21,7 @@ $callFunction[user not found]
 
 $title[1;$nickname[$guildID;$authorID] hugged $nickname[$guildID;$mentioned[1]]]
 $thumbnail[1;$authorID]
-$image[1;$nekos[hug]]
+$image[1;$nekos[sfw;hug]]
 $footer[1;From nekos.life]
 $color[1;001]
 		`

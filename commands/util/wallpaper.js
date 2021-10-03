@@ -7,7 +7,7 @@ $reply[$messageID;false]
 
 $title[1;Random wallpaper]
 $thumbnail[1;$authorAvatar]
-$image[1;$nekos[wallpaper]]
+$image[1;$nekos[sfw;wallpaper]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
@@ -23,7 +23,7 @@ $updateInteraction
 
 $title[1;Random wallpaper]
 $thumbnail[1;$authorAvatar]
-$image[1;$nekos[wallpaper]]
+$image[1;$nekos[sfw;wallpaper]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
