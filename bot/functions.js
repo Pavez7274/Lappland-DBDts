@@ -3,7 +3,7 @@ module.exports = (client) => {
 client.createFunction({
   name: "devs",
   code: `
-$onlyForIDs[$botOwnerID;$yukaID;$guillermoID;660970791202062381;
+$onlyForIDs[$botOwnerID;$yuka[id];$guillermoID;660970791202062381;
 $title[1;Error >> Required permissions]
 $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
