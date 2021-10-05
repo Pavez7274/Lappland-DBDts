@@ -40,3 +40,8 @@ const monitor = new Monitor({
   title: 'Rawr!',
   interval: 2
 })
+
+monitor.on('up', (res) => console.log(`${res.website} está encedido.`));
+monitor.on('down', (res) => console.log(`${res.website} se ha caído - ${res.statusMessage}`));
+monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
+monitor.on('error', (error) => console.log(error));
