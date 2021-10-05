@@ -3,7 +3,7 @@ module.exports = (client) => {
 client.createFunction({
   name: "devs",
   code: `
-$onlyForIDs[$botOwnerID;$yuka[id];$guillermoID;660970791202062381;
+$onlyForIDs[$botOwnerID;$yuka[id];$guillermo[id];660970791202062381;
 $title[1;Error >> Required permissions]
 $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
@@ -44,16 +44,6 @@ $djsEval[yes;d.data.mainChannel]
 $color[1;001]
 ;no] 
 `
-})
-
-client.createFunction({
-	name: "user not found",
-	code: `
-$title[1;Error >> user not found]
-$thumbnail[1;$authorID]
-$description[1;The user could not be found, check that you have put everything correctly]
-$color[0;001]
-	`
 })
 
 }
