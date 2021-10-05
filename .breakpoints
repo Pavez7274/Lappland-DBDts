@@ -15,6 +15,14 @@
         "version": 33,
         "index": 241
       }
+    ],
+    "commands/interaction/slap.js": [
+      {
+        "id": "2b419474-f096-4e07-ab40-b94795511bde",
+        "line": 1,
+        "version": 0,
+        "index": 0
+      }
     ]
   }
 }

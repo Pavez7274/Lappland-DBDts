@@ -6,9 +6,11 @@ const RebootCmd = [
 		code: `
 $callFunction[devs]
 
-$reply[$messageID;false]
-Rebooting
-$setTimeout[2s;$reboot]
+$let[ch;$channelID]
+$let[msj;$sendReply[$get[ch];$messageID;Rebooting;false;true]]
+
+$setTimeout[2s;$deleteMessage[$get[ch];$get[msj]]
+$reboot]
 `
 	}
 ]  
