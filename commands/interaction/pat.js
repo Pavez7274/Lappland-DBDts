@@ -16,7 +16,10 @@ $thumbnail[1;$authorAvatar]
 $color[1;001]
 ]
 $onlyIf[$mentioned[1]!=;
-$callFunction[user not found]
+$title[1;Error >> user not found]
+$thumbnail[1;$authorAvatar]
+$description[1;The user could not be found, check that you have put everything correctly]
+$color[0;001]
 ]
 
 $title[1;$nickname[$guildID;$authorID] patting $nickname[$guildID;$mentioned[1]]]

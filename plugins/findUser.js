@@ -11,11 +11,11 @@ const func = {
 		let user = data[0]
 		let u
 		try{
-		u = d.client.users.cache.find((m) => m.username.toLowerCase() === user.toLowerCase() ||  m.tag.toLowerCase() === user.toLowerCase()
+		u = await d.client.users.cache.find((m) => m.username.toLowerCase() === user.toLowerCase() || m.tag.toLowerCase() === user.toLowerCase()
     ) ||
-		d.client.users.cache.get(user) ||
-    d.data.message.mentions.users.first() ||
-    (await d.client.users.fetch(user))
+		await d.client.users.cache.get(user) ||
+    await d.data.message.mentions.users.first() ||
+    (await d.client.users.fetch(user)) || { id: "undefined" }
 		} catch{
 			u = { id: "undefined" }
 		}
@@ -27,7 +27,7 @@ const func = {
 	fields: [
 		{
 			name: "user",
-			description: "userName/userTag/nickName/userID",
+			description: "username/usertag/id",
 			required: true,
 			type: "STRING"
 		}
