@@ -21,11 +21,17 @@ const func = {
 			break;
 			default: d.sendError(fn, `:x: \`${data[0]}\` is not a valid option`)
 		}
-
     return fn.resolve(
 			r
     )
-	}
+	},
+	fields: [
+		{
+			name: "option",
+			required: true,
+			type: "STRING"
+		}
+	]
 }
 
 module.exports = func
