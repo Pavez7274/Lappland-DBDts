@@ -1,7 +1,7 @@
 # Lappland
 ### bot made with [DBD.TS](https://leref.github.io/dbd.ts/)
 
-![Lappland](https://static.wikia.nocookie.net/mrfz/images/d/d7/Lappland.png/revision/latest?cb=20190627031236)
+![Lappland](https://wallpapercave.com/wp/wp8910289.jpg)
 
 If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/master/LICENSE.md) yet, please do so
 
@@ -13,7 +13,7 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 ## Commands
 
 | Command | Description | Fields | Example |
-|---|---|---|---|
+|::|::|::|::|
 | Ban | Permanently kick a member | <user\> [reason] | ??Ban @Pavez#7274 Listen *Depresion sonora* |
 | Kick | Kick a member from the server | <user\> [reason] | ??Kick @Sewell#3858 Exists |
 | Avatar | Displays a user icon | [user] | ??Avatar Pavez#7274 |
@@ -25,6 +25,14 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 | Stats | Returns bot statistics (ram, cpu, ping, etc) |  | ??stats |
 | New-Avatar | Returns a random avatar from nekos.life | | ??new-avatar |
 | Wallpaper | Return a wallpaper from nekos.life | | ??wallpaper |
+| Pat | Caress a member | <user\> | ??pat @Yuki#0887 |
+| Hug | Hug a member | <user\> | ??hug @Pavez#7274 |
+| Kiss | Kiss a member | <user\> | ??kiss @Yuka#0887 |
+| Baka | Meet asuka, study asuka... be asuka | <user\> | ??baka @Pavez#7274 |
+| Poke | Touch/Annoy a member | <user\> | ??poke @dummy#0001 |
+| Slap | Slap your ex!! or a member | <user\>  | ??slap @𝐴𝑠𝑠𝑢𝑟𝑒𝑑#0543 |
+| Smug | Make a smug face (ew) | | ??smug |
+| Tickle | Tickle a member (until he dies laughing) | <user\> | ??ticle @dummy#0001 |
 
 - - -
 

@@ -20,18 +20,6 @@ $color[1;001]
 $callFunction[HelpMenu]
 $callFunction[log]
 		`
-	},
-	{
-		type: "selectMenuCommand",
-		code: `
-$onlyIf[$interactionID==HelpMenu;]
-$onlyIf[$interactionValues!=HelpMenuMod;]
-$onlyIf[$interactionValues!=HelpMenuIndex;]
-$onlyIf[$interactionValues!=HelpMenuDev;]
-$onlyIf[$interactionValues!=HelpMenuOth;]
-$ephemeral
-This section is not finished yet
-		`
 	}
 ]
 
