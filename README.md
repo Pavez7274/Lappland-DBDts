@@ -32,7 +32,7 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 | Poke | Touch/Annoy a member | <user\> | ??poke @dummy#0001 |
 | Slap | Slap your ex!! or a member | <user\>  | ??slap @𝐴𝑠𝑠𝑢𝑟𝑒𝑑#0543 |
 | Smug | Make a smug face (ew) | | ??smug |
-| Tickle | Tickle a member (until he dies laughing) | <user\> | ??ticle @dummy#0001 |
+| Tickle | Tickle a member (until he dies laughing) | <user\> | ??tickle @dummy#0001 |
 
 - - -
 
