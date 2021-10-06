@@ -13,7 +13,7 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 ## Commands
 
 | Command | Description | Fields | Example |
-|::|::|::|::|
+|:---:|:---:|:---:|:---:|
 | Ban | Permanently kick a member | <user\> [reason] | ??Ban @Pavez#7274 Listen *Depresion sonora* |
 | Kick | Kick a member from the server | <user\> [reason] | ??Kick @Sewell#3858 Exists |
 | Avatar | Displays a user icon | [user] | ??Avatar Pavez#7274 |
