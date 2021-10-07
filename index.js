@@ -1,4 +1,5 @@
 const dbd = require("dbd.ts") 
+const colors = require('colors');
 const client = new dbd.Bot({
   intents: [
 		"GUILDS",
@@ -37,11 +38,12 @@ const Monitor = require('ping-monitor');
 keepAlive();
 const monitor = new Monitor({
   website: "https://lappland.kaedestudio.ga",
-  title: 'Rawr!',
+  title: 'Lappland',
   interval: 2
 })
 
-monitor.on('up', (res) => console.log(`${res.website} está encedido.`));
-monitor.on('down', (res) => console.log(`${res.website} se ha caído - ${res.statusMessage}`));
-monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
-monitor.on('error', (error) => console.log(error));
+monitor.on('up', (res) => console.log(`>---------[MONITOR]---------<\n   Lappland está encedido.\n\n`.brightGreen));
+monitor.on('down', (res) => console.log(`>---------[MONITOR]---------<\n    Lappland se ha caído - ${res.statusMessage}\n\n`.yellow));
+monitor.on('stop', (website) => console.log(`>---------[MONITOR]---------<\n    Lappland se ha parado.\n\n`.red))
+monitor.on('error', (error) => console.log(`>---------[MONITOR]---------<
+${error}\n\n>---------------------------<`.withe.bgRed));

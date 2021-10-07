@@ -4,7 +4,7 @@ client.addEvent([
   "onMessage",
   "onInteraction", 
   "onJoin", 
-  "onLeave"
+  "onLeave",
 ])
 	
 }
