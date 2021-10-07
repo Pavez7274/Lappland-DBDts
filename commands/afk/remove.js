@@ -2,11 +2,13 @@ const RemoveAfkSpace = [
 	{
 		type: "spaceCommand", 
 		code: `
-$onlyIf[$dbGet[$authorID.afk.status;true;false]!=false;]
+$onlyIf[$db[get;afk_$authorID_status;false]!=false;]
 
 $let[id;$sendReply[$channelID;$messageID;You are no longer afk;false;true]] $let[ch;$channelID]
 
-$dbDelete[$authorID.afk]
+$db[delete;afk_$authorID_reason]
+$db[delete;afk_$authorID_status]
+$db[delete;afk_$authorID_stamp]
 $setTimeout[5s;$deleteMessage[$get[ch];$get[id]]]
 `
 	}
