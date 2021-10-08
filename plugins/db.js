@@ -20,7 +20,7 @@ const func = {
 			r = await db.set(data[1], data[2] || null).then((x) => {})
 			break;
 
-			case "list": r = await db.list().then((x) => x.join(data[1] || ", "))
+			case "list": r = await db.list(data[2] || "").then((x) => x.join(data[1] || ", "))
 			break;
 
 			case "all": r = await db.getAll()
