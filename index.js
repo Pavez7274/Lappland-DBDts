@@ -11,6 +11,16 @@ const client = new dbd.Bot({
   }
 })
 
+// Ready
+client.commands.add({
+	type: "readyCommand",
+	code: `
+$console[|--------------[DBD.TS\\]--------------|
+| Ready on client $userTag[$clientID]
+|------------------------------------|\n;magenta]
+	`
+})
+
 // StatusManager
 require(`./bot/status.js`)(client)
 
@@ -42,8 +52,14 @@ const monitor = new Monitor({
   interval: 2
 })
 
-monitor.on('up', (res) => console.log(`>---------[MONITOR]---------<\n   Lappland está encedido.\n\n`.brightGreen));
-monitor.on('down', (res) => console.log(`>---------[MONITOR]---------<\n    Lappland se ha caído - ${res.statusMessage}\n\n`.yellow));
-monitor.on('stop', (website) => console.log(`>---------[MONITOR]---------<\n    Lappland se ha parado.\n\n`.red))
-monitor.on('error', (error) => console.log(`>---------[MONITOR]---------<
-${error}\n\n>---------------------------<`.withe.bgRed));
+monitor.on('up', (res) => console.log(`|--------------[MONITOR]--------------|
+| Lappland esta encedida.
+|-------------------------------------|\n`.brightGreen));
+monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
+| Lappland se ha caido.
+${res.statusMessage}
+|-------------------------------------|\n`.yellow));
+monitor.on('stop', (website) => console.log(`>--------------[MONITOR]--------------<\n      Lappland se ha parado.\n\n`.red))
+monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
+${error}
+|-------------------------------------|\n`.withe.bgRed));
