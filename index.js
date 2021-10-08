@@ -53,13 +53,13 @@ const monitor = new Monitor({
 })
 
 monitor.on('up', (res) => console.log(`|--------------[MONITOR]--------------|
-| Lappland esta encedida.
+| uptime started.
 |-------------------------------------|\n`.brightGreen));
 monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
-| Lappland se ha caido.
+| uptime has down.
 ${res.statusMessage}
 |-------------------------------------|\n`.yellow));
-monitor.on('stop', (website) => console.log(`>--------------[MONITOR]--------------<\n      Lappland se ha parado.\n\n`.red))
+monitor.on('stop', (website) => console.log(`>--------------[MONITOR]--------------<\n      uptime has stopped.\n\n`.red))
 monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
 ${error}
 |-------------------------------------|\n`.withe.bgRed));
