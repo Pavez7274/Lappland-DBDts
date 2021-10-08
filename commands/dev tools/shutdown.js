@@ -5,7 +5,13 @@ const ShutdownCmd = [
 		aliases: ["shut", "down", "offbot"],
 		code: `
 $callFunction[devs]
-$console[SHUTDOWN OF THE BOT MADE BY $userTag;bgRed.italic]
+$if[$message!=;$let[reason;$message];$let[reason;No reason was given]]
+$console[|--------------[DEBUG\\]--------------|
+| Action: Shutdown
+| Executed by: $userTag - $authorID
+| Reason: > $get[reason] <
+| Stamp: $dateNow
+|-----------------------------------|;error]
 $shutdown
 		`
 	}
