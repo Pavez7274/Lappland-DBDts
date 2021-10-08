@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@replit/database": "^2.0.1",
+    "canvas": "^2.8.0",
     "colors": "^1.4.0",
     "dbd.ts": "^3.0.0",
     "discord.js": "^13.1.0",
