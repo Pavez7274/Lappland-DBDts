@@ -16,7 +16,7 @@ $addField[1;Categories;\`\`\`
       Name       |      Status                 
 -----------------|-----------------
   Moderation     |        ✔        
-  Interaction    |        ✖              
+  Interaction    |        ✔              
   Others         |        ✔       
   Developers     |        ✔         
 -----------------------------------
@@ -47,7 +47,7 @@ $addField[1;Categories;\`\`\`
       Name       |      Status                 
 -----------------|-----------------
   Moderation     |        ✔        
-  Interaction    |        ✖              
+  Interaction    |        ✔              
   Others         |        ✔       
   Developers     |        ✔         
 -----------------------------------
