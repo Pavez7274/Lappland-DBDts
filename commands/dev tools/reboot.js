@@ -4,8 +4,8 @@ const RebootCmd = [
 		name: "reboot", 
 		aliases: ["rt"], 
 		code: `
-$reply[$messageID;false]
 $callFunction[devs]
+$deletecommand
 
 $title[1;Reboot options]
 $thumbnail[1;$authorAvatar]
@@ -14,7 +14,7 @@ $addField[1;Cdm only;Only the commands are restarted, both those that are in the
 $color[1;001]
 $addActionRow
 $addButton[reboot;All files;DANGER]
-$addButton[updates;Cdm only;DANGER]
+$addButton[update;Cdm only;DANGER]
 $addButton[delete;Delete this;DANGER]
 `
 	},
@@ -29,6 +29,11 @@ $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
 $color[1;001]
 ]
+$console[|--------------[DEBUG\\]--------------|
+| Action: Reboot
+| Executed by: $userTag - $authorID
+| Stamp: $dateNow
+|-----------------------------------|;debug]
 $deleteMessage[$channelID;$messageID]
 
 $ephemeral
@@ -47,6 +52,11 @@ $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
 $color[1;001]
 ]
+$console[|--------------[DEBUG\\]--------------|
+| Action: Update Commands
+| Executed by: $userTag - $authorID
+| Stamp: $dateNow
+|-----------------------------------|;debug]
 $deleteMessage[$channelID;$messageID]
 
 $ephemeral
