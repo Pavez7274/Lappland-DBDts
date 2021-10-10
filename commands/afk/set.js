@@ -16,7 +16,7 @@ $addField[1;Reason;$get[x]]
 $color[1;001]
 $db[set;afk_$authorID_status;true]
 $db[set;afk_$authorID_reason;$get[x]]
-$db[set;afk_$authorID_stamp;$dateStamp]
+$db[set;afk_$authorID_stamp;$dateNow]
 `
   }
 ] 
