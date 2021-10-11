@@ -22,10 +22,10 @@ $console[|--------------[DBD.TS\\]--------------|
 })
 
 // StatusManager
-require(`./bot/status.js`)(client)
+require(`./handlers/status.js`)(client)
 
 // Events
-require(`./bot/events.js`)(client)
+require(`./handlers/events.js`)(client)
 
 // Loader
 client.commands.load({
@@ -33,10 +33,10 @@ client.commands.load({
 })
 
 // Functions
-require(`./bot/functions.js`)(client)
+require(`./handlers/functions.js`)(client)
 
 // Slash
-require(`./bot/slash.js`)(client)
+require(`./handlers/slash.js`)(client)
 
 // Login
 client.login(process.env['token'])
