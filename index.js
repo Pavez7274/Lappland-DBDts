@@ -35,7 +35,7 @@ client.commands.load({
 // Functions
 require(`./bot/functions.js`)(client)
 
-// Slashclient
+// Slash
 require(`./bot/slash.js`)(client)
 
 // Login
