@@ -8,12 +8,28 @@
         "index": 2024
       }
     ],
+    "bot/status.js": [
+      {
+        "id": "0b7184a5-3bff-45fb-96da-07bf072a2427",
+        "line": 2,
+        "version": 47,
+        "index": 31
+      }
+    ],
     "commands/dev tools/git.js": [
       {
         "id": "9e47e976-1576-4b13-a04b-0280ed02a816",
         "line": 13,
-        "version": 33,
+        "version": 171,
         "index": 241
+      }
+    ],
+    "commands/game/element.js": [
+      {
+        "id": "6a366bf4-3417-48db-8582-387973a8fe5a",
+        "line": 1,
+        "version": 206,
+        "index": 0
       }
     ],
     "commands/interaction/slap.js": [

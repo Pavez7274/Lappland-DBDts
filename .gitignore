@@ -1,3 +1,4 @@
 /json.sqlite
 /package-lock.json
-/database.sqlite 
+/database.sqlite
+/commands/game/
