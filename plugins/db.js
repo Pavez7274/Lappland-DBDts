@@ -23,11 +23,14 @@ const func = {
 			case "list": r = await db.list(data[2] || "").then((x) => x.join(data[1] || ", "))
 			break;
 
-			case "all": r = await db.getAll()
+			case "all": r = await db.getAll().then((x) => x)
 			break;
 
 			case "delete": if(!data[1]) d.sendError(fn, `:x: You must specify the name of the variable!`)
 			r = await db.delete(data[1]).then((x) => {})
+			break;
+
+			default: d.sendError(fn, `:x: \`${data[0]}\` is not a valid method`)
 		}
 		return fn.resolve(
 			r
