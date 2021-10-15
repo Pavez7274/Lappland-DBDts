@@ -15,32 +15,28 @@ const func = {
 			tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
 		})
 		db.connect()
-		const [method, key, value=null, ttl=undefined] = await fn.resolveArray(d)
+		const [method, key, value="null", ttl=undefined] = await fn.resolveArray(d)
 		let r = { key: undefined, value: undefined }
 
 		switch(method.toLowerCase()){
 			// Main
-			case "get": r = await db.get("main", key).then(data => {
-				try{ 
-					data.value 
-				} catch { 
-					`${value}`
-				}
-			})
+			case "get": let y = await db.get("main", key).then(data => data)
+			if(!y) y = { value: value }
+			r=y.value
 			break;
 
-			case "set": r = await db.get("main", key, value, ttl).then(data => {})
+			case "set": r = await db.set("main", key, value, ttl).then(data => {})
 			break;
 
-			case "delete": r = await db.get("main", key).then(data => {})
+			case "delete": r = await db.delete("main", key).then(data => {})
 			break;
 
 			case "all": r = db.all("main", { filter: ({ data }) => eval(key || "data.key.includes('')") })
 
-			case "": d.sendError(fn, `:x: You must enter a method!`)
+			case "": return d.sendError(fn, `:x: You must enter a method!`)
 			break;
 
-			default: d.sendError(fn, `:x: \`${p[0]}\` is not a valid method`)
+			default: return d.sendError(fn, `:x: \`${p[0]}\` is not a valid method`)
 		}
 
 		return fn.resolve(
