@@ -7,23 +7,24 @@ const func = {
   description: "...",
 	brackets: true,
   execute: async (d, fn) => {
-		const data = await fn.resolveArray(d)
-	  let posts = require("rule34js").posts
-		let filter = data[0] 
-		let p = data[1] 
-		let index = data[2] || 0
-    let r
+		const [ filter, p, index=0 ] = await fn.resolveArray(d)
+	  let { posts } = require("rule34js")
+    let r; let f
 		
-    let y = await posts({tags:[filter]}).then(x => x)
-    
-  	if(p === "url"){
-		  r = y.posts[index].file_url
-    } else if(p === "count"){
-      r = Number(y.count - 1) 
-    }
+    try{
+			posts({tags:[filter]}).then(data => {
+				if(p === "url"){
+					r = data.posts[index].file_url
+				} else if(p === "count"){
+					r = Number(data.count - 1) 
+				}
+			})
+		} catch (error) {
+			console.log(error.message)
+		}
 		
     return fn.resolve(
-			r
+			f
     )
   },
 	fields: [
