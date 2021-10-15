@@ -1,8 +1,8 @@
 const StatsCmd = [
 	{
 		type: "basicCommand",
-		name: "stats",
-		aliases: [ "bot", "botinfo", "bot-info" ],
+		name: "bot",
+		aliases: [ "botinfo", "bot-info" ],
 		code: `
 $reply[$messageID;false]
 $title[1;Bot stats]
