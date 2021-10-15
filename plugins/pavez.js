@@ -4,7 +4,7 @@
  */ 
 const func = {
 	name: "$pavez",
-  description: "Returns the Guillermo id",
+  description: "Returns the pavezx id",
 	brackets: true,
   execute: async (d, fn) => {
 		let data = await fn.resolveArray(d)

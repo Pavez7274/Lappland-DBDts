@@ -9,14 +9,15 @@ const func = {
   execute: async (d, fn) => {
 		const data = await fn.resolveArray(d)
 		let channel = data[0]
-		let guild = await d.client.guilds.cache.get(d.data.message.guild.id)
+		let guild = await d.data.message.guild.channels.cache
 		let r
 		try{
-		r = await guild.channels.cache.find((c) => c.name.toLowerCase() === channel.toLowerCase() || c.id === channel
-    ) ||
-		await guild.channels.cache.get(channel) ||
-    await d.data.message.mentions.channels.first() ||
-    { id: "undefined" }
+			r = 
+				await guild.find((c) => c.name.toLowerCase() === channel.toLowerCase()) ||
+				await guild.get(channel) ||
+				await d.data.message.mentions.channels.first() ||
+				await guild.fetch(channel) ||
+				{ id: "undefined" }
 		} catch{
 			r = { id: "undefined" }
 		}
@@ -30,7 +31,7 @@ const func = {
 			name: "channel",
 			description: "name/id",
 			required: true,
-			type: "STRING"
+			type: "TEXT"
 		}
 	]
 }

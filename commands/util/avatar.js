@@ -13,7 +13,7 @@ $let[x;$authorID]
 $onlyIf[$get[x]!=undefined;
 $title[1;Error >> Not found]
 $thumbnail[1;$authorAvatar]
-$description[1;The user could not be found]
+$description[1;The user [$message\\] could not be found]
 $color[1;001]
 ]
 

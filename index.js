@@ -8,7 +8,10 @@ const client = new dbd.Bot({
   prefix: {
     mentionPrefix: true,
     prefixes: ["lappland ", "??"]
-  }
+  },
+	database: {
+		path: `./database/default.sqlite`
+	}
 })
 
 // Ready
@@ -54,12 +57,12 @@ const monitor = new Monitor({
 
 monitor.on('up', (res) => console.log(`|--------------[MONITOR]--------------|
 | uptime started.
-|-------------------------------------|\n`.brightGreen));
+|-------------------------------------|\n`.brightGreen))
 monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
 | uptime has down.
 ${res.statusMessage}
-|-------------------------------------|\n`.yellow));
+|-------------------------------------|\n`.yellow))
 monitor.on('stop', (website) => console.log(`>--------------[MONITOR]--------------<\n      uptime has stopped.\n\n`.red))
 monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
 ${error}
-|-------------------------------------|\n`.withe.bgRed));
+|-------------------------------------|\n`.bgRed))

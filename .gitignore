@@ -1,4 +1,7 @@
 /json.sqlite
 /package-lock.json
-/database.sqlite
+/database/
 /commands/game/
+/src/
+/WARNING.md
+/commands/botlist/

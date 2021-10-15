@@ -4,20 +4,19 @@
  */ 
 const func = {
 	name: "$exec",
-  description: "Runs something in the shell",
+	description: "Runs something in the shell",
 	brackets: true,
   execute: async (d, fn) => {
     let	fields = await fn.resolveArray(d)
     let cld = require("child_process")
 
     return fn.resolve(
-			cld.execSync(fields[0])
+			await cld.execSync(fields[0])
     )
   },
 	fields: [
 		{
-			name: "commamd",
-			description: "Command to run",
+			name: "command",
 			required: true,
 			type: "STRING"
 		}

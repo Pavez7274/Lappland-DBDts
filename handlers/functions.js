@@ -23,6 +23,7 @@ $addSelectMenuOption[Moderation;Moderation commands;HelpMenuMod;<:config:8908028
 $addSelectMenuOption[Interaction;Interaction commands;HelpMenuInt;<:chat:890802816719929344>]
 $addSelectMenuOption[Others;Others commands;HelpMenuOth;<:puzle:890802816409546792>]
 $addSelectMenuOption[Developers;About the developers;HelpMenuDev;<:contact:890804615384272906>]
+$addSelectMenuOption[Fields;Information about the fields;HelpMenuFields]
   `
 })
 

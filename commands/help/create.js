@@ -18,7 +18,8 @@ $addField[1;Categories;\`\`\`
   Moderation     |        ✔        
   Interaction    |        ✔              
   Others         |        ✔       
-  Developers     |        ✔         
+  Developers     |        ✔   
+  Fields         |        ✔
 -----------------------------------
 \`\`\`
 
@@ -49,7 +50,8 @@ $addField[1;Categories;\`\`\`
   Moderation     |        ✔        
   Interaction    |        ✔              
   Others         |        ✔       
-  Developers     |        ✔         
+  Developers     |        ✔   
+  Fields         |        ✔
 -----------------------------------
 \`\`\`
 
