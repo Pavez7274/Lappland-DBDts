@@ -28,29 +28,21 @@ $description[1;To prevent it from being shown to everyone, it was decided that \
 $color[1;001]
 ]
 $reply[$messageID;false]
+$let[a;$js[true;d.data.args.join(" ").split("??")[0\\]]]
+$let[b;$js[true;d.data.args.join(" ").split("??")[1\\] || 0]]
 
 $if[$endsWith[$message;--no]==false;
 $title[1;Eval >> D.JS]
 $thumbnail[1;$authorAvatar]
 $addField[1;Input;\`\`\`js
-$message
+$get[a]
 \`\`\`]
 $addField[1;Output;\`\`\`js
-$djsEval[yes;
-let RE = require("@replit/database")
-let db = new RE()
-let Neko = require('nekos.life')
-let nekos = new Neko()
-$message]
+$js[true;$get[a];$get[b]]
 \`\`\`]
 $color[1;001]
 ;
-$djsEval[no;
-let RE = require("@replit/database")
-let db = new RE()
-let Neko = require('nekos.life')
-let nekos = new Neko()
-$replaceText[$message;--no;]]
+$js[false;$replaceText[$get[a];--no;];$get[b]]
 ]
 		`
 	},
