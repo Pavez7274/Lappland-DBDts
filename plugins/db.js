@@ -4,34 +4,45 @@
  */
 const func = {
 	name: "$db",
-	description: "Replit database",
+	description: "database manager",
 	brackets: true,
 	execute: async (d, fn) => {
-		const data = await fn.resolveArray(d)
-		const RE = require("@replit/database")
-		const db = new RE()
-		let r
+		const colors = require(`colors`)
+		// Database connection
+		const DBDJSDB = require("dbdjs.db")
+		const db = new DBDJSDB.Database({
+			path: "./database/",
+			tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
+		})
+		db.connect()
+		const [method, key, value=null, ttl=undefined] = await fn.resolveArray(d)
+		let r = { key: undefined, value: undefined }
 
-		switch(data[0].toLowerCase()){
-			case "get": r = await db.get(data[1]).then((x) => x) || data[2] || ""
+		switch(method.toLowerCase()){
+			// Main
+			case "get": r = await db.get("main", key).then(data => {
+				try{ 
+					data.value 
+				} catch { 
+					`${value}`
+				}
+			})
 			break;
 
-			case "set": if(!data[1]) d.sendError(fn, `:x: You must specify the name of the variable!`)
-			r = await db.set(data[1], data[2] || null).then((x) => {})
+			case "set": r = await db.get("main", key, value, ttl).then(data => {})
 			break;
 
-			case "list": r = await db.list(data[2] || "").then((x) => x.join(data[1] || ", "))
+			case "delete": r = await db.get("main", key).then(data => {})
 			break;
 
-			case "all": r = await db.getAll().then((x) => x)
+			case "all": r = db.all("main", { filter: ({ data }) => eval(key || "data.key.includes('')") })
+
+			case "": d.sendError(fn, `:x: You must enter a method!`)
 			break;
 
-			case "delete": if(!data[1]) d.sendError(fn, `:x: You must specify the name of the variable!`)
-			r = await db.delete(data[1]).then((x) => {})
-			break;
-
-			default: d.sendError(fn, `:x: \`${data[0]}\` is not a valid method`)
+			default: d.sendError(fn, `:x: \`${p[0]}\` is not a valid method`)
 		}
+
 		return fn.resolve(
 			r
     )
@@ -43,14 +54,19 @@ const func = {
 			type: "STRING"
 		},
 		{
+			name: "key",
+			required: true,
+			type: "STRING"
+		},
+		{
 			name: "value",
 			required: false,
 			type: ["STRING", "BOOLEAN", "NUMBER", "TIME"]
 		},
 		{
-			name: "text",
+			name: "ttl",
 			required: false,
-			type: "STRING"
+			type: "NUMBER"
 		}
 	]
 }
