@@ -3,7 +3,7 @@
  * @type { import("dbd.ts").FunctionData }
  */
 const func = {
-	name: "$cacheSet",
+	name: "$cacheGet",
 	description: "cache manager",
 	brackets: true,
 	execute: async (d, fn) => {
