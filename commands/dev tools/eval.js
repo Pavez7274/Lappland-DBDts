@@ -28,21 +28,19 @@ $description[1;To prevent it from being shown to everyone, it was decided that \
 $color[1;001]
 ]
 $reply[$messageID;false]
-$let[a;$js[true;d.data.args.join(" ").split("??")[0\\]]]
-$let[b;$js[true;d.data.args.join(" ").split("??")[1\\] || 0]]
 
 $if[$endsWith[$message;--no]==false;
 $title[1;Eval >> D.JS]
 $thumbnail[1;$authorAvatar]
 $addField[1;Input;\`\`\`js
-$get[a]
+$message
 \`\`\`]
 $addField[1;Output;\`\`\`js
-$js[true;$get[a];$get[b]]
+$js[true;$message]
 \`\`\`]
 $color[1;001]
 ;
-$js[false;$replaceText[$get[a];--no;];$get[b]]
+$js[false;$replaceText[$message;--no;]]
 ]
 		`
 	},

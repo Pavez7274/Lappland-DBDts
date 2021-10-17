@@ -1,5 +1,5 @@
 const dbd = require("dbd.ts") 
-const colors = require('colors');
+const colors = require('colors')
 const client = new dbd.Bot({
   intents: [
 		"GUILDS",
@@ -45,10 +45,10 @@ require(`./handlers/slash.js`)(client)
 client.login(process.env['token'])
 
 /*               24/7               */
-const keepAlive = require('./server');
-const Monitor = require('ping-monitor');
+const keepAlive = require('./server')
+const Monitor = require('ping-monitor')
 
-keepAlive();
+keepAlive()
 const monitor = new Monitor({
   website: "https://lappland.kaedestudio.ga",
   title: 'Lappland',
@@ -62,7 +62,9 @@ monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
 | uptime has down.
 ${res.statusMessage}
 |-------------------------------------|\n`.yellow))
-monitor.on('stop', (website) => console.log(`>--------------[MONITOR]--------------<\n      uptime has stopped.\n\n`.red))
+monitor.on('stop', (website) => console.log(`|--------------[MONITOR]--------------|
+|uptime has stopped
+|-------------------------------------|\n`.red))
 monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
 ${error}
 |-------------------------------------|\n`.bgRed))

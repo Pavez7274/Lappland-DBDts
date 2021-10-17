@@ -4,8 +4,14 @@ const RebootCmd = [
 		name: "reboot", 
 		aliases: ["rt"], 
 		code: `
+$reply[$messageID;false]
 $callFunction[devs]
 $deletecommand
+$if[$message!=;
+$cacheSet[reboot_reason;$message]
+;
+$cacheSet[reboot_reason;No reason was given]
+]
 
 $title[1;Reboot options]
 $thumbnail[1;$authorAvatar]
@@ -14,7 +20,7 @@ $addField[1;Cdm only;Only the commands are restarted, both those that are in the
 $color[1;001]
 $addActionRow
 $addButton[reboot;All files;DANGER]
-$addButton[update;Cdm only;DANGER]
+$addButton[update;Cdm only;DANGER;;true]
 $addButton[delete;Delete this;DANGER]
 `
 	},
@@ -31,7 +37,8 @@ $color[1;001]
 ]
 $console[|--------------[DEBUG\\]--------------|
 | Action: Reboot
-| Executed by: $userTag - $authorID
+| Reason: $cacheGet[reboot_reason]
+| Executed by: $userTag
 | Stamp: $dateNow
 |-----------------------------------|;debug]
 $deleteMessage[$channelID;$messageID]
@@ -54,6 +61,7 @@ $color[1;001]
 ]
 $console[|--------------[DEBUG\\]--------------|
 | Action: Update Commands
+| Reason: $cacheGet[reboot_reason]
 | Executed by: $userTag - $authorID
 | Stamp: $dateNow
 |-----------------------------------|;debug]

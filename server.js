@@ -13,7 +13,10 @@ server.set("views", path.join(__dirname, "src/views/"))
 
 // Rutas
 server.get("/", (req, res) => {
-	res.json({status:res.statusCode})
+	res.json({
+			status:res.statusCode,
+			web: "https://lappland.kaedestudio.ga/app"
+		})
 })
 server.get("/app",(req, res) => {
 	res.render("app.html", {

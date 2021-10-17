@@ -50,8 +50,9 @@ const func = {
 		d.allCommands == cdmArr
 		d.rdb = new RE()
 		d.db = db
+		d.fields = d.data.args.join(" ").split(" ?? ")
 
-		let [re, code, max=0] = await fn.resolveArray(d)
+		let [re, code, maxData=0] = await fn.resolveArray(d)
 		let r = undefined;
 		try {
 			r = await eval(code)
@@ -59,7 +60,7 @@ const func = {
 			return d.sendError(fn, `:x: Error: \`${error.message}\``)
 		}
 
-		if (typeof r == "object") r = require("util").inspect(r, { depth: max })
+		if (typeof r == "object") r = require("util").inspect(r, { depth: maxData })
 
 		return fn.resolve(
 			re ? r : ""

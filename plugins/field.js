@@ -7,7 +7,7 @@ const func = {
 	description: "no desc",
 	brackets: true,
   execute: async (d, fn) => {
-		const [field] = fn.resolveArray(d)
+		const [ field ] = fn.resolveArray(d)
     return fn.resolve(
 			d.data.args.join(" ").split(" ?? ")[field]
     )

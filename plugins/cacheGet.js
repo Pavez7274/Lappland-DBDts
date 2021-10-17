@@ -7,24 +7,22 @@ const func = {
 	description: "cache manager",
 	brackets: true,
 	execute: async (d, fn) => {
+		// Database connection
 		const DBDJSDB = require("dbdjs.db")
 		const db = new DBDJSDB.Database({
 			path: "./database/",
 			tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
 		})
 		db.connect()
-		let [key, Eval=``] = await fn.resolveArray(d)
-		// Database connection
+		// Code
+		let [key, value="undefined"] = await fn.resolveArray(d)
+		let result = { key: undefined, value: undefined }
 
-		try{
-			let result = db.get("cache", key).then((data) => eval(Eval))
-		} catch (error) {
-			console.log(error.message)
-			d.sendError(fn, `:x: Cache error: ${error.message}`)
-			return fn.resolve()
-		}
+		let x = await db.get("cache", key).then(data => data)
+		if(!x) x = { value: value }
+		result = x.value
 
-		if (typeof r == "object") result = require("util").inspect(result, { depth: max })
+		if (typeof result == "object") result = require("util").inspect(result, { depth: max })
 
 		return fn.resolve(
 			result
@@ -37,7 +35,7 @@ const func = {
 			type: "STRING"
 		},
 		{
-			name: "eval",
+			name: "value",
 			required: false,
 			type: "STRING"
 		}
