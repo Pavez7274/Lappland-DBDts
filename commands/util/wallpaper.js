@@ -3,7 +3,7 @@ const WallpaperCmd = [
 		type: "basicCommand",
 		name: "wallpaper",
 		code: `
-$onlyIF[0==1;
+$onlyIf[0==1;
 $title[1;Error >> Disabled!!]
 $thumbnail[1;$authorAvatar]
 $description[1;This command was __disabled__ by a developer [<@!$pavez[id]>\\] as it had a chance to show **NSFW wallpapers** without any warning or need for the channel to be *NSFW*]
