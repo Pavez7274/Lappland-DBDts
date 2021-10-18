@@ -1,4 +1,4 @@
-const dbd = require("dbd.ts") 
+const dbd = require("dbd.ts")
 const colors = require('colors')
 const client = new dbd.Bot({
   intents: [
@@ -66,5 +66,5 @@ monitor.on('stop', (website) => console.log(`|--------------[MONITOR]-----------
 |uptime has stopped
 |-------------------------------------|\n`.red))
 monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
-${error}
+| ${error}
 |-------------------------------------|\n`.bgRed))

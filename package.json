@@ -1,5 +1,5 @@
 {
-  "name": "Lappland",
+  "name": "lappland",
   "version": "1.3.107",
   "main": "index.js",
   "scripts": {
@@ -28,5 +28,13 @@
     "quick.db": "^7.1.3",
     "rule34js": "^2.2.0"
   },
-  "description": "bot made with DBD.TS"
+  "description": "bot made with DBD.TS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pavez7274/Lappland.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pavez7274/Lappland/issues"
+  },
+  "homepage": "https://github.com/Pavez7274/Lappland#readme"
 }
