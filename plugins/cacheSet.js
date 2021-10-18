@@ -21,9 +21,9 @@ const func = {
 |-------------------------------------|\`)`] = await fn.resolveArray(d)
 
 		// Code
-		db.set("cache", key, value, ttl).then((data) => eval(Eval))
-
-		return fn.resolve()
+		return fn.resolve(
+			db.set("cache", key, value, ttl).then((data) => eval(Eval))
+		)
 	},
 	fields: [
 		{
