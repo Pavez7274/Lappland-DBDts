@@ -7,11 +7,6 @@ const RebootCmd = [
 $reply[$messageID;false]
 $callFunction[devs]
 $deletecommand
-$if[$message!=;
-$cacheSet[reboot_reason;$message]
-;
-$cacheSet[reboot_reason;No reason was given]
-]
 
 $title[1;Reboot options]
 $thumbnail[1;$authorAvatar]
@@ -22,6 +17,11 @@ $addActionRow
 $addButton[reboot;All files;DANGER]
 $addButton[update;Cdm only;DANGER;;true]
 $addButton[delete;Delete this;DANGER]
+$if[$message!=;
+$cacheSet[reboot_reason;$message]
+;
+$cacheSet[reboot_reason;No reason was given]
+]
 `
 	},
 	{
