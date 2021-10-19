@@ -14,15 +14,16 @@ const func = {
 			tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
 		})
 		db.connect()
-		let [key, value, ttl=60000, Eval=`console.log(\`|---------------[cache]---------------|
-| Name: \${key}
-| Value: \${value}
-| TTL: \${ttl}
-|-------------------------------------|\`)`] = await fn.resolveArray(d)
-
+		let [ key, value, ttl=60000 ] = await fn.resolveArray(d)
+		let cache = await db.set("cache", key, value, ttl).then((data) => {})
+		console.log(`|---------------[cache]---------------|
+| Name: ${key}
+| Value: ${value}
+| TTL: ${ttl}
+|-------------------------------------|`)
 		// Code
 		return fn.resolve(
-			db.set("cache", key, value, ttl).then((data) => eval(Eval))
+			cache
 		)
 	},
 	fields: [
@@ -40,11 +41,6 @@ const func = {
 			name: "ttl",
 			required: false,
 			type: "NUMBER"
-		},
-		{
-			name: "eval",
-			required: false,
-			type: "STRING"
 		}
 	]
 }
