@@ -4,6 +4,20 @@ const SetAfkCmd = [
 		name: "afk", 
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Afk]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??afk [reason\\]
+\`\`\`
+**fields**
+reason: string
+
+**returns**
+Information]
+$color[1;001]
+]
 $if[$message!=;
 $let[x;$message]
 ;

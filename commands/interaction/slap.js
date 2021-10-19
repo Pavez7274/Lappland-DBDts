@@ -4,6 +4,20 @@ const SlapCmd = [
 		name: "slap",
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Slap]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??slap <user>
+\`\`\`
+**fields**
+user: snowflake, mention, usertag, nickname
+
+**returns**
+Image]
+$color[1;001]
+]
 $if[$message!=;
 $let[x;$findUser[$message]]
 ;

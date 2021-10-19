@@ -4,6 +4,20 @@ const KissCmd = [
 		name: "kiss",
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Kiss]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??kiss <user>
+\`\`\`
+**fields**
+user: snowflake, mention, usertag, nickname
+
+**returns**
+Image]
+$color[1;001]
+]
 $if[$message!=;
 $let[x;$findUser[$message]]
 ;

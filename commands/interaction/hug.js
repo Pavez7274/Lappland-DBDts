@@ -4,6 +4,20 @@ const HugCmd = [
 		name: "hug",
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Hug]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??hug <user>
+\`\`\`
+**fields**
+user: snowflake, mention, usertag, nickname
+
+**returns**
+Image]
+$color[1;001]
+]
 $if[$message!=;
 $let[x;$findUser[$message]]
 ;

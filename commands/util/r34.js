@@ -4,6 +4,20 @@ const r34Cmd = [
 		name: "r34", 
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> R34]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??r34 <filter>
+\`\`\`
+**fields**
+filter: string
+
+**returns**
+Image]
+$color[1;001]
+]
 $onlyIf[$channelNSFW[$channelID]==true;
 $title[1;Error >> NSFW]
 $thumbnail[1;$authorAvatar]

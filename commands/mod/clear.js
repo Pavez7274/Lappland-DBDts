@@ -3,6 +3,18 @@ const ClearCmd = [
 		type: "basicCommand", 
 		name: "clear", 
 		code: `
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Clear]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??clear <amount> ![user\\]
+\`\`\`
+**fields**
+amount: number
+user: snowflake, mention, usertag, nickname]
+$color[1;001]
+]
 $onlyIf[$message!=;
 $title[1;Error >> Fields]
 $thumbnail[1;$authorAvatar]

@@ -12,7 +12,6 @@ $description[1;**usage**
 \`\`\`
 ??avatar [user\\]
 \`\`\`
-
 **fields**
 user: snowflake, mention, usertag, nickname
 

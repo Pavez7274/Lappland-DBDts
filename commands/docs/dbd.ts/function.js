@@ -3,6 +3,20 @@ const FunctionInformationCmd = [
 		type: "basicCommand",
 		name: "function",
 		code: `
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Function]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??function <function>
+\`\`\`
+**fields**
+function: name
+
+**returns**
+Description, Usage, Params]
+$color[1;001]
+]
 $js[false;
 
 	axios.request({

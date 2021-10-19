@@ -20,8 +20,6 @@ If you haven't read the [license](https://github.com/Pavez7274/Lappland/blob/mas
 | R34 | Search for NSFW images | <filter\> | ??R34 Nekos |
 | AFK | Make the bot send a message when you are mentioned | [reason] | ??Afk Food time!! |
 | Remind | Reminds you of something after a certain time | <time\> <reminder/text\> | ??Remind 3h Make the dinner |
-| Aoi | Search for something in the [aoi.js api.js](https://api.leref.ga/) | <endponit\> [filter] | ??aoi function $eval |
-| Dbd | Search for something in the [dbd.ts api](https://dbdts.leref.ga) | <enpoint\> [filter] | ??dbd examples plugin-creation |
 | Stats | Returns bot statistics (ram, cpu, ping, etc) |  | ??stats |
 | New-Avatar | Returns a random avatar from nekos.life | | ??new-avatar |
 | Wallpaper | Return a wallpaper from nekos.life | | ??wallpaper |

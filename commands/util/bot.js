@@ -5,6 +5,17 @@ const StatsCmd = [
 		aliases: [ "botinfo", "bot-info" ],
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Bot]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??bot
+\`\`\`
+**returns**
+Information]
+$color[1;001]
+]
 $title[1;Bot stats]
 $thumbnail[1;$authorAvatar]
 $addField[1;Ping;$ping;true]

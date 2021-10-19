@@ -4,6 +4,20 @@ const BakaCmd = [
 		name: "baka",
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Baka]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??baka <user>
+\`\`\`
+**fields**
+user: snowflake, mention, usertag, nickname
+
+**returns**
+Image]
+$color[1;001]
+]
 $if[$message!=;
 $let[x;$findUser[$message]]
 ;

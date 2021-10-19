@@ -3,13 +3,24 @@ const BanCmd = [
 		type: "basicCommand",
 		name: "ban",
 		code: `
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Ban]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??ban <user>
+\`\`\`
+**fields**
+user: snowflake, mention, usertag, nickname]
+$color[1;001]
+]
 $if[$authorID!=$ownerID;$onlyIf[$hasPerm[$guildID;$authorID;banmembers]==true;
 $title[1;Error >> Required permissions]
 $thumbnail[1;$authorAvatar]
 $description[1;To use this command you need permission to ban members from the server]
 $color[1;001]
 ]]
-$let[id;$mentioned[1;false]]
+$let[id;$findUser[$message]]
 $onlyIf[$get[id]!=;
 $title[1;Error >> Mention a member!]
 $thumbnail[1;$authorAvatar]

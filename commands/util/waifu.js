@@ -4,6 +4,17 @@ const WaifuCmd = [
 		name: "waifu",
 		code: `
 $reply[$messageID;false]
+$onlyIf[$endsWith[$message;--help]!=true;
+$title[1;Help >> Waifu]
+$thumbnail[1;$authorAvatar]
+$description[1;**usage**
+\`\`\`
+??waifu
+\`\`\`
+**returns**
+Image]
+$color[1;001]
+]
 
 $title[1;Random waifu!!]
 $thumbnail[1;$authorAvatar]
