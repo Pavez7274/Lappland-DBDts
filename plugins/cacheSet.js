@@ -7,6 +7,7 @@ const func = {
 	description: "cache manager",
 	brackets: true,
 	execute: async (d, fn) => {
+		const c = require("colors")
 		// Database connection
 		const DBDJSDB = require("dbdjs.db")
 		const db = new DBDJSDB.Database({
@@ -20,7 +21,7 @@ const func = {
 | Name: ${key}
 | Value: ${value}
 | TTL: ${ttl}
-|-------------------------------------|`)
+|-------------------------------------|`.gray)
 		// Code
 		return fn.resolve(
 			cache
