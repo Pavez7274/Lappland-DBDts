@@ -8,7 +8,7 @@ $title[1;Error >> Disabled!!]
 $thumbnail[1;$authorAvatar]
 $description[1;This command was __disabled__ by a developer [<@!$pavez[id]>\\] as it had a chance to show **NSFW wallpapers** without any warning or need for the channel to be *NSFW*]
 $footer[1;Repair date: undefined]
-$color[1;FCC]
+$color[1;FF0000]
 ]
 $reply[$messageID;false]
 
