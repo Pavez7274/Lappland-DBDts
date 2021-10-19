@@ -14,6 +14,9 @@ const func = {
 			log: ["gray", "italic"]
 		})
 
+		// axios
+		const axios = require('axios').default
+
 		// Database
 		const DBDJSDB = require("dbdjs.db")
 		const db = new DBDJSDB.Database({
@@ -47,7 +50,7 @@ const func = {
 		d.author = d.data.message.author
 		d.guild = d.data.message.guild
 		d.channel = d.data.message.channel
-		d.allCommands == cdmArr
+		d.allCommands = cdmArr
 		d.rdb = new RE()
 		d.db = db
 		d.fields = d.data.args.join(" ").split(" ?? ")
