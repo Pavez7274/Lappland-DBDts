@@ -7,24 +7,13 @@ const func = {
   description: "...",
 	brackets: true,
   execute: async (d, fn) => {
-		const [ filter, p, index=0 ] = await fn.resolveArray(d)
+		const [ filter ] = await fn.resolveArray(d)
 	  let { posts } = require("rule34js")
-    let r; let f
-		
-    try{
-			posts({tags:[filter]}).then(data => {
-				if(p === "url"){
-					r = data.posts[index].file_url
-				} else if(p === "count"){
-					r = Number(data.count - 1) 
-				}
-			})
-		} catch (error) {
-			console.log(error.message)
-		}
-		
+		let response = await posts({ tags: filter.split(", ") })
+		let result = await response?.posts[Math.floor(Math.random() * (response?.count - 1))]?.file_url
+    
     return fn.resolve(
-			f
+			result
     )
   },
 	fields: [
@@ -33,17 +22,7 @@ const func = {
 			required: true, 
 			type: "STRING"
 		},
-		{
-			name: "property", 
-			required: true,
-			type: "STRING"
-		}, 
-		{
-			name: "index",
-			description: "",
-			required: false,
-			type: "NUMBER"
-		}
+		
 	]
 }
 
