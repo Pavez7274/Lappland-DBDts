@@ -14,6 +14,14 @@ const client = new dbd.Bot({
 	}
 })
 
+// Database
+const DBDJSDB = require("dbdjs.db")
+const db = new DBDJSDB.Database({
+	path: "./database/",
+	tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
+})
+db.connect()
+
 // Ready
 client.commands.add({
 	type: "readyCommand",
@@ -63,8 +71,43 @@ monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
 ${res.statusMessage}
 |-------------------------------------|\n`.yellow))
 monitor.on('stop', (website) => console.log(`|--------------[MONITOR]--------------|
-|uptime has stopped
+| uptime has stopped
 |-------------------------------------|\n`.red))
 monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
 | ${error}
 |-------------------------------------|\n`.bgRed))
+
+
+/*          DISCORD.JS CODE           */
+
+const { Client, Intents } = require('discord.js') 
+const djs = new Client({
+	intents: [ Intents?.FLAGS?.GUILDS, Intents?.FLAGS?.GUILD_MESSAGES ]
+})
+
+djs.on('ready', () => {
+	console.log(`|-------------[DISCORD.JS]-------------|
+| Ready on client ${djs.user.tag}
+|--------------------------------------|
+`.cyan)
+	djs.user.setStatus('dnd')
+})
+
+djs.on('messageDelete', async (message) => {
+	const def = [
+		{
+			type: "deleted", 
+			author: 'undefined', 
+			content: 'undefined'
+		}
+	]
+	let arr = await db.get("main", `snipe_${message?.channel?.id}`).then(data => data?.value || def)
+	arr.push({
+		type: "deleted", 
+		author: message?.author?.id || 'undefined', 
+		content: message?.content || 'undefined'
+	})
+	db.set("main", `snipe_${message?.channel?.id}`, arr)
+}) 
+
+djs.login(process.env['token'])
