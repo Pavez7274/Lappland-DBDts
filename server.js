@@ -24,6 +24,14 @@ server.get("/app",(req, res) => {
 		db: db
 	})
 })
+server.get("/nekos", async (req, res) => {
+	const Neko = require('nekos.life');
+	const nekos = new Neko()
+
+	res.json({
+		url: await nekos.nsfw.neko()
+	})
+})
 
 // Listen 
 module.exports = () => {
