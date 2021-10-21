@@ -66,7 +66,7 @@ const func = {
 		if (typeof r == "object") r = require("util").inspect(r, { depth: maxData })
 
 		return fn.resolve(
-			re ? r : ""
+			String(re) == "true" ? r : ""
     )
 	},
 	fields: [
