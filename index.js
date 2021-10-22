@@ -110,4 +110,21 @@ djs.on('messageDelete', async (message) => {
 	db.set("main", `snipe_${message?.channel?.id}`, arr)
 }) 
 
+djs.on('messageUpdate', async (message) => {
+	const def = [
+		{
+			type: "edited", 
+			author: 'undefined', 
+			content: 'undefined'
+		}
+	]
+	let arr = await db.get("main", `snipe_${message?.channel?.id}`).then(data => data?.value || def)
+	arr.push({
+		type: "edited", 
+		author: message?.author?.id || 'undefined', 
+		content: message?.content || 'undefined'
+	})
+	db.set("main", `snipe_${message?.channel?.id}`, arr)
+})
+
 djs.login(process.env['token'])
