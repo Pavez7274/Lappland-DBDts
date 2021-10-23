@@ -15,6 +15,10 @@ $addField[1;Kick;Kick a member from the server
 \`\`\`xml
 ??kick <user> [reason\\]
 \`\`\`;yes]
+$addField[1;Snipe;Returns the last message deleted/edited
+\`\`\`xml
+??snipe [position\\] [channel\\]
+\`\`\`]
 $color[1;001]
 
 $callFunction[HelpMenu]
