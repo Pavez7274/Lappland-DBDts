@@ -3,6 +3,15 @@ const FunctionInformationCmd = [
 		type: "basicCommand",
 		name: "function",
 		code: `
+$reply[$messageID;false]
+$onlyIf[0==1;
+$title[1;Error >> Disabled!!]
+$thumbnail[1;$authorAvatar]
+$description[1;This command was __disabled__ by a developer [<@!$pavez[id]>\\] since the *API of dbd.ts* domain change, once it is found which is the new one, the command will be reinstated]
+$footer[1;Repair date: undefined]
+$color[1;FF0000]
+]
+
 $onlyIf[$endsWith[$message;--help]!=true;
 $title[1;Help >> Function]
 $thumbnail[1;$authorAvatar]

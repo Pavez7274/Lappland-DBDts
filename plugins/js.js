@@ -14,6 +14,10 @@ const func = {
 			log: ["gray", "italic"]
 		})
 
+    // fs y path
+    const fs = require("fs")
+    const Path = require("path")
+
 		// axios
 		const axios = require('axios').default
 

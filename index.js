@@ -52,31 +52,6 @@ require(`./handlers/slash.js`)(client)
 // Login
 client.login(process.env['token'])
 
-/*               24/7               */
-const keepAlive = require('./server')
-const Monitor = require('ping-monitor')
-
-keepAlive()
-const monitor = new Monitor({
-  website: "https://lappland.kaedestudio.ga",
-  title: 'Lappland',
-  interval: 2
-})
-
-monitor.on('up', (res) => console.log(`|--------------[MONITOR]--------------|
-| uptime started.
-|-------------------------------------|\n`.brightGreen))
-monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
-| uptime has down.
-${res.statusMessage}
-|-------------------------------------|\n`.yellow))
-monitor.on('stop', (website) => console.log(`|--------------[MONITOR]--------------|
-| uptime has stopped
-|-------------------------------------|\n`.red))
-monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
-| ${error}
-|-------------------------------------|\n`.bgRed))
-
 
 /*          DISCORD.JS CODE           */
 
@@ -128,3 +103,40 @@ djs.on('messageUpdate', async (message) => {
 })
 
 djs.login(process.env['token'])
+
+
+/*               24/7               */
+const keepAlive = require('./server')
+const Monitor = require('ping-monitor')
+
+keepAlive()
+const monitor = new Monitor({
+  website: "https://lappland.kaedestudio.ga",
+  title: 'Lappland',
+  interval: 2
+})
+
+monitor.on('up', async (res) => {
+  console.log(`|--------------[MONITOR]--------------|
+| uptime started.
+|-------------------------------------|\n`.brightGreen)
+  
+  const allBots = await db.get('main', 'bots').then(data => data.value)
+  allBots.forEach(async (bot, index) => {
+    let user = await djs.users.fetch(String(bot.id))
+    allBots[index].image = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`
+    allBots[index].name = user.username
+
+    await db.set('main', 'bots', allBots)
+  })
+})
+monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
+| uptime has down.
+${res.statusMessage}
+|-------------------------------------|\n`.yellow))
+monitor.on('stop', (website) => console.log(`|--------------[MONITOR]--------------|
+| uptime has stopped
+|-------------------------------------|\n`.red))
+monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
+| ${error}
+|-------------------------------------|\n`.bgRed))

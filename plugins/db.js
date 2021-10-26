@@ -31,7 +31,7 @@ const func = {
 			case "delete": r = await db.delete("main", key).then(data => {})
 			break;
 
-			case "all": r = db.all("main", { filter: ({ data }) => eval(key || "data.key.includes('')") })
+			case "all": r = await db.all("main", { filter: ( data ) => data.key.includes(key) }).then(data => data)
 
 			case "": return d.sendError(fn, `:x: You must enter a method!`)
 			break;

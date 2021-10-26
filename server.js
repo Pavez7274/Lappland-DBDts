@@ -2,8 +2,12 @@
 const express = require('express');
 const server = express()
 const path = require("path")
-const database = require('@replit/database')
-const db = new database()
+const DBDJSDB = require("dbdjs.db")
+const db = new DBDJSDB.Database({
+	path: "./database/",
+	tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
+})
+db.connect()
 
 // Configs
 server.set('json spaces', 2)
@@ -18,10 +22,10 @@ server.get("/", (req, res) => {
 			web: "https://lappland.kaedestudio.ga/app"
 		})
 })
-server.get("/app",(req, res) => {
+server.get("/app", async (req, res) => {
 	res.render("app.html", {
 		title: "App",
-		db: db
+		allBots: await db.get('main', 'bots').then(data => data.value)
 	})
 })
 server.get("/nekos", async (req, res) => {

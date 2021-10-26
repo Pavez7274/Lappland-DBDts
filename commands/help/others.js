@@ -31,7 +31,6 @@ $addField[1;Wallpaper;Return a wallpaper from nekos.life
 \`\`\`xml
 ??wallpaper
 \`\`\`;yes]
-$footer[1;Developed by Kaede Studio]
 $color[1;001]
 
 $callFunction[HelpMenu]

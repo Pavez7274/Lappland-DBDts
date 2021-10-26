@@ -60,7 +60,17 @@ $color[1;001]
 $callFunction[HelpMenu]
 $callFunction[log]
 		`
-	}
+	},
+  {
+    type: 'basicCommand',
+    name: 'all-commands',
+    aliases: ['allcommands', 'allcmds'],
+    code: `
+\`\`\`
+$js[true;d.allCommands.join(', ');1]
+\`\`\`
+    `
+  }
 ]
 
 module.exports = helpCmd
