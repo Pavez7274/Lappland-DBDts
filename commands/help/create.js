@@ -4,12 +4,15 @@ const helpCmd = [
 		type: "basicCommand",
 		code: `
 $reply[$messageID;false]
+$js[false;
+d.keywords['usage'\\] = os.loadavg()[0]
+;0]
+
 $title[1;Help Menu]
 $thumbnail[1;$authorAvatar]
 $addField[1;Information;\`\`\`
 Ram: $djsEval[yes;let x = $ram
-x.toFixed(2)]    Cpu: $djsEval[yes;let x = $cpu
-x.toFixed(2)]    Ping: $ping
+x.toFixed(2)]Mb    Cpu: $get[usage]%    Ping: $pingMs
 \`\`\`]
 $addField[1;Categories;\`\`\`
 -----------------------------------
@@ -35,13 +38,16 @@ $callFunction[log]
 		code: `
 $onlyIf[$interactionID==HelpMenu;]
 $onlyIf[$interactionValues==HelpMenuIndex;]
+$js[false;
+d.keywords['usage'\\] = os.loadavg()[0\\]
+;0]
+
 $updateInteraction
 $title[1;Help Menu]
 $thumbnail[1;$authorAvatar]
 $addField[1;Information;\`\`\`
 Ram: $djsEval[yes;let x = $ram
-x.toFixed(2)]    Cpu: $djsEval[yes;let x = $cpu
-x.toFixed(2)]    Ping: $ping
+x.toFixed(2)]Mb    Cpu: $get[usage]%    Ping: $pingMs
 \`\`\`]
 $addField[1;Categories;\`\`\`
 -----------------------------------

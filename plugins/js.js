@@ -14,9 +14,11 @@ const func = {
 			log: ["gray", "italic"]
 		})
 
-    // fs y path
-    const fs = require("fs")
-    const Path = require("path")
+		// fs, path y os
+		const fs = require("fs")
+		const Path = require("path")
+    const os = require('os')
+    const cpu = os.cpus()[0]
 
 		// axios
 		const axios = require('axios').default
@@ -51,13 +53,13 @@ const func = {
 			}
 
 		// New options
-		d.author = d.data.message.author
-		d.guild = d.data.message.guild
-		d.channel = d.data.message.channel
+		d.author = d.data?.message?.author
+		d.guild = d.data?.message?.guild
+		d.channel = d.data?.message?.channel
 		d.allCommands = cdmArr
 		d.rdb = new RE()
 		d.db = db
-		d.fields = d.data.args.join(" ").split(" ?? ")
+		d.fields = d.data?.args.join(" ").split(" ?? ")
 
 		let [re, code, maxData=0] = await fn.resolveArray(d)
 		let r = undefined;

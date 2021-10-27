@@ -26,9 +26,9 @@ db.connect()
 client.commands.add({
 	type: "readyCommand",
 	code: `
-$console[|--------------[DBD.TS\\]--------------|
-| Ready on client $userTag[$clientID]
-|------------------------------------|\n;magenta]
+$js[false;
+console.log('DBD.TS'.red, '- Ready on client', String(d.client.user.tag).magenta)
+;2]
 	`
 })
 
@@ -61,10 +61,7 @@ const djs = new Client({
 })
 
 djs.on('ready', () => {
-	console.log(`|-------------[DISCORD.JS]-------------|
-| Ready on client ${djs.user.tag}
-|--------------------------------------|
-`.cyan)
+	console.log('D.JS'.red, '- Ready on client', String(djs.user.tag).cyan)
 	djs.user.setStatus('dnd')
 })
 
@@ -117,26 +114,23 @@ const monitor = new Monitor({
 })
 
 monitor.on('up', async (res) => {
-  console.log(`|--------------[MONITOR]--------------|
-| uptime started.
-|-------------------------------------|\n`.brightGreen)
-  
-  const allBots = await db.get('main', 'bots').then(data => data.value)
-  allBots.forEach(async (bot, index) => {
-    let user = await djs.users.fetch(String(bot.id))
-    allBots[index].image = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`
-    allBots[index].name = user.username
+  console.log('MONITOR'.brightGreen, '-', 'uptime started.')
 
-    await db.set('main', 'bots', allBots)
+	const allBots = await db.get('main', 'bots').then(data => data.value)
+  allBots.forEach(async (bot, index) => {
+		let user = await djs.users.fetch(String(bot.id))
+		allBots[index].image = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`
+		allBots[index].name = user.username
+
+		await db.set('main', 'bots', allBots)
   })
 })
-monitor.on('down', (res) => console.log(`|--------------[MONITOR]--------------|
-| uptime has down.
-${res.statusMessage}
-|-------------------------------------|\n`.yellow))
-monitor.on('stop', (website) => console.log(`|--------------[MONITOR]--------------|
-| uptime has stopped
-|-------------------------------------|\n`.red))
-monitor.on('error', (error) => console.log(`|--------------[MONITOR]--------------|
-| ${error}
-|-------------------------------------|\n`.bgRed))
+monitor.on('down', (res) => {
+  console.log('MONITOR'.brightGreen, '-', 'uptime has down.')
+})
+monitor.on('stop', (website) => {
+  console.log('MONITOR'.brightGreen, '-', 'uptime has stopped.')
+})
+monitor.on('error', (error) => {
+  console.log('MONITOR'.brightGreen, '-', 'ERROR', '-', `${error}`.red)
+})

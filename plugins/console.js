@@ -6,21 +6,22 @@ const func = {
 	name: "$console",
 	description: "Send a text to the console",
 	brackets: true,
-  execute: async (d, fn) => {
-		const data = await fn.resolveArray(d)
+	execute: async (d, fn) => {
 		const c = require("colors")
+		const [text, color='gray', author='LOG'] = await fn.resolveArray(d)
+
 		c.setTheme({
 			error: ["red"],
 			debug: ["cyan"]
 		})
 
     return fn.resolve(
-			eval(`console.log(\`${data[0]}\`.${data[1] || "gray"})`)
+		console.log(String(author).red, '-', text[color])
     )
   },
 	fields: [
 		{
-			name: "number",
+			name: "text",
 			required: true,
 			type: "STRING"
 		},
@@ -28,6 +29,11 @@ const func = {
 			name: "options",
 			required: false,
 			type: "STRING"
+		},
+		{
+			name: 'author',
+			required: false,
+			type: 'STRING'
 		}
 	]
 }

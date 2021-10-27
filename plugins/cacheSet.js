@@ -17,11 +17,7 @@ const func = {
 		db.connect()
 		let [ key, value, ttl=60000 ] = await fn.resolveArray(d)
 		let cache = await db.set("cache", key, value, ttl).then((data) => {
-			console.log(`|---------------[cache]---------------|
-| Name: ${key}
-| Value: ${value}
-| TTL: ${ttl}
-|-------------------------------------|`.gray)
+			console.log('cache'.red, '-', `Name: ${key} Value: ${value} TTL: ${ttl}`.gray)
 		})
 		// Code
 		return fn.resolve(
