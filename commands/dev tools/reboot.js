@@ -6,6 +6,11 @@ const RebootCmd = [
 		code: `
 $reply[$messageID;false]
 $callFunction[devs]
+$onlyIf[$endsWith[$message;--force]==false;
+a reboot was **forced**!
+$console[forced reboot by $userTag[$authorID];red;DEBUG]
+$setTimeout[2s;reboot]
+]
 $deletecommand
 
 $title[1;Reboot options]
@@ -35,12 +40,7 @@ $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
 $color[1;001]
 ]
-$console[|--------------[DEBUG\\]--------------|
-| Action: Reboot
-| Reason: $cacheGet[reboot_reason]
-| Executed by: $userTag
-| Stamp: $dateNow
-|-----------------------------------|;debug]
+$console[$userTag[$authorID] has rebooted the code why $cacheGet[reboot_reason] (stamp: $dateNow);white;DEBUG]
 $deleteMessage[$channelID;$messageID]
 
 $ephemeral
@@ -59,12 +59,7 @@ $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
 $color[1;001]
 ]
-$console[|--------------[DEBUG\\]--------------|
-| Action: Update Commands
-| Reason: $cacheGet[reboot_reason]
-| Executed by: $userTag - $authorID
-| Stamp: $dateNow
-|-----------------------------------|;debug]
+$console[$userTag[$authorID] has updated the code why $cacheGet[reboot_reason] (stamp: $dateNow);white;DEBUG]
 $deleteMessage[$channelID;$messageID]
 
 $ephemeral
