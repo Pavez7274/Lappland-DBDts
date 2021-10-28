@@ -24,12 +24,7 @@ const func = {
 		const axios = require('axios').default
 
 		// Database
-		const DBDJSDB = require("dbdjs.db")
-		const db = new DBDJSDB.Database({
-			path: "./database/",
-			tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
-		})
-		db.connect()
+		const db = require('../db.js')
 
 		// Replit database
 		let RE = require("@replit/database")
@@ -52,6 +47,11 @@ const func = {
 				cdmArr.push(cdms.get(num).data.name)
 			}
 
+		const isSymbol = (t) => {
+			const x = t.replace(/(\w+)/g, '')
+			return x ? true : false
+		}
+
 		// New options
 		d.author = d.data?.message?.author
 		d.guild = d.data?.message?.guild
@@ -72,7 +72,7 @@ const func = {
 		if (typeof r == "object") r = require("util").inspect(r, { depth: maxData })
 
 		return fn.resolve(
-			String(re) == "true" ? r : ""
+			String(re) == "true" ? r : ''
     )
 	},
 	fields: [

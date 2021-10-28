@@ -9,12 +9,8 @@ const func = {
 	execute: async (d, fn) => {
 		const colors = require(`colors`)
 		// Database connection
-		const DBDJSDB = require("dbdjs.db")
-		const db = new DBDJSDB.Database({
-			path: "./database/",
-			tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
-		})
-		db.connect()
+		const db = require('../db.js')
+		
 		const [method, key, value="null", ttl=undefined] = await fn.resolveArray(d)
 		let r = { key: undefined, value: undefined }
 
@@ -38,6 +34,8 @@ const func = {
 
 			default: return d.sendError(fn, `:x: \`${p[0]}\` is not a valid method`)
 		}
+
+		if (typeof r == "object") r = require("util").inspect(r, { depth: 5 })
 
 		return fn.resolve(
 			r
