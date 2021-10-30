@@ -20,7 +20,7 @@ $thumbnail[1;$authorAvatar]
 $description[1;To use this command you need permission to ban members from the server]
 $color[1;001]
 ]]
-$let[id;$findUser[$message]]
+$let[id;$findMember[$guildID;$message]]
 $onlyIf[$get[id]!=;
 $title[1;Error >> Mention a member!]
 $thumbnail[1;$authorAvatar]

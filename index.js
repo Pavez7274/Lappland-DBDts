@@ -3,7 +3,8 @@ const colors = require('colors')
 const client = new dbd.Bot({
   intents: [
 		"GUILDS",
-		"GUILD_MESSAGES"
+		"GUILD_MESSAGES", 
+		"GUILD_MEMBERS"
 	],
   prefix: {
     mentionPrefix: true,
@@ -15,19 +16,14 @@ const client = new dbd.Bot({
 })
 
 // Database
-const DBDJSDB = require("dbdjs.db")
-const db = new DBDJSDB.Database({
-	path: "./database/",
-	tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
-})
-db.connect()
+const db = require('./db.js')
 
 // Ready
 client.commands.add({
 	type: "readyCommand",
 	code: `
 $js[false;
-console.log('DBD.TS'.red, '- Ready on client', String(d.client.user.tag).magenta)
+console.log('DBD.TS'.red, '- Ready on client', String(d.client.user.tag).blue)
 ;2]
 	`
 })
@@ -55,15 +51,7 @@ client.login(process.env['token'])
 
 /*          DISCORD.JS CODE           */
 
-const { Client, Intents } = require('discord.js') 
-const djs = new Client({
-	intents: [ Intents?.FLAGS?.GUILDS, Intents?.FLAGS?.GUILD_MESSAGES ]
-})
-
-djs.on('ready', () => {
-	console.log('D.JS'.red, '- Ready on client', String(djs.user.tag).cyan)
-	djs.user.setStatus('dnd')
-})
+const djs = require('./discordjs/connection.js')
 
 djs.on('messageDelete', async (message) => {
 	const def = [
@@ -98,8 +86,6 @@ djs.on('messageUpdate', async (message) => {
 	})
 	db.set("main", `snipe_${message?.channel?.id}`, arr)
 })
-
-djs.login(process.env['token'])
 
 
 /*               24/7               */

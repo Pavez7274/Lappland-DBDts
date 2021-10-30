@@ -1,6 +1,6 @@
 module.exports = (client) => {
 
-client.createFunction({
+client.createCustomFunction({
   name: "devs",
   code: `
 $onlyForIDs[$pavez[id];$yuka[id];$guillermo[id];660970791202062381;
@@ -13,7 +13,7 @@ $color[1;001]
 })
 
 
-client.createFunction({
+client.createCustomFunction({
   name: "HelpMenu",
   code: `
 $addActionRow
@@ -28,7 +28,7 @@ $addSelectMenuOption[Fields;Information about the fields;HelpMenuFields]
 })
 
 
-client.createFunction({
+client.createCustomFunction({
   name: "log", 
   code: `
 $channelSendMessage[891112346611753010;

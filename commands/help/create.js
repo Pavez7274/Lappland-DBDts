@@ -5,7 +5,7 @@ const helpCmd = [
 		code: `
 $reply[$messageID;false]
 $js[false;
-d.keywords['usage'\\] = os.loadavg()[0]
+d.keywords.usage = os.loadavg()[0\\]
 ;0]
 
 $title[1;Help Menu]
@@ -39,7 +39,7 @@ $callFunction[log]
 $onlyIf[$interactionID==HelpMenu;]
 $onlyIf[$interactionValues==HelpMenuIndex;]
 $js[false;
-d.keywords['usage'\\] = os.loadavg()[0\\]
+d.keywords.usage = os.loadavg()[0\\]
 ;0]
 
 $updateInteraction

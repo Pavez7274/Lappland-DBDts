@@ -9,7 +9,7 @@ $callFunction[devs]
 $onlyIf[$endsWith[$message;--force]==false;
 a reboot was **forced**!
 $console[forced reboot by $userTag[$authorID];red;DEBUG]
-$setTimeout[2s;reboot]
+$setTimeout[2s;$reboot[index.js]]
 ]
 $deletecommand
 
@@ -45,7 +45,7 @@ $deleteMessage[$channelID;$messageID]
 
 $ephemeral
 The files are being restarted, remember that each restart is saved in the database
-$setTimeout[2s;$reboot]
+$setTimeout[2s;$reboot[index.js]]
 		`
 	},
 	{

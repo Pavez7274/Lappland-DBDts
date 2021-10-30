@@ -2,12 +2,7 @@
 const express = require('express');
 const server = express()
 const path = require("path")
-const DBDJSDB = require("dbdjs.db")
-const db = new DBDJSDB.Database({
-	path: "./database/",
-	tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }]
-})
-db.connect()
+const db = require('./db.js')
 
 // Configs
 server.set('json spaces', 2)

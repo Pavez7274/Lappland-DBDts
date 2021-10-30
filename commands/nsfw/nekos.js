@@ -26,7 +26,22 @@ $title[1;Lewd neko]
 $image[1;$nekos[nsfw;neko]]
 $footer[1;From nekos.life]
 $color[1;001]
+$addActionRow
+$addButton[newLewdNeko;new;DANGER]
 		`
+	}, 
+	{
+		type: 'buttonCommand', 
+		code: `
+$onlyIf[$interactionID==newLewdNeko;]
+$updateInteraction
+$title[1;Lewd neko]
+$image[1;$nekos[nsfw;neko]]
+$footer[1;From nekos.life]
+$color[1;001]
+$addActionRow
+$addButton[newLewdNeko;new;DANGER]
+`
 	}
 ]
 

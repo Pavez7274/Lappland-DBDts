@@ -42,7 +42,7 @@ $description[1;You can't interact with yourself!]
 $color[1;001]
 ]
 $onlyIf[$get[x]!=$clientID;
-$if[$random[100]>=95;
+$if[$random[1;100]>=95;
 $nekos[sfw;OwOify;Hey h-hey hey you c-can't do that!!]
 ;
 Hey h-hey hey you c-can't do that!!

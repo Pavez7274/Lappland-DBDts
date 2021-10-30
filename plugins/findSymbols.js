@@ -1,25 +1,24 @@
 /**
- * By Pavez#7274
+ * By YukaDev
  * @type {import("dbd.ts").FunctionData}
  */ 
 const func = {
-	name: "$random",
-  description: "Returns the value of a variable",
+	name: "$findSymbols",
+  description: "Returns the size of a file or directory",
 	brackets: true,
   execute: async (d, fn) => {
-		const data = await fn.resolveArray(d)
-		let x = data[0]
+		const [text] = await fn.resolveArray(d)
 		
     return fn.resolve(
-			Math.floor( Math.random() * x )
+			text.replace(/(\w+)/g, '')
     )
   },
 	fields: [
 		{
-			name: "max",
+			name: "text",
 			description: "",
 			required: true,
-			type: "NUMBER"
+			type: "STRING"
 		}
 	]
 }

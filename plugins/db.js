@@ -32,7 +32,7 @@ const func = {
 			case "": return d.sendError(fn, `:x: You must enter a method!`)
 			break;
 
-			default: return d.sendError(fn, `:x: \`${p[0]}\` is not a valid method`)
+			default: return d.sendError(fn, `:x: \`${method}\` is not a valid method`)
 		}
 
 		if (typeof r == "object") r = require("util").inspect(r, { depth: 5 })

@@ -20,7 +20,7 @@
       {
         "id": "2b419474-f096-4e07-ab40-b94795511bde",
         "line": 1,
-        "version": 29,
+        "version": 34,
         "index": 0
       }
     ],
@@ -30,14 +30,6 @@
         "line": 1,
         "version": 10,
         "index": 0
-      }
-    ],
-    "src/views/app.html": [
-      {
-        "id": "b527e492-3f3e-4d87-b5cd-d9958f17cb44",
-        "line": 53,
-        "version": 2409,
-        "index": 1602
       }
     ]
   }

@@ -1,6 +1,6 @@
 module.exports = (client) => {
 
-client.createSlashCommandData({
+client.createApplicationCommandData({
   type: "CHAT_INPUT",
   name: "eval",
   description: "Evaluate a code from dbd.ts",

@@ -19,7 +19,7 @@ Image]
 $color[1;001]
 ]
 $if[$message!=;
-$let[x;$findUser[$message]]
+$let[x;$findMember[$guildID;$message]]
 ;
 $let[x;nomention]
 ]
@@ -29,7 +29,7 @@ $thumbnail[1;$authorAvatar]
 $description[1;Mention the member you want to interact with]
 $color[1;001]
 ]
-$onlyIf[$get[x]!=undefined;
+$onlyIf[$get[x]!=;
 $title[1;Error >> Not found]
 $thumbnail[1;$authorAvatar]
 $description[1;The user could not be found]
@@ -39,13 +39,6 @@ $onlyIf[$get[x]!=$authorID;
 $title[1;Error]
 $thumbnail[1;$authorAvatar]
 $description[1;You can't interact with yourself!]
-$color[1;001]
-]
-$onlyIf[$get[x]!=$clientID;...]
-$onlyIf[$memberExists[$guildID;$get[x]]!=false;
-$title[1;Error]
-$thumbnail[1;$authorAvatar]
-$description[1;The user [<@!$get[x]>\\] is not part of the server]
 $color[1;001]
 ]
 
