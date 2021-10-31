@@ -20,7 +20,7 @@ $color[1;001]
 ]
 
 $if[$message[1]!=;
-$let[arg;$message[1]]
+$let[arg;$message[0]]
 ;
 $let[arg;1]
 ]
@@ -31,14 +31,14 @@ $description[1;Field 1 [position\\] must be a number]
 $color[1;001]
 ]
 $if[$message[2]!=;
-$let[ch;$findChannel[$message[2]]]
+$let[ch;$findChannel[$message[1]]]
 ;
 $let[ch;$channelID]
 ]
 $onlyIf[$get[ch]!=undefined;
 $title[1;Error >> Not found]
 $thumbnail[1;$authorAvatar]
-$description[1;The channel [$message[2]\\] could not be found]
+$description[1;The channel [$message[1]\\] could not be found]
 $color[1;001]
 ]
 $onlyIf[$js[true;d?.guild?.channels?.cache?.get('$get[ch]')?.type]==GUILD_TEXT;
