@@ -1,11 +1,13 @@
 module.exports = (client) => {
 
 client.addEvent([
-  "onMessage",
-  "onInteraction", 
-  "onJoin", 
-  "onLeave",
-	"onReady",
+  'onMessage',
+	'onMessageDelete',
+	'onMessageUpdate',
+  'onInteraction', 
+  'onJoin', 
+  'onLeave',
+	'onReady',
 ])
 	
 }
