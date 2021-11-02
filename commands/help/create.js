@@ -75,15 +75,15 @@ $callFunction[HelpMenu]
 $callFunction[log]
 		`
 	},
-  {
-    type: 'basicCommand',
-    name: 'all-commands',
-    aliases: ['allcommands', 'allcmds'],
-    code: `
+	{
+		type: 'basicCommand',
+		name: 'all-commands',
+		aliases: ['allcommands', 'allcmds'],
+		code: `
 \`\`\`
-$js[true;d.allCommands.join(', ');1]
+$commandNames
 \`\`\`
-    `
+		`
   },
 	{
 		type: 'slashCommand',

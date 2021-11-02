@@ -16,7 +16,7 @@ const func = {
 			r = await nekos.sfw[data[1]]({ text: data[2] })
 		} else if (data[0] == "nsfw") {
 			r = await nekos.nsfw[data[1]]()
-		} else d.sendError(fn, `:x: \`${data[0]}\` is not a valid type`)
+		} else d.container.sendError(fn, `:x: \`${data[0]}\` is not a valid type`)
 
 		return fn.resolve(
 			r.url || r.owo || r.fact || r.cat || r.why || r.response

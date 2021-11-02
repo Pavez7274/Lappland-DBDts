@@ -1,6 +1,6 @@
 const SetAfkCmd = [
-  {
-    type: "basicCommand", 
+	{
+		type: "basicCommand", 
 		name: "afk", 
 		code: `
 $reply[$messageID;false]
@@ -18,21 +18,28 @@ reason: string
 Information]
 $color[1;001]
 ]
+
+$ignoreCode[
+	If the user does not give a reason (message), 'no reason was given' will be used
+]
 $if[$message!=;
 $let[x;$message]
 ;
 $let[x;No reason given]
 ]
 
+$ignoreCode[
+	Set the variables and send an embed
+]
 $title[1;Always from the keyboard]
 $thumbnail[1;$authorAvatar]
 $addField[1;Reason;$get[x]]
 $color[1;001]
 $db[set;afk_$authorID_status;true]
 $db[set;afk_$authorID_reason;$get[x]]
-$db[set;afk_$authorID_stamp;$dateNow]
+$db[set;afk_$authorID_stamp;$getTimestamp]
 `
-  }
+	}
 ] 
 
 module.exports = SetAfkCmd 

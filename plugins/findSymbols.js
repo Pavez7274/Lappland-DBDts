@@ -4,14 +4,14 @@
  */ 
 const func = {
 	name: "$findSymbols",
-  description: "Returns the size of a file or directory",
+	description: "Returns the size of a file or directory",
 	brackets: true,
-  execute: async (d, fn) => {
+	execute: async (d, fn) => {
 		const [text] = await fn.resolveArray(d)
 		
-    return fn.resolve(
+    	return fn.resolve(
 			text.replace(/(\w+)/g, '')
-    )
+    	)
   },
 	fields: [
 		{

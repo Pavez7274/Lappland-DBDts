@@ -4,13 +4,13 @@
  */ 
 const func = {
 	name: "$dateNow",
-  description: "Returns the exact moment when the function was executed",
+	description: "Returns the exact moment when the function was executed",
 	brackets: false,
-  execute: async (d, fn) => {
-    return fn.resolve(
+	execute: async (d, fn) => {
+		return fn.resolve(
 			await Date.now()
-    )
-  },
+    	)
+  	},
 }
 
 module.exports = func

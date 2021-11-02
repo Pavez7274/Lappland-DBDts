@@ -3,6 +3,8 @@ const RemindCmd = [
 		type: "basicCommand",
 		name: "remind",
 		code: `
+$ignoreCode[Works, optimized in v1.5 btw]
+
 $reply[$messageID;false]
 $onlyIf[$endsWith[$message;--help]!=true;
 $title[1;Help >> Remind]

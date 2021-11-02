@@ -1,8 +1,8 @@
 const colors = require('colors')
-const DBDJSDB = require("dbdjs.db")
+const DBDJSDB = require('dbdjs.db')
 const db = new DBDJSDB.Database({
-	path: "./database/",
-	tables: [{ name: "main" }, { name: "dev" }, { name: "cache" }], 
+	path: './database/',
+	tables: [{ name: 'main' }, { name: 'dev' }, { name: 'cache' }], 
 	debug: true
 })
 

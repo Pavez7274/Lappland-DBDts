@@ -34,7 +34,7 @@ $image[1;$r34[$message]]
 $color[1;001]
 
 $callFunction[log]
-`
+		`
 	}
 ] 
 

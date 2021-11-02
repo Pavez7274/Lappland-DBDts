@@ -43,7 +43,7 @@ $color[1;001]
 ]
 
 $clearMessages[$channelID;$message]
-`
+		`
 	}
 ]
 

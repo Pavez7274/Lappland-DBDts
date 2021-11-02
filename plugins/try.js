@@ -4,22 +4,22 @@
 */ 
 const func = {
 	name: "$try",
-  description: "Formats a number using fixed-point notation",
+	description: "Formats a number using fixed-point notation",
 	brackets: true,
-  execute: async (d, fn) => {
+	execute: async (d, fn) => {
 		let [Try, Catch] = fn.resolveArray(d)
-    let result;
+    	let result;
 
-    try{
-      
-    } catch (error) {
-      
-    }
+    	try{
+			eval(Try)
+    	} catch (error) {
+			eval(Catch)
+    	}
 		
-    return fn.resolve(
+    	return fn.resolve(
 			result
-    )
-  },
+    	)
+  	},
 	fields: [
 		{
 			name: "try",

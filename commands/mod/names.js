@@ -20,7 +20,7 @@ d.keywords.users = arr.join(', ') || 'No users with invalid names'
 $title[1;List]
 $description[1;$get[users]]
 $color[1;001]
-`
+		`
 	}
 ]
 

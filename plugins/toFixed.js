@@ -4,23 +4,23 @@
 */ 
 const func = {
 	name: "$toFixed",
-  description: "Formats a number using fixed-point notation",
+	description: "Formats a number using fixed-point notation",
 	brackets: true,
-  execute: async (d, fn) => {
+	execute: async (d, fn) => {
 		const data = await fn.resolveArray(d)
 		let x = data[0]
 		let decimal = data[1]
-    let result
-    let y = x.toFixed(decimal)
-    if(y == x){
-      result = x 
-    } else {
-      result = y 
-    }
+		let result
+		let y = x.toFixed(decimal)
+		if(y == x){
+		result = x 
+		} else {
+		result = y 
+		}
 		
-    return fn.resolve(
+    	return fn.resolve(
 			result
-    )
+    	)
   },
 	fields: [
 		{

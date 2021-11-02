@@ -4,6 +4,8 @@ const WelcomeSetCmd = [
 		name: "set-welcome",
 		aliases: ["setwelcome", "set-wlc", "setwlc"],
 		code: `
+$ignoreCode[No works]
+
 $reply[$messageID;false]
 $onlyIf[$hasPerm[$guildID;$authorID;managechannels]==true;
 $title[1;Error >> Permissions]

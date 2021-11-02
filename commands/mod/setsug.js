@@ -3,7 +3,7 @@ const SetSugChannel = [
 		type: 'basicCommand',
 		name: 'set-suggestions-channel',
 		code: `
-
+$ignoreCode[soon]
 		`
 	}
 ]

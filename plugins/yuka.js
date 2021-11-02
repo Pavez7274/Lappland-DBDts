@@ -4,9 +4,9 @@
  */ 
 const func = {
 	name: "$yuka",
-  description: "Returns the Yuka information",
+	description: "Returns the Yuka information",
 	brackets: true,
-  execute: async (d, fn) => {
+	execute: async (d, fn) => {
 		let data = await fn.resolveArray(d)
 		let u = await d.client.users.fetch("681919237706612743")
 		let r
@@ -21,9 +21,9 @@ const func = {
 			break;
 			default: d.sendError(fn, `:x: \`${data[0]}\` is not a valid option`)
 		}
-    return fn.resolve(
+    	return fn.resolve(
 			r
-    )
+    	)
 	},
 	fields: [
 		{

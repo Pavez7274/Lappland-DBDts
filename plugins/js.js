@@ -17,8 +17,8 @@ const func = {
 		// fs, path y os
 		const fs = require("fs")
 		const Path = require("path")
-    const os = require('os')
-    const cpu = os.cpus()[0]
+    	const os = require('os')
+    	const cpu = os.cpus()[0]
 
 		// axios
 		const axios = require('axios').default

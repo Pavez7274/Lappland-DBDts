@@ -1,8 +1,8 @@
 module.exports = (client) => {
-	const dbd = require(`dbd.ts`)
-	const status = new dbd.StatusManager(client)
+	const { StatusManager } = require(`dbd.ts`)
+	const status = new StatusManager(client)
 	status.add({
-		name: `Running whit dbd.ts | v$botVersion`,
+		name: `Developed by Kaede Studio | v$botVersion`,
 		presence: "dnd",
 	})
 	status.start()

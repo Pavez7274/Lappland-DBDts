@@ -1,12 +1,12 @@
 const dbd = require("dbd.ts")
 const colors = require('colors')
-const { Intents } = require('discord.js')
 const client = new dbd.Bot({
   intents: [
-		"GUILDS",
-		"GUILD_MESSAGES", 
-		"GUILD_MEMBERS",
-		"DIRECT_MESSAGES"
+		'GUILDS',
+		'GUILD_MESSAGES', 
+		'GUILD_MEMBERS',
+		'DIRECT_MESSAGES',
+		'GUILD_MESSAGE_REACTIONS'
 	],
   prefix: {
     mentionPrefix: true,
@@ -39,7 +39,8 @@ require(`./handlers/events.js`)(client)
 
 // Loader
 client.commands.load({
-  path: "./commands/"
+	path: "./commands/",
+	debug: true
 })
 
 // Functions
@@ -63,29 +64,29 @@ const Monitor = require('ping-monitor')
 
 keepAlive()
 const monitor = new Monitor({
-  website: "https://lappland.kaedestudio.ga",
-  title: 'Lappland',
-  interval: 2
+	website: "https://lappland.kaedestudio.ga",
+	title: 'Lappland',
+	interval: 2
 })
 
 monitor.on('up', async (res) => {
-  console.log('MONITOR'.brightGreen, '-', 'uptime started.')
+	console.log('MONITOR'.brightGreen, '-', 'uptime started.')
 
 	const allBots = await db.get('main', 'bots').then(data => data.value)
-  allBots.forEach(async (bot, index) => {
+	allBots.forEach(async (bot, index) => {
 		let user = await djs.users.fetch(String(bot.id))
 		allBots[index].image = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`
 		allBots[index].name = user.username
 
 		await db.set('main', 'bots', allBots)
-  })
+	})
 })
 monitor.on('down', (res) => {
-  console.log('MONITOR'.brightGreen, '-', 'uptime has down.')
+	console.log('MONITOR'.brightGreen, '-', 'uptime has down.')
 })
 monitor.on('stop', (website) => {
-  console.log('MONITOR'.brightGreen, '-', 'uptime has stopped.')
+	console.log('MONITOR'.brightGreen, '-', 'uptime has stopped.')
 })
 monitor.on('error', (error) => {
-  console.log('MONITOR'.brightGreen, '-', 'ERROR', '-', `${error}`.red)
+	console.log('MONITOR'.brightGreen, '-', 'ERROR', '-', `${error}`.red)
 })

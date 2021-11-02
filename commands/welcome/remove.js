@@ -4,6 +4,8 @@ const RemoveWelcomeCmd = [
 		name: "disable-welcome",
 		aliases: ["disablewelcome", "disablewlc", "dwlc"],
 		code: `
+$ignoreCode[No works]
+
 $reply[$messageID;false]
 $onlyIf[$hasPerm[$guildID;$authorID;managechannels]==true;
 $title[1;Error >> Permissions]

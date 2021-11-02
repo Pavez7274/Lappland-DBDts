@@ -4,9 +4,9 @@
  */ 
 const func = {
 	name: "$findChannel",
-  description: "Search for a channel",
+	description: "Search for a channel",
 	brackets: true,
-  execute: async (d, fn) => {
+	execute: async (d, fn) => {
 		const data = await fn.resolveArray(d)
 		let channel = data[0]
 		let guild = await d.data.message.guild.channels.cache
@@ -22,10 +22,10 @@ const func = {
 			r = { id: "undefined" }
 		}
 
-    return fn.resolve(
+    	return fn.resolve(
 			r.id
-    )
-  },
+    	)
+	},
 	fields: [
 		{
 			name: "channel",
