@@ -1,17 +1,24 @@
 module.exports = (client) => {
 
-client.createApplicationCommandData({
-  type: "CHAT_INPUT",
-  name: "eval",
-  description: "Evaluate a code from dbd.ts",
-  options: [
-    {
-      name: "code",
-      description: "Code in dbd.ts that you want to evaluate",
-      required: true,
-      type: "STRING"
-    }
-  ]
-})
+	client.createApplicationCommandData({
+		type: 'CHAT_INPUT',
+		name: 'level',
+		description: 'Returns the statistics of a user',
+		options: [
+			{
+				name: 'user',
+				description: 'user from which to see the statistics',
+				required: false,
+				type: 'USER'
+			}
+		]
+	})
+
+
+	client.createApplicationCommandData({
+		type: 'CHAT_INPUT',
+		name: 'help',
+		description: 'Do you want to know about any command? use this'
+	})
 	
 }

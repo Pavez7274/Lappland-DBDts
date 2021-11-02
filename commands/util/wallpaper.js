@@ -18,14 +18,21 @@ $image[1;$nekos[sfw;wallpaper]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
-$addButton[newWall;New;DANGER]
-$addButton[delRows;Select;DANGER]
+$addButton[newWall_$authorID;New;DANGER]
+$addButton[delRows_$authorID;Select;DANGER]
 		`
 	},
 	{
 		type: "buttonCommand",
 		code: `
-$onlyIf[$interactionID==newWall]
+$onlyIf[$includes[$interactionID;newWall_]==true;]
+$onlyIf[$interactionID==newWall_$authorID;
+$ephemeral
+$title[1;Error]
+$thumbnail[1;$authorAvatar]
+$description[1;You are not the owner of this button]
+$color[1;001]
+]
 $updateInteraction
 
 $title[1;Random wallpaper]
@@ -34,8 +41,8 @@ $image[1;$nekos[sfw;wallpaper]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
-$addButton[newWall;New;DANGER]
-$addButton[delRows;Select;DANGER]
+$addButton[newWall_$authorID;New;DANGER]
+$addButton[delRows_$authorID;Select;DANGER]
 		`
 	}
 ]

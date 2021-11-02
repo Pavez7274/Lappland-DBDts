@@ -5,7 +5,7 @@ const RemindCmd = [
 		code: `
 $reply[$messageID;false]
 $onlyIf[$endsWith[$message;--help]!=true;
-$title[1;Help >> Avatar]
+$title[1;Help >> Remind]
 $thumbnail[1;$authorAvatar]
 $description[1;**usage**
 \`\`\`
@@ -53,7 +53,7 @@ $description[1;You asked me to remind you of this on <t:$truncate[$math[$get[sta
 $get[message]
 
 $hyperlink[jump to message;https://discord.com/channels/$get[guild]/$get[channel]/$get[messageID]]]
-$color[1 ;001]
+$color[1;001]
 ]
 		`
 	}

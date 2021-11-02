@@ -27,13 +27,21 @@ $image[1;$nekos[nsfw;neko]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
-$addButton[newLewdNeko;new;DANGER]
+$addButton[newLewdNeko_$authorID;new;DANGER]
 		`
 	}, 
 	{
 		type: 'buttonCommand', 
 		code: `
-$onlyIf[$interactionID==newLewdNeko;]
+$onlyIf[$includes[$interactionID;newLewdNeko_]==true;]
+$onlyIf[$interactionID==newLewdNeko_$authorID;
+$ephemeral
+$title[1;Error]
+$thumbnail[1;$authorAvatar]
+$description[1;You are not the owner of this menu]
+$color[1;001]
+]
+
 $updateInteraction
 $title[1;Lewd neko]
 $image[1;$nekos[nsfw;neko]]

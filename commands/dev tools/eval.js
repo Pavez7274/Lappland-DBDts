@@ -57,7 +57,8 @@ $thumbnail[1;$authorAvatar]
 $description[1;This function is disabled, if you need to see the token do it from [discord.com/developers\\](https://discord.com/developers/applications/890016209007960145/bot)]
 $color[1;001]
 ]
-$eval[$slashOption[code]]
+$eval[$reply	
+$slashOption[code]]
 		`
 	}
 ]

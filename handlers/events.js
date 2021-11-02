@@ -8,6 +8,7 @@ client.addEvent([
   'onJoin', 
   'onLeave',
 	'onReady',
+	'onTimeout'
 ])
 	
 }

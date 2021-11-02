@@ -23,14 +23,21 @@ $footer[1;From nekos.life]
 $color[1;001]
 
 $addActionRow
-$addButton[newWaifu;New;DANGER]
-$addButton[delRows;Select;DANGER]
+$addButton[newWaifu_$authorID;New;DANGER]
+$addButton[delRows_$authorID;Select;DANGER]
 		`
 	},
 	{
 		type: "buttonCommand",
 		code: `
-$onlyIf[$interactionID==newWaifu]
+$onlyIf[$includes[$interactionID;newWaifu_]==true;]
+$onlyIf[$interactionID==newWaifu_$authorID;
+$ephemeral
+$title[1;Error]
+$thumbnail[1;$authorAvatar]
+$description[1;You are not the owner of this button]
+$color[1;001]
+]
 $updateInteraction
 
 $title[1;Random waifu!!]
@@ -39,8 +46,8 @@ $image[1;$nekos[sfw;waifu]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
-$addButton[newWaifu;New;DANGER]
-$addButton[delRows;Select;DANGER]
+$addButton[newWaifu_$authorID;New;DANGER]
+$addButton[delRows_$authorID;Select;DANGER]
 		`
 	}
 ]

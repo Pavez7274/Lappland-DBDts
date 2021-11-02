@@ -3,7 +3,15 @@ const ModOption = [
 		type: "selectMenuCommand",
 		code: `
 $onlyIf[$interactionID==HelpMenu;]
-$onlyIf[$interactionValues==HelpMenuInt;]
+$onlyIf[$includes[$interactionValues;HelpMenuInt_]==true;]
+$onlyIf[$interactionValues==HelpMenuInt_$authorID;
+$ephemeral
+$title[1;Error]
+$thumbnail[1;$authorAvatar]
+$description[1;You are not the owner of this menu]
+$color[1;001]
+]
+
 $updateInteraction
 $title[1;Help Menu >> Mod]
 $thumbnail[1;$authorAvatar]

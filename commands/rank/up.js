@@ -9,6 +9,9 @@ $if[$db[get;xp_$authorID;0]>=$db[get;exp_$authorID;500];
 $db[delete;xp_$authorID]
 $db[set;exp_$authorID;$sum[$db[get;exp_$authorID;500];500]]
 $db[set;level_$authorID;$sum[$db[get;level_$authorID;0];1]]
+
+$if[$hasPerm[$guildID;$clientID;addreactions;useexternalemojis]==true;
+$addMessageReactions[$channelID;$messageID;<:lappytofu:902410429601570866>]]
 ;
 $let[new;$sum[$db[get;xp_$authorID;0];$random[1;14]]]
 $db[set;xp_$authorID;$get[new]]

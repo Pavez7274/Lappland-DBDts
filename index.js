@@ -1,10 +1,12 @@
 const dbd = require("dbd.ts")
 const colors = require('colors')
+const { Intents } = require('discord.js')
 const client = new dbd.Bot({
   intents: [
 		"GUILDS",
 		"GUILD_MESSAGES", 
-		"GUILD_MEMBERS"
+		"GUILD_MEMBERS",
+		"DIRECT_MESSAGES"
 	],
   prefix: {
     mentionPrefix: true,
@@ -12,7 +14,8 @@ const client = new dbd.Bot({
   },
 	database: {
 		path: `./database/default.sqlite`
-	}
+	},
+	internalSharding: true
 })
 
 // Database
@@ -52,40 +55,6 @@ client.login(process.env['token'])
 /*          DISCORD.JS CODE           */
 
 const djs = require('./discordjs/connection.js')
-
-djs.on('messageDelete', async (message) => {
-	const def = [
-		{
-			type: "deleted", 
-			author: 'undefined', 
-			content: 'undefined'
-		}
-	]
-	let arr = await db.get("main", `snipe_${message?.channel?.id}`).then(data => data?.value || def)
-	arr.push({
-		type: "deleted", 
-		author: message?.author?.id || 'undefined', 
-		content: message?.content || 'undefined'
-	})
-	db.set("main", `snipe_${message?.channel?.id}`, arr)
-}) 
-
-djs.on('messageUpdate', async (message) => {
-	const def = [
-		{
-			type: "edited", 
-			author: 'undefined', 
-			content: 'undefined'
-		}
-	]
-	let arr = await db.get("main", `snipe_${message?.channel?.id}`).then(data => data?.value || def)
-	arr.push({
-		type: "edited", 
-		author: message?.author?.id || 'undefined', 
-		content: message?.content || 'undefined'
-	})
-	db.set("main", `snipe_${message?.channel?.id}`, arr)
-})
 
 
 /*               24/7               */

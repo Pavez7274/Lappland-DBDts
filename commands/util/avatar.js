@@ -32,6 +32,7 @@ $description[1;The user [$message\\] could not be found]
 $color[1;001]
 ]
 
+$ignoreCode[test]
 $title[1;$userTag[$get[x]] icon]
 $image[1;$userAvatar[$get[x]]]
 $color[1;001]
