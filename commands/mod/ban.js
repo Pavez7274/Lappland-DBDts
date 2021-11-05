@@ -20,7 +20,14 @@ $thumbnail[1;$authorAvatar]
 $description[1;To use this command you need permission to ban members from the server]
 $color[1;001]
 ]]
-$let[id;$findMember[$guildID;$message]]
+$onlyIf[$hasPerm[$guildID;$clientID;banmembers]==true;
+$title[1;Error >> Required permissions]
+$thumbnail[1;$authorAvatar]
+$description[1;I need permissions to ban users from this server]
+$color[1;001]
+]
+
+$let[id;$findMember[$guildID;$message[0]]]
 $onlyIf[$get[id]!=;
 $title[1;Error >> Mention a member!]
 $thumbnail[1;$authorAvatar]
@@ -46,6 +53,14 @@ $description[1;This member could not be found, please verify that you typed ever
 $color[1;001]
 ]
 
+$suppressErrors[
+$title[1;Error]
+$thumbnail[1;$authorAvatar]
+$description[1;There was an error at the time of doing this action, please review the following
+- That I am in a hierarchical position higher than the user
+- That I have permission to ban users]
+$color[1;001]
+]
 $ban[$guildID;$get[id];$messageSlice[1]]
 $title[1;Banned Member]
 $thumbnail[1;$userAvatar[$get[id]]]
