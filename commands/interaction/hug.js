@@ -44,7 +44,7 @@ $color[1;001]
 
 $title[1;$nickname[$guildID;$authorID] hugged $nickname[$guildID;$get[x]]]
 $image[1;$nekos[sfw;hug]]
-$footer[From nekos.life]
+$footer[1;From nekos.life]
 $color[1;001]
 $callFunction[log]
 		`
