@@ -3,6 +3,7 @@ const express = require('express');
 const server = express()
 const path = require('path')
 const db = require('./db.js')
+const djs = require('./discordjs/connection.js')
 
 // Configs
 server.set('json spaces', 2)
@@ -20,7 +21,7 @@ server.get('/', (req, res) => {
 server.get('/app', async (req, res) => {
 	res.render('app.html', {
 		title: 'App',
-		allBots: await db.get('main', 'bots').then(data => data.value)
+		allBots: await db.all('main', { filter: ({ data }) => data.key.includes('botlist_bot') }).then(bs => bs.sort((x, y) => y.data.value.votes - x.data.value.votes))
 	})
 })
 server.get('/nekos', async (req, res) => {
