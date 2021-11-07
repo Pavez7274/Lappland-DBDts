@@ -10,7 +10,7 @@ const client = new dbd.Bot({
 	],
   prefix: {
     mentionPrefix: true,
-    prefixes: ["lappland ", "??"]
+    prefixes: ['lappland ', '??']
   },
 	database: {
 		path: `./database/default.sqlite`
@@ -64,22 +64,13 @@ const Monitor = require('ping-monitor')
 
 keepAlive()
 const monitor = new Monitor({
-	website: "https://lappland.kaedestudio.ga",
+	website: 'https://lappland.kaedestudio.ga',
 	title: 'Lappland',
 	interval: 2
 })
 
 monitor.on('up', async (res) => {
 	console.log('MONITOR'.brightGreen, '-', 'uptime started.')
-
-	const allBots = await db.get('main', 'bots').then(data => data.value)
-	allBots.forEach(async (bot, index) => {
-		let user = await djs.users.fetch(String(bot.id))
-		allBots[index].image = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`
-		allBots[index].name = user.username
-
-		await db.set('main', 'bots', allBots)
-	})
 })
 monitor.on('down', (res) => {
 	console.log('MONITOR'.brightGreen, '-', 'uptime has down.')
