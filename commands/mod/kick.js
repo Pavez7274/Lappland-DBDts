@@ -52,7 +52,7 @@ $description[1;There was an error at the time of doing this action, please revie
 $color[1;001]
 ]
 
-$ban[$guildID;$get[id];$get[r]]
+$kick[$guildID;$get[id];$get[r]]
 $title[1;Kicked Member]
 $thumbnail[1;$userAvatar[$get[id]]]
 $description[1;$userTag[$get[id]] was kicked from the server by $userTag[$authorID]]
