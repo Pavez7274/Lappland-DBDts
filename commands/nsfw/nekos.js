@@ -48,7 +48,7 @@ $image[1;$nekos[nsfw;neko]]
 $footer[1;From nekos.life]
 $color[1;001]
 $addActionRow
-$addButton[newLewdNeko;new;DANGER]
+$addButton[newLewdNeko_$authorID;new;DANGER]
 		`
 	}
 ]
