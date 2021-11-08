@@ -11,10 +11,14 @@ const func = {
 	  try{
 
 			if(typeof d.object[property] != 'object'){
-				d.object[property] = Array(d.object[property])
-				d.object[property].push(value)
+				if(d.object[property]){
+					d.object[property] = Array(d.object[property])
+					d.object[property].push(value)
+				} else d.object[property] = Array(value)
 			} else {
-				d.object[property].push(value)
+				if(d.object[property]){
+					d.object[property].push(value)
+				} else d.object[property] = Array(value)
 			}
 
 		} catch {
