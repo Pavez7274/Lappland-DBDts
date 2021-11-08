@@ -16,18 +16,27 @@ const func = {
 
 		switch(method.toLowerCase()){
 			// Main
-			case "get": let y = await db.get("main", key).then(data => data)
+			case "get": if(!key) d.container.sendError(fn, ':x: Enter a key!')
+			let y = await db.get("main", key).then(data => data)
 			if(!y) y = { value: value }
 			r=y.value
 			break;
 
-			case "set": r = await db.set("main", key, value, ttl).then(data => {})
+			case "set": if(!key) d.container.sendError(fn, ':x: Enter a key!')
+			r = await db.set("main", key, value, ttl).then(data => {})
 			break;
 
-			case "delete": r = await db.delete("main", key).then(data => {})
+			case "delete": if(!key) d.container.sendError(fn, ':x: Enter a key!')
+			r = await db.delete("main", key).then(data => {})
 			break;
 
 			case "all": r = await db.all("main", { filter: ( data ) => data.key.includes(key) }).then(data => data)
+			break;
+
+			case 'ping': let start = Date.now()
+			await db.all('main') 
+			r = Date.now() - start
+			break;
 
 			case "": return d.sendError(fn, `:x: You must enter a method!`)
 			break;
@@ -49,7 +58,7 @@ const func = {
 		},
 		{
 			name: "key",
-			required: true,
+			required: false,
 			type: "STRING"
 		},
 		{
