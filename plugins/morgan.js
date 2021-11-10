@@ -1,14 +1,14 @@
 /**
- * By YukitaDev
+ * By Pavez#7274
  * @type {import("dbd.ts").FunctionData}
  */ 
 const func = {
-	name: "$pavez",
-	description: "Returns pavez information",
+	name: "$morgan",
+	description: "Returns morgan information",
 	brackets: true,
 	execute: async (d, fn) => {
 		let data = await fn.resolveArray(d)
-		let u = await d.client.users.fetch("788869971073040454")
+		let u = await d.client.users.fetch('789606130493554698')
 		let r
 		switch(data[0]){
 			case "id": r = u.id
@@ -22,7 +22,7 @@ const func = {
 			default: d.sendError(fn, `:x: \`${data[0]}\` is not a valid option`)
 		}
     	return fn.resolve(
-			r
+				r
     	)
 	},
 	fields: [
