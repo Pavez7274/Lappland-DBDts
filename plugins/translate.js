@@ -9,9 +9,10 @@ const func = {
 	execute: async (d, fn) => {
 		let [ text, lang ] = await fn.resolveArray(d)
 		const axios = require('axios')
+		let res
 
 		try{
-			let res = await axios.request({
+			res = await axios.request({
 				url: `https://translate-api.ml/translate?text=${text}&lang=${lang}`,
 				method: 'GET',
 				responseType: 'text',
