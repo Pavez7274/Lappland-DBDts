@@ -1,16 +1,16 @@
 const { Bot } = require("dbd.ts")
-const colors = require('colors')
 const { BotOptions } = require('./handlers/options.js')
 const client = new Bot(BotOptions)
 
 // Database
 const db = require('./db.js')
 
-// StatusManager
+// Handlers
 require(`./handlers/status.js`)(client)
-
-// Events
 require(`./handlers/events.js`)(client)
+require(`./handlers/functions.js`)(client)
+require(`./handlers/slash.js`)(client)
+require('./server')()
 
 // Loader
 client.commands.load({
@@ -18,15 +18,5 @@ client.commands.load({
 	debug: true
 })
 
-// Functions
-require(`./handlers/functions.js`)(client)
-
-// Slash
-require(`./handlers/slash.js`)(client)
-
 // Login
-client.login(process.env['token'])
-
-
-/*               24/7               */
-require('./server')()
+client.login(process.env['token']) 
