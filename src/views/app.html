@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.html") %>
+
+	<body onLoad="loadApp()">
+
+		<ion-app>
+			<ion-tabs>
+				<ion-tab tab="tab-botlist" id="botlist">
+					<ion-header>
+						<ion-toolbar color="danger">
+							<ion-title>
+								Bots
+							</ion-title>
+							<ion-searchbar placeholder="Search bot" color="danger"></ion-searchbar>
+						</ion-toolbar>
+					</ion-header>
+					<ion-content>
+						<ion-grid>
+							<ion-row>
+								<% allBots.forEach((bot, index) => { %>
+									<ion-col size-md="6" size="12">
+										<ion-list>
+
+											<ion-item>
+												<ion-card>
+													<ion-card-header>
+														<ion-card-title>
+															<%- bot.data.value.username %>
+														</ion-card-title> <br>
+                              <img src="<%- bot.data.value.avatar %>" alt="<%- bot.data.value.username %> avatar">
+                          </ion-card-header>
+                          <ion-card-content>
+                            <%- bot.data.value.description %>
+                          </ion-card-content>
+                            <ion-item href="#" class="ion-activated">
+                              <ion-label id="vote">Vote</ion-label>
+                            </ion-item>
+                            <ion-item href="https://discord.com/oauth2/authorize?client_id=<%- bot.data.value.snowflake %>&scope=bot%20applications.commands&permissions=2147483647" class="ion-activated">
+                              <ion-label>Invite</ion-label>
+                            </ion-item>
+                        </ion-card>
+                      </ion-item>
+
+									</ion-list>
+								</ion-col>
+								
+										<% }) %>
+							</ion-row>
+						</ion-grid>
+					</ion-content>
+				</ion-tab>
+
+			<ion-tab tab="tab-developers" id="developers">
+				<ion-content>
+					<ion-header>
+						<ion-toolbar color="danger">
+							<ion-title>
+								Developers
+							</ion-title>
+						</ion-toolbar>
+					</ion-header>
+					<ion-list>
+						<ion-list-header>
+							<h1>Lead</h1>
+						</ion-list-header>
+						<ion-item>
+							<ion-avatar slot="start">
+								<img src="https://cdn.discordapp.com/avatars/788869971073040454/ac2d662dfe5d8a1472dd2a16967cd4e8.webp?size=1024">
+							</ion-avatar>
+							<ion-label>
+								Pavez
+							</ion-label>
+						</ion-item>
+
+						<ion-item>
+							<ion-avatar slot="start">
+								<img src="https://cdn.discordapp.com/avatars/681919237706612743/815ddfe89669e5c8f8a22e24f584d991.webp?size=1024">
+							</ion-avatar>
+							<ion-label>
+								Yuka
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-content>		
+			</ion-tab>
+
+			<ion-tab tab="tab-patners" id="patners">
+				<ion-header>
+					<ion-toolbar color="danger">
+						<ion-title>
+							Patners
+						</ion-title>
+					</ion-toolbar>
+				</ion-header>
+				<ion-content>
+					<ion-grid>
+						<ion-row>
+							<ion-col size-md="6" size="12">
+								<ion-card>
+									<ion-card-header>
+										<ion-card-title>Kaede studio</ion-card-title> <br>
+										<img src="https://cdn.discordapp.com/icons/812513688614731776/fd6ae5697e4c347b132f240897d5587e.png?size=2048" alt="Kaede logo">
+									</ion-card-header>
+									<ion-card-content>
+										official server
+									</ion-card-content>
+									<ion-item href="https://discord.gg/qCNgyTDJp5" class="ion-activated">
+										<ion-label>Join</ion-label>
+									</ion-item>
+								</ion-card>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-content>
+			</ion-tab>
+
+			<ion-tab tab="tab-settings" id="settings">
+				<ion-header>
+					<ion-toolbar color="danger">
+						<ion-title>Settings</ion-title>
+					</ion-toolbar>
+				</ion-header>
+				<ion-content class="main-content">
+      		<ion-list>
+						<ion-item lines="full">
+							<ion-icon slot="start" name="moon"></ion-icon>
+							<ion-label>
+								Toggle Dark Theme
+							</ion-label>
+							<ion-toggle id="themeToggle" slot="end"></ion-toggle>
+						</ion-item>
+      		</ion-list>
+				</ion-content>
+			</ion-tab>
+
+			<ion-tab-bar slot="bottom" color="danger">
+
+				<ion-tab-button tab="tab-botlist">
+					<ion-icon name="list-outline"></ion-icon>
+					<ion-label>Bot list</ion-label>
+				</ion-tab-button>
+
+				<ion-tab-button tab="tab-developers">
+					<ion-icon name="information-circle-outline"></ion-icon>
+					<ion-label>Developers</ion-label>
+				</ion-tab-button>
+
+				<ion-tab-button tab="tab-patners">
+					<ion-icon name="logo-discord"></ion-icon>
+					<ion-label>Patners</ion-label>
+				</ion-tab-button>
+
+				<ion-tab-button tab="tab-settings">
+					<ion-icon name="settings-outline"></ion-icon>
+					<ion-label>Settings</ion-label>
+				</ion-tab-button>
+			</ion-tab-bar>
+
+		</ion-tabs>
+	</ion-app>
+
+	<script>
+    const searchbar = document.querySelector('ion-searchbar');
+    const items = Array.from(document.querySelector('ion-list').children);
+
+    searchbar.addEventListener('ionInput', handleInput);
+
+    function handleInput(event) {
+      const query = event.target.value.toLowerCase();
+      requestAnimationFrame(() => {
+        items.forEach(item => {
+          const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
+          item.style.display = shouldShow ? 'block' : 'none';
+        });
+      });
+    }
+		const vote = document.querySelector('#vote')
+		vote.addEventListener('click', () => {
+			const alert = document.createElement('ion-alert')
+			alert.header = "This is not yet possible"
+			alert.message = "The voting option is not active yet, but don't worry, it will be ready shortly!"
+			alert.buttons = ["ok"]
+
+			document.body.appendChild(alert)
+			return alert.present()
+		})
+
+		// Query for the toggle that is used to change between themes
+		const toggle = document.querySelector('#themeToggle');
+
+		// Listen for the toggle check/uncheck to toggle the dark class on the <body>
+		toggle.addEventListener('ionChange', (ev) => {
+			document.body.classList.toggle('dark', ev.detail.checked);
+		});
+
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+		// Listen for changes to the prefers-color-scheme media query
+		prefersDark.addListener((e) => checkToggle(e.matches));
+
+		// Called when the app loads
+		function loadApp() {
+			checkToggle(prefersDark.matches);
+		}
+
+		// Called by the media query to check/uncheck the toggle
+		function checkToggle(shouldCheck) {
+			toggle.checked = shouldCheck;
+		}
+  </script>
+</body>
+</html>
