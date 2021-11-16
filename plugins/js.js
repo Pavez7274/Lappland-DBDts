@@ -39,14 +39,6 @@ const func = {
 			return await cld.execSync(data)
 		}
 
-		// Commands
-		let cdms = d.bot.commands.cache.get("basicCommand")
-			let num = -1; let size = cdms.size; let cdmArr = []
-			for(let i = 0;i<=size-1;i++){
-				num = eval(num+1)
-				cdmArr.push(cdms.get(num).data.name)
-			}
-
 		const isSymbol = (t) => {
 			const x = t.replace(/(\w+)/g, '')
 			return x ? true : false
@@ -56,7 +48,6 @@ const func = {
 		d.author = d.data?.message?.author
 		d.guild = d.data?.message?.guild
 		d.channel = d.data?.message?.channel
-		d.allCommands = cdmArr
 		d.rdb = new RE()
 		d.db = db
 		d.fields = d.data?.args.join(" ").split(" ?? ")
