@@ -31,7 +31,7 @@ const func = {
 			break;
 
 			case "all": r = await db.all("main", { filter: ( data ) => data.key.includes(key) }).then(data => data)
-			break;
+			break; 
 
 			case 'ping': let start = Date.now()
 			await db.all('main') 
