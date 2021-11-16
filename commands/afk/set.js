@@ -31,7 +31,7 @@ $let[x;No reason given]
 $ignoreCode[
 	Set the variables and send an embed
 ]
-$title[1;Always from the keyboard]
+$title[1;Away from the keyboard]
 $thumbnail[1;$authorAvatar]
 $addField[1;Reason;$get[x]]
 $color[1;001]
