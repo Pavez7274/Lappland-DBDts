@@ -1,9 +1,13 @@
 const { Bot } = require("dbd.ts")
-const { BotOptions } = require('./handlers/options.js')
+const { BotOptions, LavalinkOptions } = require('./handlers/options.js')
 const client = new Bot(BotOptions)
 
 // Database
 const db = require('./db.js')
+
+// Lavalink || no works... secure option is required
+// client.lavalink.addNode(LavalinkOptions)
+// client.lavalink.connect()
 
 // Handlers
 require(`./handlers/status.js`)(client)
@@ -15,7 +19,7 @@ require('./server')()
 // Loader
 client.commands.load({
 	path: "./commands/",
-	debug: true
+	debug: false
 })
 
 // Login
