@@ -1,4 +1,4 @@
-const { Bot } = require("dbd.ts")
+const { Bot } = require('dbd.ts')
 const { BotOptions, LavalinkOptions } = require('./handlers/options.js')
 const client = new Bot(BotOptions)
 
@@ -18,7 +18,7 @@ require('./server')()
 
 // Loader
 client.commands.load({
-	path: "./commands/",
+	path: './commands/',
 	debug: false
 })
 
