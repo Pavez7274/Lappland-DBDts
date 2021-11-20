@@ -25,6 +25,12 @@ const func = {
 
 		// Database
 		const db = require('../db.js')
+		db.async = {
+			get: async (key, table='main') => {
+			const x = await db.get(table, key)
+			return x?.value || undefined
+		}
+		}
 
 		// Replit database
 		let RE = require("@replit/database")
