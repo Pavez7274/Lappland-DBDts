@@ -3,11 +3,11 @@
  * @type { import("dbd.ts").FunctionData }
  */
 const func = {
-	name: "$db",
-	description: "database manager",
+	name: '$db',
+	description: 'database manager',
 	brackets: true,
 	execute: async (d, fn) => {
-		const colors = require(`colors`)
+		const colors = require('colors')
 		// Database connection
 		const db = require('../db.js')
 		
@@ -16,21 +16,21 @@ const func = {
 
 		switch(method.toLowerCase()){
 			// Main
-			case "get": if(!key) d.container.sendError(fn, ':x: Enter a key!')
-			let y = await db.get("main", key).then(data => data)
+			case 'get': if(!key) d.container.sendError(fn, ':x: Enter a key!')
+			let y = await db.get('main', key).then(data => data)
 			if(!y) y = { value: value }
 			r=y.value
 			break;
 
-			case "set": if(!key) d.container.sendError(fn, ':x: Enter a key!')
-			r = await db.set("main", key, value, ttl).then(data => {})
+			case 'set': if(!key) d.container.sendError(fn, ':x: Enter a key!')
+			r = await db.set('main', key, value, ttl).then(data => {})
 			break;
 
-			case "delete": if(!key) d.container.sendError(fn, ':x: Enter a key!')
-			r = await db.delete("main", key).then(data => {})
+			case 'delete': if(!key) d.container.sendError(fn, ':x: Enter a key!')
+			r = await db.delete('main', key).then(data => {})
 			break;
 
-			case "all": r = await db.all("main", { filter: ( data ) => data.key.includes(key) }).then(data => data)
+			case 'all': r = await db.all('main', { filter: ( data ) => data.key.includes(key) }).then(data => data)
 			break; 
 
 			case 'ping': let start = Date.now()
@@ -38,13 +38,13 @@ const func = {
 			r = Date.now() - start
 			break;
 
-			case "": return d.sendError(fn, `:x: You must enter a method!`)
+			case '': return d.sendError(fn, `:x: You must enter a method!`)
 			break;
 
 			default: return d.sendError(fn, `:x: \`${method}\` is not a valid method`)
 		}
 
-		if (typeof r == "object") r = require("util").inspect(r, { depth: 5 })
+		if (typeof r == 'object') r = require('util').inspect(r, { depth: 5 })
 
 		return fn.resolve(
 			r
@@ -52,24 +52,24 @@ const func = {
 	},
 	fields: [
 		{
-			name: "method",
+			name: 'method',
 			required: true,
-			type: "STRING"
+			type: 'STRING'
 		},
 		{
-			name: "key",
+			name: 'key',
 			required: false,
-			type: "STRING"
+			type: 'STRING'
 		},
 		{
-			name: "value",
+			name: 'value',
 			required: false,
-			type: ["STRING", "BOOLEAN", "NUMBER", "TIME"]
+			type: ['STRING', 'BOOLEAN', 'NUMBER', 'TIME']
 		},
 		{
-			name: "ttl",
+			name: 'ttl',
 			required: false,
-			type: "NUMBER"
+			type: 'NUMBER'
 		}
 	]
 }
