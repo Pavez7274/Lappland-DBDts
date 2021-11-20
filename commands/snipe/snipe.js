@@ -3,8 +3,6 @@ const SnipeCmd = [
 		type: "basicCommand",
 		name: "snipe",
 		code: `
-$ignoreCode[Works, optimized in v1.5 or v2 btw]
-
 $onlyIf[$endsWith[$message;--help]!=true;
 $title[1;Help >> Snipe]
 $thumbnail[1;$authorAvatar]
