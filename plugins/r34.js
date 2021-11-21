@@ -1,28 +1,26 @@
 /**
  * By Pavez#7274 
- * @type {import("dbd.ts").FunctionData}
- */ 
+ * @type { import("dbd.ts").FunctionData }
+ */
 const func = {
 	name: "$r34",
 	description: "...",
 	brackets: true,
 	execute: async (d, fn) => {
-		const [ filter ] = await fn.resolveArray(d)
-	  	let { posts } = require("rule34js")
-		let response = await posts({ tags: filter.split(", ") })
-		let result = await response?.posts[Math.floor(Math.random() * (response?.count - 1))]?.file_url
-    
-    	return fn.resolve(
-			result
-    	)
-  },
+		const [filter] = await fn.resolveArray(d)
+		const { search, commonfy } = require('booru')
+		const result = await search('rule34.xxx', filter, { limit: 1, random: true })
+		if (!result?.posts[0]?.file_url) return d.container.sendError(fn, 'No results')
+
+		return fn.resolve(result?.posts[0]?.file_url)
+	},
 	fields: [
 		{
-			name: "filter", 
-			required: true, 
-			type: "STRING"
+			name: 'filter',
+			required: true,
+			type: 'STRING'
 		},
-		
+
 	]
 }
 

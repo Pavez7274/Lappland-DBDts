@@ -1,35 +1,33 @@
 /**
  * By YukaDev
  * @type { import("dbd.ts").FunctionData }
-*/ 
+*/
 const func = {
 	name: "$try",
 	description: "Formats a number using fixed-point notation",
 	brackets: true,
 	execute: async (d, fn) => {
 		let [Try, Catch] = fn.resolveArray(d)
-    	let result;
+		let result;
 
-    	try{
+		try {
 			eval(Try)
-    	} catch (error) {
+		} catch (error) {
 			eval(Catch)
-    	}
-		
-    	return fn.resolve(
-			result
-    	)
-  	},
+		}
+
+		return fn.resolve(result)
+	},
 	fields: [
 		{
-			name: "try",
+			name: 'try',
 			required: true,
-			type: "TEXT"
+			type: 'TEXT'
 		},
 		{
-			name: "catch",
+			name: 'catch',
 			required: true,
-			type: "TEXT"
+			type: 'TEXT'
 		}
 	]
 }

@@ -3,35 +3,33 @@
  * @type {import("dbd.ts").FunctionData}
  */
 const func = {
-	name: "$nekos",
-	description: "NekosLife API",
+	name: '$nekos',
+	description: 'NekosLife API',
 	brackets: true,
 	execute: async (d, fn) => {
-		const data = await fn.resolveArray(d)
+		const [type, funct, text] = await fn.resolveArray(d)
 		const Neko = require('nekos.life');
 		const nekos = new Neko()
 		let r
 
-		if (data[0] == "sfw") {
-			r = await nekos.sfw[data[1]]({ text: data[2] })
-		} else if (data[0] == "nsfw") {
-			r = await nekos.nsfw[data[1]]()
-		} else d.container.sendError(fn, `:x: \`${data[0]}\` is not a valid type`)
+		if (type.toLowerCase() === 'sfw') {
+			r = await nekos.sfw[funct]({ text: text })
+		} else if (type.toLowerCase() === 'nsfw') {
+			r = await nekos.nsfw[funct]()
+		} else d.container.sendError(fn, `:x: \`${type}\` is not a valid type`)
 
-		return fn.resolve(
-			r.url || r.owo || r.fact || r.cat || r.why || r.response
-		)
+		return fn.resolve(r.url || r.owo || r.fact || r.cat || r.why || r.response)
 	},
 	fields: [
 		{
-			name: "type",
+			name: 'type',
 			required: true,
-			type: "STRING"
+			type: 'STRING'
 		},
 		{
-			name: "function",
+			name: 'function',
 			required: true,
-			type: "STRING"
+			type: 'STRING'
 		},
 		{
 			name: "text",

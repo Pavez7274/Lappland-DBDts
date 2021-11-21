@@ -1,39 +1,35 @@
 /**
  * By YukaDev
  * @type { import("dbd.ts").FunctionData }
-*/ 
+*/
 const func = {
-	name: "$toFixed",
-	description: "Formats a number using fixed-point notation",
+	name: '$toFixed',
+	description: 'Formats a number using fixed-point notation',
 	brackets: true,
 	execute: async (d, fn) => {
-		const data = await fn.resolveArray(d)
-		let x = data[0]
-		let decimal = data[1]
+		const [number, max = 4] = await fn.resolveArray(d)
 		let result
-		let y = x.toFixed(decimal)
-		if(y == x){
-		result = x 
+		let y = number.toFixed(decimal)
+		if (y === number) {
+			result = number
 		} else {
-		result = y 
+			result = y
 		}
-		
-    	return fn.resolve(
-			result
-    	)
-  },
+
+		return fn.resolve(result)
+	},
 	fields: [
 		{
-			name: "number",
-			description: "number with decimals",
+			name: 'number',
+			description: 'number with decimals',
 			required: true,
-			type: "NUMBER"
+			type: 'NUMBER'
 		},
 		{
-			name: "max",
-			description: "maximum of decimal places",
+			name: 'max',
+			description: 'maximum of decimal places',
 			required: true,
-			type: "NUMBER"
+			type: 'NUMBER'
 		}
 	]
 }

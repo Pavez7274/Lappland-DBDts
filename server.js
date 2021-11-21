@@ -15,15 +15,15 @@ server.set('views', path.join(__dirname, 'src/views/'))
 // Routes
 server.get('/', (req, res) => {
 	res.json({
-			status:res.statusCode,
-			web: 'https://lappland.kaedestudio.ga/app',
-			lavalink: {
-				url: 'https://lava.pavez.ga',
-				password: 'youshallnotpass',
-				port: 443,
-				secure: true
-			}
-		})
+		status: res.statusCode,
+		web: 'https://lappland.kaedestudio.ga/app',
+		lavalink: {
+			url: 'https://lava.pavez.ga',
+			password: 'youshallnotpass',
+			port: 443,
+			secure: true
+		}
+	})
 })
 server.get('/app', async (req, res) => {
 	res.render('app.html', {
@@ -34,8 +34,8 @@ server.get('/app', async (req, res) => {
 
 // Listen 
 module.exports = () => {
-  server.listen(3000, () => {
-    console.log('EXPRESS'.red, '- server ready');
-  })
-  return true;
+	server.listen(3000, () => {
+		console.log('EXPRESS'.red, '- server ready');
+	})
+	return true;
 }

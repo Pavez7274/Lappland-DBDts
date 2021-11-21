@@ -1,27 +1,20 @@
 /**
  * By YukaDev
- * @type {import("dbd.ts").FunctionData}
- */ 
+ * @type { import("dbd.ts").FunctionData }
+ */
 const func = {
-	name: "$fileSize",
-  description: "Returns the size of a file or directory",
+	name: '$fileSize',
+	description: 'Returns the size of a file or directory',
 	brackets: true,
-  execute: async (d, fn) => {
-		const data = await fn.resolveArray(d)
-		const fs = require("fs")
-		let file = data[0]
-		let r = await fs.promises.stat(file)
-		
-    return fn.resolve(
-			r.size
-    )
-  },
+	execute: async (d, fn) => {
+		const [file] = await fn.resolveArray(d)
+		return fn.resolve(await require("fs").promises.stat(file))
+	},
 	fields: [
 		{
-			name: "file",
-			description: "",
+			name: 'file',
 			required: true,
-			type: "STRING"
+			type: 'STRING'
 		}
 	]
 }
