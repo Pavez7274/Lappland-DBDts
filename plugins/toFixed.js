@@ -9,7 +9,7 @@ const func = {
 	execute: async (d, fn) => {
 		const [number, max = 4] = await fn.resolveArray(d)
 		let result
-		let y = number.toFixed(decimal)
+		let y = number.toFixed(max)
 		if (y === number) {
 			result = number
 		} else {

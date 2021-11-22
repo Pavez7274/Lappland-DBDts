@@ -14,7 +14,7 @@ require(`./handlers/status.js`)(client)
 require(`./handlers/events.js`)(client)
 require(`./handlers/functions.js`)(client)
 require(`./handlers/slash.js`)(client)
-require('./server')()
+require('./server.js')()
 
 // Loader
 client.commands.load({

@@ -3,17 +3,17 @@
  * @type { import("dbd.ts").FunctionData }
 */
 const func = {
-	name: "$try",
-	description: "Formats a number using fixed-point notation",
+	name: '$try',
+	description: 'Ehhh... yes',
 	brackets: true,
 	execute: async (d, fn) => {
 		let [Try, Catch] = fn.resolveArray(d)
 		let result;
 
 		try {
-			eval(Try)
+			result = await eval(Try)
 		} catch (error) {
-			eval(Catch)
+			result = await eval(Catch)
 		}
 
 		return fn.resolve(result)
@@ -22,12 +22,12 @@ const func = {
 		{
 			name: 'try',
 			required: true,
-			type: 'TEXT'
+			type: 'STRING'
 		},
 		{
 			name: 'catch',
 			required: true,
-			type: 'TEXT'
+			type: 'STRING'
 		}
 	]
 }

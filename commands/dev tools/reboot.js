@@ -23,9 +23,9 @@ $addButton[reboot;All files;DANGER]
 $addButton[update;Cdm only;DANGER;;true]
 $addButton[delete;Delete this;DANGER]
 $if[$message!=;
-$cacheSet[reboot_reason;$message]
+$cache[set;reboot_reason;$message]
 ;
-$cacheSet[reboot_reason;No reason was given]
+$cache[set;reboot_reason;No reason was given]
 ]
 `
 	},
@@ -40,7 +40,7 @@ $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
 $color[1;001]
 ]
-$console[$userTag[$authorID] has rebooted the code why $cacheGet[reboot_reason] (stamp: $dateNow);white;DEBUG]
+$console[$userTag[$authorID] has rebooted the code why $cache[get;reboot_reason] (stamp: $getTimestamp);white;DEBUG]
 $deleteMessage[$channelID;$messageID]
 
 $ephemeral
@@ -59,7 +59,7 @@ $thumbnail[1;$authorAvatar]
 $description[1;This command is for developers only]
 $color[1;001]
 ]
-$console[$userTag[$authorID] has updated the code why $cacheGet[reboot_reason] (stamp: $dateNow);white;DEBUG]
+$console[$userTag[$authorID] has updated the code why $cache[get;reboot_reason] (stamp: $getTimestamp);white;DEBUG]
 $deleteMessage[$channelID;$messageID]
 
 $ephemeral

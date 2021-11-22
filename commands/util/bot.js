@@ -40,7 +40,7 @@ $addField[1;Ram;$toFixed[$ram;2]MB;true]
 $addField[1;Packages;dbd.ts $packageVersion
 discord.js $get[djsversion]
 dbdjs.db $get[dbversion];true]
-$addField[1;UpTime;<t:$toFixed[$math[($dateNow/1000)-($uptime/1000)];0]:R>;true]
+$addField[1;UpTime;<t:$toFixed[$math[($getTimestamp/1000)-($uptime/1000)];0]:R>;true]
 $addField[1;API Status;$httpGet[https://lappland.kaedestudio.ga/;status;];true]
 $footer[1;Stable $botVersion]
 $color[1;001]
