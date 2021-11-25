@@ -18,7 +18,7 @@ module.exports = {
 		if (!d.queue) return d.message.reply(d.errors.queue)
 		
 		try {
-			d.queue.pause()
+			d.queue.resume()
 			return d.message.reply('Queue resumed')
 		} catch {
 			return d.message.reply('Can\'t resume the queue')
