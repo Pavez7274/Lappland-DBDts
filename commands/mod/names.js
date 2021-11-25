@@ -6,6 +6,10 @@ const NamesCmd = [
 		code: `
 $js[false;
 let arr = [\\]
+const isSymbol = (t) => {
+	const x = t.replace(/(\\w+)/g, '')
+	return x ? true : false
+}
 d.guild.members.fetch().then((x) => {
 	const members = Array.from(x)
 for(const member of members){
