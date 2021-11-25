@@ -17,25 +17,15 @@ Information`,
 			]
 		})
 
-		const queue = d.client.distube.getQueue(d.message)
-		if (!queue) return d.message.reply({
-			embeds: [
-				{
-					title: 'Error',
-					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: 'Right now there are no songs in the queue!',
-					color: '#001'
-				}
-			]
-		})
+		if (!d.queue) return d.message.reply(d.errors.queue)
 		try {
-			const song = queue.skip()
+			const song = await d.queue.skip()
 			d.message.reply({
 				embeds: [
 					{
 						title: 'Skipped',
 						thumbnail: { url: song.thumbnail },
-						description: `Playing now: \n[${queue.songs[1].name}](${queue.songs[1].url})`,
+						description: `Playing now: \n[${song.name}](${song.url})`,
 						color: '#001'
 					}
 				]

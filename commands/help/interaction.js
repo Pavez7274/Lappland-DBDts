@@ -16,7 +16,7 @@ $updateInteraction
 $title[1;Help Menu >> Mod]
 $thumbnail[1;$authorAvatar]
 $addField[1;Pat;Caress a member
-\`\`\`xm
+\`\`\`xml
 ??pat <user>
 \`\`\`]
 $addField[1;Hug;Hug a member

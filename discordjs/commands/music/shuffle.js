@@ -15,20 +15,9 @@ module.exports = {
 			]
 		})
 
-		const queue = d.client.distube.getQueue(d.message)
-		if (!queue) return d.message.reply({
-			embeds: [
-				{
-					title: 'Error',
-					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: 'There is nothing playing!',
-					color: '#001'
-				}
-			]
-		})
-		
-		d.client.distube.shuffle(d.message)
+		if (!d.queue) return d.message.reply(d.errors.queue)
 
-	return d.message.reply('The queue was shuffled')
+		d.queue.shuffle(d.message)
+		return d.message.reply('The queue was shuffled')
 	}
 }

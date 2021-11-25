@@ -56,11 +56,16 @@ client.on('messageCreate', async (message) => {
 		args: args,
 		command: command,
 		cmd: cmd,
+		queue: client.distube.getQueue(message),
+		distube: client.distube,
 		channel: message.channel,
 		author: message.author,
 		member: message.member,
 		lastArg: args[args.length - 1],
-		stringArgs: args.join(' ')
+		stringArgs: args.join(' '),
+		errors: {
+			queue: {embeds: [{title:'Error',thumbnail:{url:message.author.displayAvatarURL({dynamic:!0})},description:'There is nothing playing!',color:'#001'}]}
+		}
 	}
 	cmd.run(data)
 })
@@ -82,7 +87,7 @@ Duration: **${song.formattedDuration}**`,
 	})
 	.on('playSong', (queue, song) => {
 		queue.textChannel.send(`Playing \`${song.name}\``).then(x => {
-			queue.textChannel.messages.fetch(x.id).then(m => setTimeout(async () => m.delete()), 8000)
+			queue.textChannel.messages.fetch(x.id).then(m => setTimeout(() => m.delete(), 10000))
 		})
 	})
 

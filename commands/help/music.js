@@ -50,6 +50,10 @@ $addField[1;Shuffle;Shuffle the queue
 \`\`\`xml
 ??shuffle
 \`\`\`]
+$addField[1;Autoplay;Toggle autoplay mode
+\`\`\`xml
+??autoplay
+\`\`\`]
 $color[1;001]
 
 $callFunction[HelpMenu]

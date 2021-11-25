@@ -8,7 +8,7 @@ const func = {
 	brackets: true,
 	execute: async (d, fn) => {
 		const [filter] = await fn.resolveArray(d)
-		const { search, commonfy } = require('booru')
+		const { search } = require('booru')
 		const result = await search('rule34.xxx', filter, { limit: 1, random: true })
 		if (!result?.posts[0]?.file_url) return d.container.sendError(fn, 'No results')
 

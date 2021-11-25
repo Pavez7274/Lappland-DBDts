@@ -34,7 +34,7 @@
                             <%- bot.data.value.description %>
                           </ion-card-content>
                             <ion-item href="#" class="ion-activated">
-                              <ion-label id="vote">Vote</ion-label>
+                              <ion-label onclick="alert()">Vote</ion-label>
                             </ion-item>
                             <ion-item href="https://discord.com/oauth2/authorize?client_id=<%- bot.data.value.snowflake %>&scope=bot%20applications.commands&permissions=2147483647" class="ion-activated">
                               <ion-label>Invite</ion-label>
@@ -66,19 +66,19 @@
 						</ion-list-header>
 						<ion-item>
 							<ion-avatar slot="start">
-								<img src="https://cdn.discordapp.com/avatars/788869971073040454/ac2d662dfe5d8a1472dd2a16967cd4e8.webp?size=1024">
+								<img src="<%- pavez.avatar %>">
 							</ion-avatar>
 							<ion-label>
-								Pavez
+								<%- pavez.name %>
 							</ion-label>
 						</ion-item>
 
 						<ion-item>
 							<ion-avatar slot="start">
-								<img src="https://cdn.discordapp.com/avatars/681919237706612743/815ddfe89669e5c8f8a22e24f584d991.webp?size=1024">
+								<img src="<%- yuka.avatar %>">
 							</ion-avatar>
 							<ion-label>
-								Yuka
+								<%- yuka.name %>
 							</ion-label>
 						</ion-item>
 					</ion-list>
@@ -175,16 +175,16 @@
         });
       });
     }
-		const vote = document.querySelector('#vote')
-		vote.addEventListener('click', () => {
+
+		async function alert() {
 			const alert = document.createElement('ion-alert')
-			alert.header = "This is not yet possible"
-			alert.message = "The voting option is not active yet, but don't worry, it will be ready shortly!"
-			alert.buttons = ["ok"]
+			alert.header = 'This is not yet possible'
+			alert.message = 'The voting option is not active yet, but don\'t worry, it will be ready shortly!'
+			alert.buttons = ['ok']
 
 			document.body.appendChild(alert)
-			return alert.present()
-		})
+			await alert.present()
+		}
 
 		// Query for the toggle that is used to change between themes
 		const toggle = document.querySelector('#themeToggle');

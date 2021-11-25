@@ -1,22 +1,26 @@
 module.exports = {
-	name: 'stop',
-	aliases: ['disconnect', 'ds', 'leave'],
+	name: 'autoplay',
+	aliases: ['radio', 'auto'],
 	run: (d) => {
 		if (d.lastArg === '--help') return d.message.reply({
 			embeds: [
 				{
-					title: 'Help >> Play',
+					title: 'Help >> Auto Play',
 					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
 					description: `**usage**
 \`\`\`xml
-??stop
-\`\`\``,
+??autoplay
+\`\`\`
+**returns**
+Information`,
 					color: '#001'
 				}
 			]
 		})
 
 		if (!d.queue) return d.message.reply(d.errors.queue)
-		d.queue.stop()
+
+		const ap = d.queue.toggleAutoplay()
+		return d.message.reply(ap ? 'Autoplay has been activated' : 'Autoplay has been disabled')
 	}
 }

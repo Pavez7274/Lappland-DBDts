@@ -15,21 +15,13 @@ module.exports = {
 			]
 		})
 
-		const queue = d.client.distube.getQueue(d.message)
-		if (!queue) return d.message.reply({
-			embeds: [
-				{
-					title: 'Error',
-					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: 'There is nothing playing!',
-					color: '#001'
-				}
-			]
-		})
-		
-		d.client.distube.pause(queue).catch(() => {
+		if (!d.queue) return d.message.reply(d.errors.queue)
+
+		try {
+			d.queue.pause()
+			return d.message.reply('Songs are paused')
+		} catch {
 			return d.message.reply('Can\'t pause the queue')
-		})
-		return d.message.reply('Songs are paused')
+		}
 	}
 }

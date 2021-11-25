@@ -18,18 +18,8 @@ Information`,
 			]
 		})
 
-		const queue = d.client.distube.getQueue(d.message)
-		if (!queue) return d.message.reply({
-			embeds: [
-				{
-					title: 'Error',
-					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: 'There is nothing playing!',
-					color: '#001'
-				}
-			]
-		})
-		const song = queue.songs[0]
+		if (!d.queue) return d.message.reply(d.errors.queue)
+		const song = d.queue.songs[0]
 
 		return d.message.reply({
 			embeds: [

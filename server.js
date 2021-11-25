@@ -26,9 +26,22 @@ server.get('/', (req, res) => {
 	})
 })
 server.get('/app', async (req, res) => {
+	const up = await djs.users.fetch('788869971073040454')
+	const uy = await djs.users.fetch('681919237706612743')
+	const pavez = {
+		avatar: up.displayAvatarURL({ dinamyc: true }),
+		name: up.username + '#' + up.discriminator
+	}
+	const yuka = {
+		avatar: uy.displayAvatarURL({ dinamyc: true }),
+		name: uy.username + '#' + uy.discriminator
+	}
+
 	res.render('app.html', {
 		title: 'App',
-		allBots: await db.all('main', { filter: ({ data }) => data.key.includes('botlist_bot') }).then(bs => bs.sort((x, y) => y.data.value.votes - x.data.value.votes))
+		allBots: await db.all('main', { filter: ({ data }) => data.key.includes('botlist_bot') }).then(bs => bs.sort((x, y) => y.data.value.votes - x.data.value.votes)),
+		pavez: pavez,
+		yuka: yuka
 	})
 })
 server.get('/invite', (req, res) => {
