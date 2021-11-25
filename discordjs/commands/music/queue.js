@@ -1,44 +1,45 @@
 module.exports = {
-	name: 'play',
-	aliases: ['p'],
+	name: 'queue',
+	aliases: ['q'],
 	run: async (d) => {
 		if (d.lastArg === '--help') return d.message.reply({
 			embeds: [
 				{
-					title: 'Help >> Play',
+					title: 'Help >> Queue',
 					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
 					description: `**usage**
 \`\`\`xml
-??play <song>
+??queue
 \`\`\`
-**fields**
-song: query, url (spotify | yt | ytm)
-
 **returns**
 Information`,
 					color: '#001'
 				}
 			]
 		})
-		if (!d.member.voice.channel) return d.message.reply({
+
+		const queue = d.client.distube.getQueue(d.message)
+		if (!queue) return d.message.reply({
 			embeds: [
 				{
-					title: 'Error >> Voice',
+					title: 'Error',
 					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: 'You must be in a voice channel!',
+					description: 'There is nothing playing!',
 					color: '#001'
 				}
 			]
 		})
-		if (!d.stringArgs) return d.message.reply({
+
+		const q = queue.songs.map((song, i) => `${i === 0 ? 'Playing:' : `**${i}.**`} [${song.name}](${song.url}) - **${song.formattedDuration}**`).join('\n')
+		return d.message.reply({
 			embeds: [
 				{
-					title: 'Error >> Field >> Empty',
+					title: 'Queue',
 					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: '`Field 1` [query] is empty'
+					description: q,
+					color: '#001'
 				}
 			]
 		})
-		d.client.distube.play(d.message, d.stringArgs)
 	}
 }

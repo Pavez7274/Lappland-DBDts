@@ -5,10 +5,6 @@ const client = new Bot(BotOptions)
 // Database
 const db = require('./db.js')
 
-// Lavalink || no works... secure option is required
-// client.lavalink.addNode(LavalinkOptions)
-// client.lavalink.connect()
-
 // Handlers
 require(`./handlers/status.js`)(client)
 require(`./handlers/events.js`)(client)
@@ -23,4 +19,4 @@ client.commands.load({
 })
 
 // Login
-client.login(process.env['token']) 
+client.login(process.env['token'])

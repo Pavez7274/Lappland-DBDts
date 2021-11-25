@@ -1,0 +1,23 @@
+module.exports = {
+	name: '',
+	run: (d) => {
+		if (d.lastArg === '--help') return d.message.reply({
+			embeds: [
+				{
+					title: 'Help >> ',
+					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
+					description: `**usage**
+\`\`\`xml
+??
+\`\`\`
+**fields**
+
+**returns**`,
+					color: '#001'
+				}
+			]
+		})
+
+		
+	}
+}

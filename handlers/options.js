@@ -6,15 +6,8 @@ module.exports = {
    		prefixes: [ 'lappland ', '??' ]
  		},
 		database: {
-			path: `./database/default.sqlite`
+			path: './database/default.sqlite'
 		},
 		internalSharding: true
-	}, 
-  LavalinkOptions: {
-    id: 'asdf', 
-    host: 'lava.pavez.ga', 
-    port: 443,
-    password: 'youshallnotpass',
-		secure: true
-  }
+	}
 } 

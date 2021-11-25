@@ -31,6 +31,9 @@ server.get('/app', async (req, res) => {
 		allBots: await db.all('main', { filter: ({ data }) => data.key.includes('botlist_bot') }).then(bs => bs.sort((x, y) => y.data.value.votes - x.data.value.votes))
 	})
 })
+server.get('/invite', (req, res) => {
+	res.redirect('https://dsc.gg/lappland')
+})
 
 // Listen 
 module.exports = () => {

@@ -1,18 +1,17 @@
 module.exports = {
-	name: 'play',
-	aliases: ['p'],
+	name: 'search',
 	run: async (d) => {
 		if (d.lastArg === '--help') return d.message.reply({
 			embeds: [
 				{
-					title: 'Help >> Play',
+					title: 'Help >> Search',
 					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
 					description: `**usage**
 \`\`\`xml
-??play <song>
+??search <song>
 \`\`\`
 **fields**
-song: query, url (spotify | yt | ytm)
+song: query
 
 **returns**
 Information`,
@@ -20,16 +19,7 @@ Information`,
 				}
 			]
 		})
-		if (!d.member.voice.channel) return d.message.reply({
-			embeds: [
-				{
-					title: 'Error >> Voice',
-					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: 'You must be in a voice channel!',
-					color: '#001'
-				}
-			]
-		})
+
 		if (!d.stringArgs) return d.message.reply({
 			embeds: [
 				{
@@ -39,6 +29,20 @@ Information`,
 				}
 			]
 		})
-		d.client.distube.play(d.message, d.stringArgs)
+
+		const songs = await d.client.distube.search(d.stringArgs)
+
+		if (!songs) return d.message.reply('No song found')
+
+		return d.message.reply({
+			embeds: [
+				{
+					title: 'Search',
+					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
+					description: songs.map(r => `[${r.name}](${r.url})`).join('\n'),
+					color: '#001'
+				}
+			]
+		})
 	}
 }

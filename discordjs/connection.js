@@ -12,6 +12,10 @@ const { SpotifyPlugin } = require('@distube/spotify')
 
 client.distube = new DisTube.default(client, {
 	plugins: [new SpotifyPlugin()],
+	leaveOnEmpty: true,
+	leaveOnFinish: true,
+	emptyCooldown: 20,
+	nsfw: true
 })
 client.commands = new Collection()
 
@@ -30,18 +34,23 @@ for (const folders of commands) {
 }
 
 client.on('messageCreate', async (message) => {
-  client.prefix = '??'
-  
-  if(message.author.bot) return
-  if(!message.content.startsWith(client.prefix)) return
+	client.prefix = ['??', `<@!${client.user.id}>`, `<@${client.user.id}>`]
+	let args = []
 
-  const args = message.content.slice(client.prefix.length).trim().split(/ +/g)
-  const command = args.shift().toLowerCase()
+	if (message.author.bot) return
+	if (message.content.startsWith(client.prefix[0])) {
+		args = message.content.slice(client.prefix[0].length).trim().split(/ +/g)
+	} else if (message.content.startsWith(client.prefix[1])) {
+		args = message.content.slice(client.prefix[1].length).trim().split(/ +/g)
+	} else if (message.content.startsWith(client.prefix[2])) {
+		args = message.content.slice(client.prefix[2].length).trim().split(/ +/g)
+	} else return
+	const command = args.shift().toLowerCase()
 
-  const cmd = client.commands.get(command) || client.commands.find(f => f.aliases && f.aliases.includes(command))
-  if(!cmd) return
+	const cmd = client.commands.get(command) || client.commands.find(f => f.aliases && f.aliases.includes(command))
+	if (!cmd) return
 
-  const data = {
+	const data = {
 		client: client,
 		message: message,
 		args: args,
@@ -49,10 +58,33 @@ client.on('messageCreate', async (message) => {
 		cmd: cmd,
 		channel: message.channel,
 		author: message.author,
-		member: message.member
+		member: message.member,
+		lastArg: args[args.length - 1],
+		stringArgs: args.join(' ')
 	}
 	cmd.run(data)
 })
+
+client.distube
+	.on('addSong', async (queue, song) => {
+		queue.textChannel.send({
+			embeds: [
+				{
+					title: 'Track added',
+					thumbnail: { url: song.thumbnail },
+					description: `added by ${song.user}
+Found: **[${song.name}](${song.url})**
+Duration: **${song.formattedDuration}**`,
+					color: '#001'
+				}
+			]
+		})
+	})
+	.on('playSong', (queue, song) => {
+		queue.textChannel.send(`Playing \`${song.name}\``).then(x => {
+			queue.textChannel.messages.fetch(x.id).then(m => setTimeout(async () => m.delete()), 8000)
+		})
+	})
 
 client.login(process.env['token'])
 
