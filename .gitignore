@@ -1,5 +1,4 @@
 /package-lock.json
-/src/database/
-/src/handlers/commands/game/
+/src/database
 /WARNING.md
 /.breakpoints
