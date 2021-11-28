@@ -1,6 +1,5 @@
-/json.sqlite
 /package-lock.json
-/database/
-/commands/game/
+/src/database/
+/src/handlers/commands/game/
 /WARNING.md
 /.breakpoints
