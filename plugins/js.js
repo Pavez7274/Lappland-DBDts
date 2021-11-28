@@ -27,7 +27,7 @@ const func = {
 		const axios = require('axios').default
 
 		// Database
-		const db = require('../src/db.js')
+		const db = require('../db.js')
 		db.async = {
 			get: async (key, table = 'main') => {
 				const x = await db.get(table, key)
