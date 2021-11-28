@@ -10,7 +10,7 @@ const colors = require('colors')
 server.set('json spaces', 2)
 server.engine('html', require('ejs').renderFile)
 server.set('view engine', 'ejs')
-server.set('views', path.join(__dirname, 'src/views/'))
+server.set('views', path.join(__dirname, 'web/views/'))
 
 // Routes
 server.get('/', (req, res) => {

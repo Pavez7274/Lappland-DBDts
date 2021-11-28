@@ -78,7 +78,7 @@ client.distube
 					title: 'Track added',
 					thumbnail: { url: song.thumbnail },
 					description: `added by ${song.user}
-Found: **[${song.name}](${song.url})**
+Song: **[${song.name}](${song.url})**
 Duration: **${song.formattedDuration}**`,
 					color: '#001'
 				}

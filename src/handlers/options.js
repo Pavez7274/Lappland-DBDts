@@ -6,7 +6,7 @@ module.exports = {
    		prefixes: [ 'lappland ', '??' ]
  		},
 		database: {
-			path: './database/default.sqlite'
+			path: './src/database/default.sqlite'
 		},
 		internalSharding: true
 	}

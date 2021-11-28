@@ -9,7 +9,7 @@ module.exports = {
 					description: `**usage**
 \`\`\`xml
 ??resume
-\`\`\``,
+\`\`\``, 
 					color: '#001'
 				}
 			]

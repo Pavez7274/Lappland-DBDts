@@ -31,15 +31,19 @@ Information`,
 		})
 
 		const q = queue.songs.map((song, i) => `${i === 0 ? 'Playing:' : `**${i}.**`} [${song.name}](${song.url}) - **${song.formattedDuration}**`).join('\n')
-		return d.message.reply({
-			embeds: [
-				{
-					title: 'Queue',
-					thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
-					description: q,
-					color: '#001'
-				}
-			]
-		})
+		try {
+			d.message.reply({
+				embeds: [
+					{
+						title: 'Queue',
+						thumbnail: { url: d.author.displayAvatarURL({ dynamic: true }) },
+						description: q,
+						color: '#001'
+					}
+				]
+			})
+		} catch (e) {
+			console.log(e.message)
+		}
 	}
 }

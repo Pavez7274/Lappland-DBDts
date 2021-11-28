@@ -9,7 +9,7 @@ const func = {
 	execute: async (d, fn) => {
 		const colors = require('colors')
 		// Database connection
-		const db = require('../db.js')
+		const db = require('../src/db.js')
 
 		const [method, key, value = "null", ttl = undefined] = await fn.resolveArray(d)
 		let r = { key: undefined, value: undefined }
