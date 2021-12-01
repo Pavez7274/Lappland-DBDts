@@ -30,7 +30,7 @@ Information`,
 			]
 		})
 
-		const songs = await d.client.distube.search(d.stringArgs)
+		const songs = await d.distube.search(d.stringArgs)
 
 		if (!songs) return d.message.reply('No song found')
 

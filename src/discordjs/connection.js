@@ -64,7 +64,12 @@ client.on('messageCreate', async (message) => {
 		lastArg: args[args.length - 1],
 		stringArgs: args.join(' '),
 		errors: {
-			queue: {embeds: [{title:'Error',thumbnail:{url:message.author.displayAvatarURL({dynamic:!0})},description:'There is nothing playing!',color:'#001'}]}
+			queue: {embeds:[{title:'Error',thumbnail:{url:message.author.displayAvatarURL({dynamic:!0})},description:'There is nothing playing!',color:'#001'}]}
+		},
+		sendError: (desc, t='') => {
+			let title='Error'
+			if(t)title='Error >> '+t
+			message.reply({embeds:[{title:title,thumbnail:{url:message.author.displayAvatarURL({dynamic:!0})},description:desc,color:'#001'}]})
 		}
 	}
 	cmd.run(data)

@@ -39,6 +39,6 @@ Information`,
 				}
 			]
 		})
-		d.client.distube.play(d.message, d.stringArgs)
+		d.distube.play(d.message, d.stringArgs)
 	}
 }

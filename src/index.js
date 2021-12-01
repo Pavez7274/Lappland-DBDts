@@ -1,5 +1,5 @@
 const { Bot } = require('dbd.ts')
-const { BotOptions } = require('./handlers/options.js')
+const { BotOptions, LoadOptions } = require('./handlers/options.js')
 const client = new Bot(BotOptions)
 
 // Database
@@ -13,10 +13,7 @@ require(`./handlers/slash.js`)(client)
 require('./express.js')()
 
 // Loader
-client.commands.load({
-	path: './src/handlers/commands/',
-	debug: false
-})
+client.commands.load(LoadOptions)
 
 // Login
 client.login(process.env['token'])

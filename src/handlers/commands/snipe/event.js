@@ -2,6 +2,7 @@ const SetSnipe = [
 	{
 		type: 'messageDeleteCommand',
 		code: `
+$onlyIf[$isBot[$authorID]!=true;]
 $js[false;
 
 	const def = [
@@ -28,6 +29,7 @@ $js[false;
 	{
 		type: 'messageUpdateCommand',
 		code: `
+$onlyIf[$isBot[$authorID]!=true;]
 $js[false;
 
 	const def = [
