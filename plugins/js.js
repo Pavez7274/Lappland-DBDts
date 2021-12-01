@@ -27,11 +27,18 @@ const func = {
 		const axios = require('axios').default
 
 		// Database
-		const db = require('../db.js')
+		const db = require('../src/db.js')
 		db.async = {
 			get: async (key, table = 'main') => {
 				const x = await db.get(table, key)
 				return x?.value || undefined
+			},
+			filter: async (how, key, table = 'main') => {
+				if (how.toLowerCase() === 'includes'){
+					return await db.all(table, { filter: ({data}) => data.key.includes(key) })
+				} else if (how.toLowerCase() === 'starts'){
+					return await db.all(table, { filter: ({data}) => data.key.startsWith(key) })
+				}
 			}
 		}
 

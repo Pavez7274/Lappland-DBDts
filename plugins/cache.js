@@ -8,7 +8,7 @@ const func = {
 	brackets: true,
 	execute: async (d, fn) => {
 		let [method, key, value, ttl=60000] = await fn.resolveArray(d)
-		const db = require('../db.js')
+		const db = require('../src/db.js')
 
 		switch (method.toLowerCase()) {
 			// Cache
