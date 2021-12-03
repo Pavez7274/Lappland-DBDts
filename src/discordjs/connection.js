@@ -66,11 +66,8 @@ client.on('messageCreate', async (message) => {
 		errors: {
 			queue: {embeds:[{title:'Error',thumbnail:{url:message.author.displayAvatarURL({dynamic:!0})},description:'There is nothing playing!',color:'#001'}]}
 		},
-		sendError: (desc, t='') => {
-			let title='Error'
-			if(t)title='Error >> '+t
-			message.reply({embeds:[{title:title,thumbnail:{url:message.author.displayAvatarURL({dynamic:!0})},description:desc,color:'#001'}]})
-		}
+		sendError: (desc, t='') => {let title='Error';if(t)title='Error >> '+t;message.reply({embeds:[{title:title,thumbnail:{url:message.author.displayAvatarURL({dynamic:!0})},description:desc,color:'#001'}]})},
+		msToTime: (s)=>{let pad=(n,z=2)=>('00'+n).slice(-z);return pad(s/3.6e6|0)+':'+pad((s%3.6e6)/6e4|0)+':'+pad((s%6e4)/1000|0)}
 	}
 	cmd.run(data)
 })
@@ -84,7 +81,8 @@ client.distube
 					thumbnail: { url: song.thumbnail },
 					description: `added by ${song.user}
 Song: **[${song.name}](${song.url})**
-Duration: **${song.formattedDuration}**`,
+Duration: **${song.formattedDuration}**
+Source: **${song.source}**`,
 					color: '#001'
 				}
 			]
@@ -93,6 +91,22 @@ Duration: **${song.formattedDuration}**`,
 	.on('playSong', (queue, song) => {
 		queue.textChannel.send(`Playing \`${song.name}\``).then(x => {
 			queue.textChannel.messages.fetch(x.id).then(m => setTimeout(() => m.delete(), 10000))
+		})
+	})
+	.on('addList', async (queue, pl) => {
+		queue.textChannel.send({
+			embeds: [
+				{
+					title: 'Playlist added',
+					thumbnail: { url: pl.thumbnail },
+					description: `added by ${pl.user}
+PLaylist: **[${pl.name}](${pl.url})**
+Songs: **${pl.songs.length}**
+Duration: **${pl.formattedDuration}**
+Source: **${pl.source}**`,
+					color: '#001'
+				}
+			]
 		})
 	})
 
