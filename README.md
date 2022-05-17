@@ -1,3 +1,5 @@
+> ### deprecated 
+
 # Lappland
 ### bot made with [DBD.TS](https://leref.github.io/dbd.ts/)
 
